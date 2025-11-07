@@ -2,8 +2,8 @@ import argparse
 from typing import Dict
 from langgraph.graph import StateGraph, END
 from src.state import OrchestratorState
-from src.nodes.planner import planner_node
-from src.nodes.router import ingest_stub, query_stub
+from src.nodes.step1.planner import planner_node
+from src.nodes.step1.router import ingest_stub, query_stub
 
 def build_graph():
     graph = StateGraph(OrchestratorState)

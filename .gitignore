@@ -23,11 +23,6 @@ Icon
 .vscode/
 *.code-workspace
 
-# === Logs ===
-*.log
-logs/
-*.out
-
 # === Coverage Reports ===
 coverage/
 *.lcov

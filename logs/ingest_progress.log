@@ -1,0 +1,22 @@
+[2025-11-07 13:36:06] Hiện có 598 PDF trong thư mục papers_raw (trước khi ingest).
+[2025-11-07 13:36:06] Đã phát hiện 169 metadata files trên toàn hệ thống.
+[2025-11-07 13:36:06] Có 9 domain: ECCV, NeurIPS, EMNLP, NAACL, ICML, CVPR, ICCV, ICLR, ACL
+[2025-11-07 13:36:06] === [1/9] BẮT ĐẦU DOMAIN: ECCV ===
+[2025-11-07 13:36:06] (1/4) Xử lý paper_metadata_ECCV_2018.json trong domain ECCV...
+[2025-11-07 13:38:19] Hiện có 0 PDF trong thư mục papers_raw (trước khi ingest).
+[2025-11-07 13:38:19] Đã phát hiện 169 metadata files trên toàn hệ thống.
+[2025-11-07 13:38:19] Có 9 domain: ECCV, NeurIPS, EMNLP, NAACL, ICML, CVPR, ICCV, ICLR, ACL
+[2025-11-07 13:38:19] === [1/9] BẮT ĐẦU DOMAIN: ECCV ===
+[2025-11-07 13:38:19] (1/4) Xử lý paper_metadata_ECCV_2018.json trong domain ECCV...
+[2025-11-07 13:47:29] Hiện có 0 PDF trong thư mục papers_raw (trước khi ingest).
+[2025-11-07 13:47:29] Đã phát hiện 169 metadata files trên toàn hệ thống.
+[2025-11-07 13:47:29] Có 9 domain: ECCV, NeurIPS, EMNLP, NAACL, ICML, CVPR, ICCV, ICLR, ACL
+[2025-11-07 13:47:29] === [1/9] BẮT ĐẦU DOMAIN: ECCV ===
+[2025-11-07 13:47:29] (1/4) Xử lý paper_metadata_ECCV_2018.json trong domain ECCV...
+[2025-11-07 13:49:00] Hiện có 0 PDF trong thư mục papers_raw (trước khi ingest).
+[2025-11-07 13:49:00] Đã phát hiện 169 metadata files trên toàn hệ thống.
+[2025-11-07 13:49:00] Có 9 domain: ECCV, NeurIPS, EMNLP, NAACL, ICML, CVPR, ICCV, ICLR, ACL
+[2025-11-07 13:49:00] === [1/9] BẮT ĐẦU DOMAIN: ECCV ===
+[2025-11-07 13:49:00] (1/4) Xử lý paper_metadata_ECCV_2018.json trong domain ECCV...
+[2025-11-07 14:24:17] (2/4) Xử lý paper_metadata_ECCV_2020.json trong domain ECCV...
+[2025-11-07 16:02:48] (3/4) Xử lý paper_metadata_ECCV_2022.json trong domain ECCV...
