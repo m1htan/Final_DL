@@ -18,3 +18,288 @@
 [2025-11-07 13:47:29] Bắt đầu tải PDF...
 [2025-11-07 13:49:00] === BẮT ĐẦU INGESTION PIPELINE ===
 [2025-11-07 13:49:00] Bắt đầu tải PDF...
+[2025-11-07 17:55:19] === BẮT ĐẦU INGESTION PIPELINE ===
+[2025-11-07 17:55:19] Bắt đầu tải PDF...
+[2025-11-07 17:55:42] === BẮT ĐẦU INGESTION PIPELINE ===
+[2025-11-07 17:55:42] Bắt đầu tải PDF...
+[2025-11-07 17:57:46] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 17:57:46] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 17:57:46] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 18:14:36] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 18:14:36] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 18:14:36] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 18:20:38] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 18:20:38] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 18:20:38] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 18:25:33] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 18:25:33] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 18:25:33] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 18:26:04] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 18:26:04] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 18:26:04] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:34:46] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:34:46] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:34:46] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:39:45] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:39:45] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:39:45] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:40:53] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:40:53] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:40:53] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:41:59] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:41:59] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:41:59] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:42:51] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:42:51] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:42:51] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:45:11] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:45:11] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:45:11] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:47:29] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:47:29] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:47:29] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:49:06] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:49:06] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:49:06] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-07 20:53:49] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-07 20:53:49] Phát hiện 11 file PDF cần xử lý.
+[2025-11-07 20:53:49] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 13:39:54] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING (Gemini) ===
+[2025-11-08 13:39:54] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 13:39:54] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 13:40:02] [ERROR] Không thể khởi tạo Gemini embeddings: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+[2025-11-08 13:43:52] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING (Gemini) ===
+[2025-11-08 13:43:52] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 13:43:52] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 13:44:01] [ERROR] Không thể khởi tạo Gemini embeddings: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+[2025-11-08 14:42:49] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 14:42:49] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 14:42:49] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:15:04] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 15:15:04] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 15:15:04] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:22:17] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 15:22:17] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 15:22:17] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:27:10] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 15:27:10] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 15:27:10] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:30:42] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 15:30:42] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 15:30:42] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:31:14] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 15:31:14] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 15:31:14] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:37:33] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 15:37:33] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 15:37:33] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:52:08] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 15:52:08] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 15:52:08] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 15:52:08] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'mps'.
+[2025-11-08 16:46:14] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 16:46:14] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 16:46:14] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 16:46:15] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'mps'.
+[2025-11-08 18:33:55] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 18:33:55] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 18:33:55] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 18:33:55] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'mps'.
+[2025-11-08 18:50:28] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 18:50:28] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 18:50:28] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 18:50:28] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 18:57:45] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 18:57:45] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 18:57:45] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 18:57:45] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 18:58:20] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 18:58:20] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 18:58:20] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 18:58:20] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:00:59] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:00:59] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:00:59] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:00:59] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:01:19] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:01:19] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:01:19] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:01:19] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:04:20] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:04:20] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:04:20] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:04:20] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:06:08] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:06:08] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:06:08] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:06:08] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:22:59] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:22:59] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:22:59] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:22:59] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:27:08] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 19:27:08] ⚠Đang sử dụng FAISS In-Memory để tránh deadlock trên macOS.
+[2025-11-08 19:54:27] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:54:27] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:54:27] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:54:27] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:54:35] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 19:55:59] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:55:59] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:55:59] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:55:59] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:56:07] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 19:56:20] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:56:20] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:56:20] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:56:20] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:56:28] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 19:56:38] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 19:56:38] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 19:56:38] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 19:56:38] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 19:56:45] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:01:58] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:01:58] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:01:58] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:01:58] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:02:04] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:07:55] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:07:55] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:07:55] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:07:55] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:08:02] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:08:24] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:08:24] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:08:24] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:08:24] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:08:31] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:12:49] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:12:49] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:12:49] Đã có 0 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:12:49] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:12:56] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:12:56] Đang xử lý ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf ...
+[2025-11-08 20:12:56] → Đã trích 40677 ký tự từ ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf
+[2025-11-08 20:12:56] → Chia thành 37 đoạn, đang embedding...
+[2025-11-08 20:13:07] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:13:07] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:13:07] Đã có 1 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:13:07] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:13:13] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:13:13] Đang xử lý ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf ...
+[2025-11-08 20:13:13] Bỏ qua ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf (đã có text).
+[2025-11-08 20:13:13] Đang xử lý ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf ...
+[2025-11-08 20:13:13] → Đã trích 43373 ký tự từ ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf
+[2025-11-08 20:13:13] → Chia thành 40 đoạn, đang embedding...
+[2025-11-08 20:16:26] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:16:26] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:16:26] Đã có 2 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:16:26] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:16:32] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:16:32] Đang xử lý ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf ...
+[2025-11-08 20:16:32] Bỏ qua ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf (đã có text).
+[2025-11-08 20:16:32] Đang xử lý ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf ...
+[2025-11-08 20:16:32] Bỏ qua ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf (đã có text).
+[2025-11-08 20:16:32] Đang xử lý ECCV_2018_context-refinement-for-object-detection.pdf ...
+[2025-11-08 20:16:32] → Đã trích 41910 ký tự từ ECCV_2018_context-refinement-for-object-detection.pdf
+[2025-11-08 20:16:32] → Chia thành 39 đoạn, đang embedding...
+[2025-11-08 20:18:42] → Đã lưu ECCV_2018_context-refinement-for-object-detection.pdf vào Chroma.
+[2025-11-08 20:18:42] Đang xử lý ECCV_2018_deep-cross-modal-projection-learning-for-image-text-matching.pdf ...
+[2025-11-08 20:18:42] → Đã trích 41976 ký tự từ ECCV_2018_deep-cross-modal-projection-learning-for-image-text-matching.pdf
+[2025-11-08 20:18:42] → Chia thành 39 đoạn, đang embedding...
+[2025-11-08 20:20:28] → Đã lưu ECCV_2018_deep-cross-modal-projection-learning-for-image-text-matching.pdf vào Chroma.
+[2025-11-08 20:20:28] Đang xử lý ECCV_2018_gray-box-adversarial-training.pdf ...
+[2025-11-08 20:20:28] → Đã trích 45955 ký tự từ ECCV_2018_gray-box-adversarial-training.pdf
+[2025-11-08 20:20:28] → Chia thành 42 đoạn, đang embedding...
+[2025-11-08 20:22:51] → Đã lưu ECCV_2018_gray-box-adversarial-training.pdf vào Chroma.
+[2025-11-08 20:22:51] Đang xử lý ECCV_2018_modeling-varying-camera-imu-time-offset-in-optimization-based-visual-inertial-odometry.pdf ...
+[2025-11-08 20:22:51] → Đã trích 45370 ký tự từ ECCV_2018_modeling-varying-camera-imu-time-offset-in-optimization-based-visual-inertial-odometry.pdf
+[2025-11-08 20:22:51] → Chia thành 42 đoạn, đang embedding...
+[2025-11-08 20:24:39] → Đã lưu ECCV_2018_modeling-varying-camera-imu-time-offset-in-optimization-based-visual-inertial-odometry.pdf vào Chroma.
+[2025-11-08 20:24:39] Đang xử lý ECCV_2018_mrf-optimization-with-separable-convex-prior-on-partially-ordered-labels.pdf ...
+[2025-11-08 20:24:39] → Đã trích 40481 ký tự từ ECCV_2018_mrf-optimization-with-separable-convex-prior-on-partially-ordered-labels.pdf
+[2025-11-08 20:24:39] → Chia thành 37 đoạn, đang embedding...
+[2025-11-08 20:26:29] → Đã lưu ECCV_2018_mrf-optimization-with-separable-convex-prior-on-partially-ordered-labels.pdf vào Chroma.
+[2025-11-08 20:26:29] Đang xử lý ECCV_2018_multi-class-model-fitting-by-energy-minimization-and-mode-seeking.pdf ...
+[2025-11-08 20:26:30] → Đã trích 44649 ký tự từ ECCV_2018_multi-class-model-fitting-by-energy-minimization-and-mode-seeking.pdf
+[2025-11-08 20:26:30] → Chia thành 41 đoạn, đang embedding...
+[2025-11-08 20:28:34] → Đã lưu ECCV_2018_multi-class-model-fitting-by-energy-minimization-and-mode-seeking.pdf vào Chroma.
+[2025-11-08 20:28:34] Đang xử lý ECCV_2018_open-world-stereo-video-matching-with-deep-rnn.pdf ...
+[2025-11-08 20:28:34] → Đã trích 38017 ký tự từ ECCV_2018_open-world-stereo-video-matching-with-deep-rnn.pdf
+[2025-11-08 20:28:34] → Chia thành 35 đoạn, đang embedding...
+[2025-11-08 20:29:49] → Đã lưu ECCV_2018_open-world-stereo-video-matching-with-deep-rnn.pdf vào Chroma.
+[2025-11-08 20:29:49] Đang xử lý ECCV_2018_pose-partition-networks-for-multi-person-pose-estimation.pdf ...
+[2025-11-08 20:29:49] → Đã trích 41994 ký tự từ ECCV_2018_pose-partition-networks-for-multi-person-pose-estimation.pdf
+[2025-11-08 20:29:49] → Chia thành 39 đoạn, đang embedding...
+[2025-11-08 20:32:36] → Đã lưu ECCV_2018_pose-partition-networks-for-multi-person-pose-estimation.pdf vào Chroma.
+[2025-11-08 20:32:36] Đang xử lý ECCV_2018_vqa-e-explaining-elaborating-and-enhancing-your-answers-for-visual-questions.pdf ...
+[2025-11-08 20:32:36] → Đã trích 38289 ký tự từ ECCV_2018_vqa-e-explaining-elaborating-and-enhancing-your-answers-for-visual-questions.pdf
+[2025-11-08 20:32:36] → Chia thành 35 đoạn, đang embedding...
+[2025-11-08 20:34:09] → Đã lưu ECCV_2018_vqa-e-explaining-elaborating-and-enhancing-your-answers-for-visual-questions.pdf vào Chroma.
+[2025-11-08 20:37:11] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:37:11] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:37:11] Đã có 11 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:37:11] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:37:17] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_context-refinement-for-object-detection.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_context-refinement-for-object-detection.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_deep-cross-modal-projection-learning-for-image-text-matching.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_deep-cross-modal-projection-learning-for-image-text-matching.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_gray-box-adversarial-training.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_gray-box-adversarial-training.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_modeling-varying-camera-imu-time-offset-in-optimization-based-visual-inertial-odometry.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_modeling-varying-camera-imu-time-offset-in-optimization-based-visual-inertial-odometry.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_mrf-optimization-with-separable-convex-prior-on-partially-ordered-labels.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_mrf-optimization-with-separable-convex-prior-on-partially-ordered-labels.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_multi-class-model-fitting-by-energy-minimization-and-mode-seeking.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_multi-class-model-fitting-by-energy-minimization-and-mode-seeking.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_open-world-stereo-video-matching-with-deep-rnn.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_open-world-stereo-video-matching-with-deep-rnn.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_pose-partition-networks-for-multi-person-pose-estimation.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_pose-partition-networks-for-multi-person-pose-estimation.pdf (đã có text).
+[2025-11-08 20:37:17] Đang xử lý ECCV_2018_vqa-e-explaining-elaborating-and-enhancing-your-answers-for-visual-questions.pdf ...
+[2025-11-08 20:37:17] Bỏ qua ECCV_2018_vqa-e-explaining-elaborating-and-enhancing-your-answers-for-visual-questions.pdf (đã có text).
+[2025-11-08 20:37:17] === HOÀN TẤT EMBEDDING PIPELINE ===
+[2025-11-08 20:37:17] Tổng số PDF quét: 11
+[2025-11-08 20:37:17] Số file text mới trích xuất: 0
+[2025-11-08 20:37:17] Tổng số chunk đã embed: 0
+[2025-11-08 20:37:17] Thư mục DB: db\chroma_instruct2ds
+[2025-11-08 20:37:17] Thời gian thực thi: 6.53s
+[2025-11-08 20:38:44] === BẮT ĐẦU BƯỚC 3: TRÍCH XUẤT & EMBEDDING ===
+[2025-11-08 20:38:44] Phát hiện 11 file PDF cần xử lý.
+[2025-11-08 20:38:44] Đã có 11 file text trích xuất sẵn trong papers_text/.
+[2025-11-08 20:38:44] Đang khởi tạo model Alibaba-NLP/gte-Qwen2-1.5B-instruct trên thiết bị 'cpu'.
+[2025-11-08 20:38:51] Đã khởi tạo xong Alibaba-NLP/gte-Qwen2-1.5B-instruct trên 'cpu'.
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_3d-coded-3d-correspondences-by-deep-deformation.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_context-refinement-for-object-detection.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_context-refinement-for-object-detection.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_deep-cross-modal-projection-learning-for-image-text-matching.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_deep-cross-modal-projection-learning-for-image-text-matching.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_gray-box-adversarial-training.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_gray-box-adversarial-training.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_modeling-varying-camera-imu-time-offset-in-optimization-based-visual-inertial-odometry.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_modeling-varying-camera-imu-time-offset-in-optimization-based-visual-inertial-odometry.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_mrf-optimization-with-separable-convex-prior-on-partially-ordered-labels.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_mrf-optimization-with-separable-convex-prior-on-partially-ordered-labels.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_multi-class-model-fitting-by-energy-minimization-and-mode-seeking.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_multi-class-model-fitting-by-energy-minimization-and-mode-seeking.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_open-world-stereo-video-matching-with-deep-rnn.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_open-world-stereo-video-matching-with-deep-rnn.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_pose-partition-networks-for-multi-person-pose-estimation.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_pose-partition-networks-for-multi-person-pose-estimation.pdf (đã có text).
+[2025-11-08 20:38:51] Đang xử lý ECCV_2018_vqa-e-explaining-elaborating-and-enhancing-your-answers-for-visual-questions.pdf ...
+[2025-11-08 20:38:51] Bỏ qua ECCV_2018_vqa-e-explaining-elaborating-and-enhancing-your-answers-for-visual-questions.pdf (đã có text).
+[2025-11-08 20:38:51] === HOÀN TẤT EMBEDDING PIPELINE ===
+[2025-11-08 20:38:51] Tổng số PDF quét: 11
+[2025-11-08 20:38:51] Số file text mới trích xuất: 0
+[2025-11-08 20:38:51] Tổng số chunk đã embed: 0
+[2025-11-08 20:38:51] Thư mục DB: db\chroma_instruct2ds
+[2025-11-08 20:38:51] Thời gian thực thi: 6.76s

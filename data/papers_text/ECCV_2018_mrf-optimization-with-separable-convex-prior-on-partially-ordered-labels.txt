@@ -1,0 +1,948 @@
+MRF Optimization with Separable Convex Prior
+on Partially Ordered Labels
+Csaba Domokos1,2 ⋆, Frank R. Schmidt1,2, and Daniel Cremers1
+1 Technical University of Munich, Garching bei M¨unchen, Germany
+cremers@tum.de
+2 Bosch Center for Artiﬁcial Intelligence, Renningen, Germany
+{csaba.domokos,frank.r.schmidt}@de.bosch.com
+Abstract. Solving a multi-labeling problem with a convex penalty can
+be achieved in polynomial time if the label set is totally ordered. In
+this paper we propose a generalization to partially ordered sets. To this
+end, we assume that the label set is the Cartesian product of totally
+ordered sets and the convex prior is separable. For this setting we intro-
+duce a general combinatorial optimization framework that provides an
+approximate solution. More speciﬁcally, we ﬁrst construct a graph whose
+minimal cut provides a lower bound to our energy. The result of this re-
+laxation is then used to get a feasible solution via classical move-making
+cuts. To speed up the optimization, we propose an eﬃcient coarse-to-ﬁne
+approach over the label space. We demonstrate the proposed framework
+through extensive experiments for optical ﬂow estimation.
+Keywords: Multi-labeling problem, Poset, Sub-modular relaxation
+1
+Introduction
+Many computer vision problems like stereo matching [1–3], semantic image seg-
+mentation [4] or optical ﬂow estimation [5, 6] can be formulated as a multi-
+labeling problem. For a set of variables V and a ﬁnite label set L, a mapping
+f : V →L is called a multi-labeling. The multi-labeling problem aims to ﬁnd
+a multi-labeling f that minimizes an energy E(f). In general, this problem is
+known to be NP-hard, moreover, there is no algorithm that can approximate this
+general energy minimization with an approximation ratio better than some expo-
+nential function in the input size [7]. Nevertheless, by making some assumptions
+the multi-labeling problem becomes tractable [8–10].
+In this paper we address the problem of solving a multi-labeling problem.
+In order to ﬁnd an optimal multi-labeling f : V →L we want to minimize an
+energy of the form
+E(f) =
+X
+i∈V
+Ei(fi) +
+X
+(i,j)∈E
+Eij(fi, fj) ,
+(1)
+⋆This work was done while the author was an Alexander von Humboldt Fellow at the
+Technical University of Munich
+2
+C. Domokos, F. R. Schmidt, and D. Cremers
+where E ⊂V × V denotes the pairwise dependencies of diﬀerent variables. The
+energies Ei : L →R and Eij : L × L →R+
+0 describe the data ﬁdelity terms and
+pairwise smoothness terms, respectively. While the data term Ei for all i ∈V
+can be chosen arbitrarily, the smoothness terms Eij are of the following form
+Eij(fi, fj) = wij · d(fi, fj)
+for all (i, j) ∈E .
+(2)
+The energy (1) corresponds to a Markov random ﬁeld (MRF) formulation [8]
+over an undirected graph G = (V, E), where P(f) ∼exp(−E(f)). Here, wij ≥0
+depends on the input data and d: L × L →R+
+0 is a metric on L. Under these
+mild restrictions, it is known that (1) can be minimized globally in polynomial
+time if |L| = 2 [11] or if L is the totally ordered set {1, . . . , ℓ} and there is an
+even, convex function g: R →R+
+0 such that d(fi, fj) = g(fi −fj) [8].
+In this paper we focus on a more general setting of partially ordered label
+sets L. In particular, we assume that L = L1 × . . . × Lk can be written as the
+Cartesian product of k diﬀerent totally ordered label sets. In addition, we assume
+that the function d that penalizes diﬀerent labels for interacting pixels (i.e. for
+all (i, j) ∈E) has the form d(fi, fj) = g(fi −fj), where g is an even, separable
+convex function, i.e. a sum of regularizers for each dimension of the label space.
+The rest of this paper is organized as follows. We give a short overview of the
+related work in Section 1.1. In Section 2 we introduce the theoretical background
+of partially ordered sets, a.k.a. posets. The two main contributions of the paper
+can be summarized as follows:
+– We propose a combinatorial optimization framework, which can be applied
+for minimizing energies deﬁned on poset labelings. Namely, we show a gen-
+eral graph construction (see Section 2.2), whose minimal cut provides a lower
+bound to our energy. This relaxation is exploited to get a feasible solution
+by making use of classical move-making cuts [1]. The proposed graph con-
+struction can handle arbitrary data costs and separable convex smoothness
+costs.
+– We also propose an eﬃcient coarse-to-ﬁne strategy in the label space (see
+Section 3), which eﬀectively reduces the possible search space and results in
+a considerable speed-up of the algorithm.
+As an illustration of the proposed optimization scheme we consider the prob-
+lem of optical ﬂow estimation. Comprehensive experiments in Section 4 show
+that the proposed method provides competitive results with other combinatorial
+optimization algorithms at reduced complexity. Section 5 concludes the paper.
+1.1
+Related Work
+Partially ordered label sets are very common in several computer vision appli-
+cations like optical ﬂow estimation, image registration, stereo exposure fusion,
+etc., where the label set L is the Cartesian product of totally ordered sets.
+MRF Optimization with Separable Convex Prior on Posets
+3
+Schekhovtsov et al. [12] proposed an MRF model for image registration,
+where the deformation is described by a coupled ﬁeld of discrete x- and y-
+displacements of pixels. The model consists of two layers of variables. The inter-
+layer interaction is used to encode the data term, and the intra-layer inter-
+actions encode pairwise (smoothness) constraints for neighboring pixels. This
+model leads to a simpler relaxation to which the sequential tree-reweighted mes-
+sage passing (TRW-S) algorithm [2] is applied. Chen and Koltun [6] addressed
+the problem of optical ﬂow estimation, where the classical Horn-Schunck ob-
+jective [13] is minimized over a regular grid by making use of the TRW-S algo-
+rithm [2]. Another discrete optimization approach was presented in [5] for optical
+ﬂow estimation. The authors formulated the problem as a discrete inference and
+applied a block coordinate descent method, which iteratively optimizes all image
+rows and columns via dynamic programming.
+Kohli et al. [14] considered the problem of optimizing multi-label pairwise
+MRFs. The multi-label MRF model is ﬁrst converted into an equivalent binary
+MRF and then it is relaxed, which can be eﬃciently solved using a maximum ﬂow
+algorithm [11]. The solution provides a partially optimal labeling of the binary
+variables, which is transferred to the multi-label problem. A detailed review for
+minimizing functions with both sub-modular3 and non-submodular terms can
+be found in [15], referred to as the QPBO method (quadratic pseudo-Boolean
+optimization). The output of QPBO, however, is a partial labeling, which means
+there is a special label that is interpreted as “unknown”.
+Goldstein et al. [16] presented a general variational functional lifting tech-
+nique for minimizing vector-valued problems. This technique allows to ﬁnd global
+minimizers for optical ﬂow. The authors consider total-variation as regularizer.
+In contrast to our approach, L2
+2 penalty cannot be considered in [16]. A con-
+tinuous convex relaxation for multi-label problems was proposed in [17] for the
+case when the label space is a continuous product space and the regularizer is
+separable. Through the relaxed problem, various problems like optic ﬂow, stereo
+matching and segmentation can be solved within provable bounds of the global
+optimum. This approach allows a very general class of continuous regularizers on
+multi-dimensional label spaces. The regularizers can be arbitrarily mixed, in the
+sense that each dimension of the label space can have its own type of regularity.
+We note that, in contrast to continuous relaxations, we focus on combinatorial
+optimization approaches in this paper.
+2
+Energy Minimization on Posets
+In the following, we address the problem of minimizing (1) if L is a partially or-
+dered set (or poset). In Section 2.1 we provide a short introduction to posets [18]
+and explain their diﬃculties in an energy minimization framework. In Section 2.2
+we show how to design a sub-modular energy that is a relaxed version of (1).
+In particular, we will show in Section 2.3 how to eﬃciently minimize this lifted
+3 A set function f : 2V →R is called sub-modular, if for any pair of subsets A, B ⊂V,
+f(A) + f(B) ≥f(A ∪B) + f(A ∩B) is satisﬁed
+4
+C. Domokos, F. R. Schmidt, and D. Cremers
+energy by ﬁnding a minimal cut in a graph and how to employ a heuristic pro-
+jection scheme in order to ﬁnd a feasible solution of the original energy.
+2.1
+Posets, Lower Level Sets and Lower Ideals
+A partially ordered set is a set L together with a relation that stores for any
+pair of elements α, β ∈L whether the statement α ≤β is true or not.
+Deﬁnition 1 (Poset). Given a set L and a relation ≤on L. We call (L, ≤)
+a partially ordered set or poset if the following conditions are satisﬁed for all
+α, β, γ ∈L
+α ≤α
+(Reﬂexivity)
+α ≤β, β ≤α ⇒α = β
+(Antisymmetry)
+α ≤β, β ≤γ ⇒α ≤γ
+(Transitivity)
+(L, ≤) is called a totally ordered set if, for any pair α, β ∈L the statement
+α ≤β or β ≤α is true.
+The main diﬀerence between posets and totally ordered sets is that there
+may be two diﬀerent elements α, β ∈L in a poset for which we cannot decide
+whether one element is larger than the other. From now on we use the notation
+α < β iﬀα ≤β and α ̸= β holds. The easiest way to create a poset is to take
+the Cartesian product of two or more totally ordered sets.
+Lemma 1 (Cartesian Product). Let (L1, ≤1) and (L2, ≤2) be two totally
+ordered sets. The Cartesian product L := L1 × L2 becomes a poset (L, ≤) via
+(α1, α2) ≤(β1, β2) :⇔(α1 ≤1 β1) ∧(α2 ≤2 β2) .
+Proof. Follows directly from the deﬁnition of posets.
+A common way to visualize the internal structure of a poset is to consider
+its Hasse diagram.
+Deﬁnition 2 (Hasse Diagram). Let (L, ≤) be a ﬁnite poset. Then, the Hasse
+diagram of L is a directed graph H = (L, EL) with the vertex set L and the edge
+set
+EL := {(β, α) ∈L × L | α < β, ∀γ ∈L: ¬(α < γ < β)} .
+For the totally ordered set L = {1, . . . , ℓ}, the Hasse diagram has exactly
+ℓ−1 edges. These edges are of the form (α + 1, α). Thus, the Hasse diagram of
+a totally ordered set is always a chain. If L is a poset on the other hand, the
+Hasse diagram becomes a DAG (directed acyclic graph) (see Figure 1).
+Of particular interest for the next section is the set of lower ideals.
+Deﬁnition 3. For each α ∈L, we refer to the set
+[α] := {β ∈L | β ≤α}
+MRF Optimization with Separable Convex Prior on Posets
+5
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+0
+5
+10
+15
+1
+6
+11
+16
+2
+7
+12
+17
+3
+8
+13
+18
+4
+9
+14
+19
+L1
+L2
+(0, 0)
+(1, 0)
+(0, 1)
+(1, 1)
+0
+2
+1
+3
+(b) L∗
+1 = {0, 1} × {0, 1} ∼= {0, 1, 2, 3}
+(0, 0)
+{(0, 1),(1, 0)}
+(1, 0)
+(0, 1)
+(1, 1)
+0
+A12
+2
+1
+3
+(a) L = {−2, . . . , 2} × {−2, . . . , 1}
+(c) L∗∼= {0, 1, 2, A12, 3}
+Fig. 1. Hasse diagrams. (a) Hasse diagram for the poset L = L1 × L2, where L1 =
+{−2, . . . , 2} and L2 = {−2, . . . , 1} are totally ordered sets. The Hasse diagrams of L1
+and L2 are chains. (b) Two isomorphic Hasse diagrams for L = {0, 1} × {0, 1} ∼= L∗
+1.
+(c) Two isomorphic Hasse diagrams for L∗= L∗
+1 ∪{[(1, 0)] ∪[(0, 1)]} ∼= {0, 1, 2, 3, A12}
+as its lower level set. Further, we call a subset I ⊂L a lower ideal if the following
+holds
+α ∈I ⇒[α] ⊂I .
+We denote the set of all lower ideals as L∗⊂2L and the set of all lower level
+sets as L∗
+1 ⊂L∗.
+In fact, every element of L∗can be represented as the union of elements
+included in L∗
+1. In other words, a lower ideal L ∈L∗is a set that accumulates
+lower level sets, that is
+L =
+[
+α∈L
+[α] .
+Note that, by construction, both L and L∗
+1 have the same cardinality. Never-
+theless, L∗can be larger than L∗
+1. We also remark that the elements of L∗
+1 are
+subsets of L.
+It is worth noting that for totally ordered sets, we always have L∗= L∗
+1,
+which has the same cardinality as L. Thus, the diﬀerence between lower ideals
+and lower level sets is only observable for posets.
+Examples 1) For the totally ordered set (L, ≤) = ({0, 1}, ≤) we obtain the lower
+level sets as follows:
+[0] ={0} ,
+[1] ={0, 1} ,
+L∗
+1 ={[0], [1]} = L∗.
+2) For the poset (L, ≤) = ({0, 1} × {0, 1}, ≤) we obtain
+[(0, 0)] ={(0, 0)} ,
+[(1, 0)] ={(0, 0), (1, 0)} ,
+[(0, 1)] ={(0, 0), (0, 1)} ,
+[(1, 1)] =L ,
+6
+C. Domokos, F. R. Schmidt, and D. Cremers
+therefore L∗
+1 = {[(0, 0)], [(1, 0)], [(0, 1)], [(1, 1)]} ∼= {0, 1, 2, 3} and we have
+L∗= L∗
+1 ∪{[(1, 0)] ∪[(0, 1)]} ∼= {0, 1, 2, 3, A12} .
+(3)
+Thus, for posets there is a diﬀerence between lower level sets and lower ideals
+(see Figure 1). We will refer to this diﬀerence
+LA := L∗−L∗
+1 ⊂2L
+(4)
+as the augmented label set, or equivalently L∗= L∗
+1 ∪LA. Please note that the
+cardinality of LA may grow exponentially with respect to |L|. In Section 2.2 we
+will see how these augmented labels appear if we lift our energy (1). In fact, the
+augmented labels result in an infeasible solution. To obtain a feasible solution
+without augmented labels, we propose a heuristic projection scheme.
+2.2
+Energy Lifting
+From now on we assume a poset (L, ≤) = (L, ⊂), where L = L1 × . . . ×Lk is the
+Cartesian product of k totally ordered sets and H = (L, EL) its Hasse diagram.
+Let E be of the form (1). Furthermore, we assume that the smoothness term Eij
+is of the form (2) and that d(fi, fj) = g(fi −fj) can be represented via an even,
+separable convex function g. We want to construct a graph G such that each
+labeling f : V →L corresponds to an s-t cut of G with E(f) as its cut value [11].
+Totally Ordered Label Set In the simple case k = 1, thus L = L1 is a totally
+ordered set and we can follow the construction of Ishikawa [8] to design a graph
+with the desired properties. The used vertices consist of a source s, a sink t and
+the internal nodes V × L. The edges can be divided into three diﬀerent classes.
+The constraint edges between (i, ℓ) and (i, ℓ−1) of inﬁnite capacities guar-
+antee that in an optimal cut the binary labeling of the set {i} × L has the form
+(1, . . . , 1, 0, . . . , 0), where 1 indicates that a vertex is connected with the source.
+The data edges can be designed as terminal links between s, respectively t,
+and (i, ℓ). This formulation is due to [19] and diﬀers from the original formulation
+of [8]. The smoothness edges of capacity wij · cδ between vertices (i, ℓ+ δ) and
+(j, ℓ) for all (i, j) ∈E model the convex function g. This is done by using the
+non-negative values
+c0 = g1 −g0
+and
+cδ = gδ+1 −2gδ + gδ−1
+(∀δ > 0) .
+For more details we refer to [8].
+Partially Ordered Label Set For the general case k > 1 we want to design a
+diﬀerent graph with the desired properties. Like before, the used vertices are the
+source s, the sink t and the internal vertices V ×L. Also, we introduce constraint
+edges, data edges and smoothness edges. While these edges will be diﬀerent from
+Ishikawa’s construction [8], they serve nonetheless the same purpose.
+MRF Optimization with Separable Convex Prior on Posets
+7
+0
+1
+2
+3
+4
+5
+6
+7
+8
+(a)
+1
+2
+3
+4
+5
+6
+7
+8
+1
+2
+3
+4
+5
+6
+7
+8
+(b) L1 penalty; value of the cut is 3 = |2 −0| + |1 −2|
+1
+2
+3
+4
+5
+6
+7
+8
+1
+2
+3
+4
+5
+6
+7
+8
+(c) L2
+2 penalty; value of the cut is 5 = |2 −0|2 + |1 −2|2
+Fig. 2. Graph construction for smoothness terms. (a) Hasse diagram of the poset L =
+{0, 1, 2} × {0, 1, 2}. (b), (c) Graph construction for L1 and L2
+2 penalties, resp., where
+the gray and white nodes connected to the source and sink (corresponding to 1 and
+0), resp. This example shows the case that fi = (2, 1) ∈L, fj = (0, 2) ∈L. The cut is
+shown by the blue dashed lines. Note that only 1-0 edges should be cut
+The constraint edges should also connect a label ℓwith its immediate prede-
+cessor ℓ′. Due to the partial ordering, ℓ′ is not unique. Thus, we use the Hasse
+diagram H = (L, EL) of L and introduce an edge of inﬁnite capacity between
+(i, ℓ) and (i, ℓ′) for each (ℓ, ℓ′) ∈EL. As a consequence, we obtain a labeling
+ˆf : V →L∗instead of f : V →L. Note that the set L∗of lower ideals contains
+the lower level sets L∗
+1 and the augmented labels LA. Since there is a one-to-one
+relationship between L∗
+1 and L, i.e. they are isomorph4, we can understand ˆf as
+a relaxation of f and we will denote ˆf as ˆf : V →(L ∪LA).
+The data edges should reﬂect the data terms Ei(fi). Since a label fi ∈L is
+now represented by the lower level set [fi] ∈L∗
+1, we have to associate a unary
+data cost of Di,ℓwith the vertex (i, ℓ) such that the following holds
+X
+ℓ∈[fi]
+Di,ℓ= Ei(fi)
+∀i ∈V, fi ∈L .
+(5)
+Since the Hasse diagram is a DAG, the matrix of this system of linear equations
+is (after permutation) in upper triangular form. Therefore, the Problem (5) can
+be readily solved by successive substitution. If the resulting Di,ℓis positive, it
+results in an edge of capacity Di,ℓfrom (i, ℓ) to the sink t. Otherwise, it results
+in an edge of capacity −Di,ℓfrom the source s to (i, ℓ) [9].
+The smoothness edges should reﬂect the pairwise smoothness terms, that is,
+Eij(fi, fj) = wij · g(fi −fj). Here, the special structure of our posets comes
+into play. L = L1 × . . . × Lk results in k-dimensional labels, therefore, we write
+fi = (fi,1, . . . , fi,k) and fj = (fj,1, . . . , fj,k). Since we assume that g is an even,
+4 Two posets are said to be isomorph, when their Hasse diagrams as graphs are iso-
+morph to each other
+8
+C. Domokos, F. R. Schmidt, and D. Cremers
+separable convex function, we have k even, convex functions gκ for κ = 1, . . . , k
+such that
+d(fi, fj) =
+k
+X
+κ=1
+gκ(fi,κ −fj,κ) .
+(6)
+Since a label fi ∈L is now represented by its lower level set [fi], this lower level
+set also contains
+(01, . . . , 0κ−1, fi,κ, 0κ+1, . . . , 0k) ,
+(7)
+where 0κ′ denotes the minimal element of the totally ordered set Lκ′. Therefore,
+it is enough to encode gκ on
+ˆLκ := {01} × . . . × {0κ−1} × Lκ × {0κ+1} × . . . × {0k} .
+Note that ˆLκ is a totally ordered set and we can therefore replicate Ishikawa’s
+idea for all κ = 1, . . . , k in order to design the smoothness edges. Note that this
+is possible since g is separable convex. For more details we refer to Figure 2.
+Overall, we have proved the following theorem.
+Theorem 1. Let L be a poset that can be represented as the Cartesian product
+of k totally ordered sets Lκ, κ = 1, . . . , k. Further consider the multi-labeling
+problem of minimizing the energy (1) for f : V →L
+E(f) =
+X
+i∈V
+Ei(fi) +
+X
+(i,j)∈E
+Ei,j(fi, fj) ,
+where the smoothness term is given as
+Eij(fi, fj) = wij · d(fi, fj) = wij
+k
+X
+κ=1
+gκ(fi,κ −fj,κ)
+wij ≥0
+for even, convex functions gκ for all κ = 1, . . . , k. Then we can deﬁne a lifted,
+sub-modular, graph-representable functional D:
+
+V →(L ∪LA)
+
+→R such that
+D(f) = E(f)
+if f : V →L .
+(8)
+So far, we found an optimal labeling f : V →(L ∪LA). If this labeling
+is in fact a labeling f : V →L that excludes augmented labels, we globally
+solved the original multi-labeling problem. This can happen if the considered
+data terms are very pronounced. Nonetheless, we should assume that in practice
+augmented labels will occur. While D(f) = E(f) is satisﬁed for the lower level
+sets, we like to emphasize that our energy (1) is in general not sub-modular5.
+We consider an energy with sub-modular pairwise terms, however, the arbitrary
+unary terms make the energy non-submodular. The proposed relaxation is graph-
+representable, thus it is sub-modular6. Thus, we can compute the global optimum
+of the relaxed energy at the cost of having augmented labels. In the next section
+we provide a heuristics in order to remove these augmented labels.
+5 The proof is contained in the supplementary material
+6 Graph-representability implies sub-modularity [9]
+MRF Optimization with Separable Convex Prior on Posets
+9
+2.3
+Resolving Augmented Labels
+Assume that LA ∋fi = Sm
+µ=1[αµ]. One way of resolving the ambiguity would be
+to apply move-making methods like α−β swaps [1] over the labels [α1], . . . , [αm].
+Nonetheless, we like to point to a diﬀerent heuristic that takes the structure of
+the poset better into account. The idea is to also consider those labels that can
+be constructed by the join operation ∨
+α ∨β = min{γ | α ≤γ and β ≤γ} .
+Let us consider, for example, the label space L = {0, 1} × {0, 1} and let
+fi = [(1, 0)] ∪[(0, 1)]. In this case we consider all α −β swaps with respect to
+{(1, 0), (0, 1), (1, 1)}. The rationale is that the energy with respect to fi accu-
+mulated the data terms of [(1, 0)] and [(0, 1)]. Since the energy with respect to
+[(1, 1)] also accumulates these data terms (and the data term of (1, 1)), it makes
+sense to broaden the label space for the move-making methods.
+Discussion In many applications the label set is deﬁned as a lattice7, (i.e. reg-
+ular grid). Topkis [18] presented a theory of sub-modular energy minimization
+on a lattice. Although our label set also forms a lattice, our energy (1) is not
+sub-modular. In [20] a general hierarchical model is introduced, where the label
+space forms an arbitrary tree specifying a partial ordering over the labels. The au-
+thors proposed eﬀective multi-labeling moves, called Path-Moves [20]. The Path-
+Moves algorithm can be seen as a combination of well-known α-expansion [1] and
+Ishikawa’s construction [8]. Nonetheless, the label set that we consider in this
+paper is a lattice, rather than a tree, therefore Path-Moves algorithm cannot be
+directly applied.
+3
+Coarse-to-ﬁne Strategy
+In practice, the minimization of the lifted energy (8) becomes quickly intractable
+as the number of labels grows. Therefore, it is beneﬁcial to have the number of
+possible labels as small as possible. In addition, we deal with the relaxation to
+our original energy. There is no guarantee that we obtain a feasible solution.
+Accordingly, for some pixels we may obtain augmented labels (i.e. combination
+of labels), that we need to resolve so as to get a feasible solution. Note that the
+number of the augmented labels grows exponentially by increasing the size of
+the label sets, which makes the augmented label removal very challenging. To
+overcome these issues, we consider the following coarse-to-ﬁne approach.
+To simplify the notation we assume that k = 2 and L = L1 × L2. In the ﬁrst
+iteration we consider only m×n labels for each pixel, where m and n are divisors
+of the size of L1 and L2, respectively. Each of the coarse labels correspond
+7 If two elements α and β of a poset have a least upper bound (greatest lower bound),
+denoted by α ∨β (α ∧β), it is their join (meet). A poset that contains the join and
+the meet for each pair of its element is a lattice [18]
+10
+C. Domokos, F. R. Schmidt, and D. Cremers
+Iteration 1
+Iteration 2
+Iteration 3
+0
+1
+2
+3
+L1
+L2
+i
+0
+1
+2
+3
+L1
+L2
+j
+0
+1
+2
+3
+L1
+L2
+i
+0
+1
+2
+3
+L1
+L2
+j
+0 1
+2 3
+L1
+L2
+i
+0 1
+2 3
+L1
+L2
+j
+Fig. 3. Illustration of the proposed coarse-to-ﬁne strategy over the label space L =
+{0, . . . , 7} × {0, . . . , 7}, where m = n = 2. In each iteration the search space for each
+pixel is partitioned into mn = 4 equal regions, indexed by, resp., 0,1,2 and 3, and the
+optimal region is sought. Only this optimal region of the labels space will be considered
+in the next iteration. The rest of the labels, shown in red, will be ignored
+to a region of labels. After a decision on the coarsest level, the next iteration
+only considers the region, that has been selected in the previous iteration. This
+common approach is illustrated in Figure 3. After some iterations either L1
+or L2 cannot be divided anymore. This means that the remaining part of the
+optimization boils down the minimization over a totally ordered set, which can
+be globally solved via Ishikawa’s construction [8].
+For the data term on the coarse level we apply min pooling over the labels
+belonging to the same region. Thus, we have a strong guidance for the optimiza-
+tion at the current level. For the smoothness terms we are using the distance
+between the centers of the selected patches.
+It is important to note that, in contrast to the previous works [21], we apply a
+coarse-to-ﬁne approach in the label space instead of the image domain. Moreover,
+the goal of our method is to compute labelings that provide useful results in
+practice, even if not all labels can be chosen optimally. Like α-expansion, our
+method tries to ﬁnd a local optimum as quickly as possible. For that reason we
+can only provide a weak-persistency guarantee, namely that the global optimum
+is found if no augmented label is inferred.
+4
+Numerical Experiments
+In this section we discuss the implementation details of the proposed minimiza-
+tion scheme and illustrate it through optical ﬂow estimation.
+4.1
+Implementation Details
+We ran our experiments on a machine with Intel Xeon E5-2697 CPU@2.3GHz
+under Linux in Matlab with C/C++ mex extensions. For the maximum ﬂow cal-
+culation and for move-making algorithms (i.e. α −β swap and α-expansion)
+we used the publicly available GCO library [1, 9, 11]. In order to have a fair
+comparison with other methods we used float representation of the energy
+terms. Our implementation is publicly available at https://github.com/csaba-
+domokos/MRFOptimizationOnPosets.
+MRF Optimization with Separable Convex Prior on Posets
+11
+Minimization In order to minimize our relaxed energy, we applied the BK al-
+gorithm [11]. During the ﬂow graph construction, for each pixel an augmenting
+path is sought through the data edges and the constraint edges corresponding
+to the given pixel. This pre-processing has linear time complexity and ends up a
+better runtime of the BK algorithm, since the BK algorithm has the worst case
+complexity O(|E| |V|2 C), where C is the value of the minimum cut in the ﬂow
+graph [11].
+Augmented labels In order to resolve augmented labels, i.e. unfeasible solutions,
+we applied the heuristics that we explored in Section 2.3. That is, we considered
+a 2 × 2 label space in each iteration of the proposed coarse-to-ﬁne approach.
+Therefore we only have one augmented label, i.e. α = [(0, 1)] ∪[(1, 0)], and we
+select a feasible label among the labels {(0, 1), (1, 0), (1, 1)} via standard α −β
+swap moves [1]. More precisely, the augmented labels are replaced with a feasible
+label corresponding to the lowest data cost for the given pixel. Afterwards the
+α −β swap algorithm [1] is run over all three label pairs. The α −β swap
+algorithm requires the pairwise terms to be semi-metric, which is satisﬁed in our
+case, since we assume even functions in our energy.
+4.2
+Optical Flow Estimation
+To substantiate the quality of our optimization we focus on the optical ﬂow
+application. Assuming an input image pair I1 and I2, the classical optical ﬂow
+estimation aims to ﬁnd the displacement between pixels in I1 and corresponding
+pixels in I2 [13]. In a discrete setting one can consider totally ordered (ﬁnite)
+label sets L1 and L2 to model the horizontal and vertical displacements. The
+labels for each pixel is taken from the poset L1 × L2. The goal is to ﬁnd an
+optimal labeling f : V →L1 × L2 such that I1(pi) = I2(pi + fi).
+Recently, Chen and Koltun [6] have proposed an eﬃcient solution for optical
+ﬂow estimation. Here, we deﬁned our energy, adopted from [6], as
+E(f) =
+X
+i∈V
+Ei(fi) + λ
+X
+(i,j)∈E
+wij|fi −fj| ,
+(9)
+where λ = 0.021 and wij represents the contrast-sensitive weighting factors. The
+data cost has the form of Ei(fi) = 1−max(0, NCC(i, fi)), where NCC(i, fi) is the
+normalized cross-correlation between the patches of size 3 × 3 centered at pixels
+i and i+fi, respectively. In order to prevent the penalty of negatively correlated
+patches, negative values are clamped to zero. The pairwise smoothness terms
+are deﬁned as the contrast-sensitive Potts model [24], that is, the edge based
+weighting factors wij are calculated as
+wij = exp
+
+−∥I1(i) −I2(j)∥2
+2
+2σ2
+
+,
+where σ =
+1
+√
+6 .
+12
+C. Domokos, F. R. Schmidt, and D. Cremers
+Input
+Proposed (0.70, E : 5640.8)
+Error map
+After interpolation
+Ground truth
+FullFlow (0.55, E : 5476.7)
+Error map
+After interpolation
+Input
+Proposed (0.53, E : 3596.3)
+Error map
+After interpolation
+Ground truth
+FullFlow (0.40, E : 5476.7)
+Error map
+After interpolation
+Input
+Proposed (0.33, E : 2627.5)
+Error map
+After interpolation
+Ground truth
+FullFlow (0.20, E : 2456.1)
+Error map
+After interpolation
+Fig. 4. Qualitative results on the Sintel dataset [22]. The input images along with the
+ground truth are in the ﬁrst column. The results obtained by our method and the
+FullFlow [6] method, resp., are shown in the second column. The average endpoint
+errors and the energy values E are in parenthesis. The corresponding error maps are
+in the third column. The results in the last column are obtained after EpicFlow [23]
+interpolation
+Post-processing In several methods, the estimated optical ﬂow is interpolated
+further to obtain sub-pixel accuracy [25, 6]. Recently, it has been a common tech-
+nique to apply EpicFlow interpolation [23] as post-processing. EpicFlow requires
+point matches as an input and the ﬁnal result is achieved through variational
+optimization. We adopted the interpolation from the paper [6]. Accordingly, we
+also used EpicFlow interpolation [23] (see Figure 4).
+4.3
+Evaluation
+For evaluation we used the MPI Sintel dataset [22], which is a naturalistic optical
+ﬂow dataset derived from a 3D animated ﬁlm Sintel. Each image has a resolution
+of 438 × 1024 pixels. The data set includes a variety of challenging features like
+long sequences, large motions, specular reﬂections, motion blur, defocus blur and
+atmospheric eﬀects. We ran our experiments on the training set with the ﬁnal
+sequences, including motion blur. By following the settings in [6], we ﬁrst rescaled
+MRF Optimization with Separable Convex Prior on Posets
+13
+Baseline
+α −β swap α-expansion FullFlow [6] Proposed [12]
+Sequence
+|L|
+EPE
+rt.
+EPE
+rt.
+EPE
+rt.
+EPE
+rt.
+EPE rt. EPE
+sleeping 1
+8 × 8
+1.12
+2.23 0.56
+3.06 0.55
+3.16 0.52
+0.86
+0.60 0.35 1.77
+sleeping 2
+8 × 8
+0.71
+1.50 0.53
+2.82 0.53
+2.52 0.47
+0.86
+0.53 0.24 1.46
+shaman 3
+16 × 16 1.10
+6.44 0.76
+27.48 0.73
+14.19 0.62
+2.74
+0.85 0.44 1.45
+alley 1
+32 × 32 1.45 20.79 0.85
+377.34 0.77
+61.85 0.58 10.93
+0.92 0.56 1.44
+alley 2
+32 × 32 3.69 29.45 1.24
+445.39 1.16
+74.93 0.74 11.23
+1.32 0.70 3.48
+bandage 2
+32 × 32 0.93 19.44 0.54
+314.45 0.53
+59.49 0.40 10.94
+0.57 0.45 0.93
+shaman 2
+32 × 32 1.29 16.03 0.65
+377.79 0.58
+67.21 0.36 10.97
+0.95 0.62 0.92
+ambush 7
+64 × 64 1.97 57.80 1.58 9278.76 1.36 286.73 0.65 47.33
+1.40 0.89 3.30
+market 2
+64 × 64 1.67 79.07 1.02 5851.91 1.19 306.62 0.58 47.96
+1.61 0.84 1.27
+Table 1. Quantitative comparison to other combinatorial optimization approaches on
+the Sintel dataset [22]. EPE and rt., resp., stand for the mean value of the average
+endpoint error and the runtime (sec.). All experiments were ran on a single CPU core
+the input images by a factor of 1/3. We considered sequences, having 50 images,
+with various maximum displacements of 10, 22, 46 and 94, which correspond
+to the label set of size 8 × 8, 16 × 16, 32 × 32 and 64 × 64, respectively, after
+rescaling. As evaluation measure the average endpoint error was used. Some
+qualitative results can be seen in Figure 4.
+Comparison Our experiments were targeted at providing a comprehensive
+comparison to state of the art combinatorial optimization approaches. As a base-
+line we ran alternating optimization, initialized from the zero ﬂow, where the
+global optimization method [8] was used for each direction. We considered clas-
+sical move-making algorithms, that is, α−β swap and α-expansion [1]. In case of
+the TRW-S method, we used the implementation of the FullFlow method [6]. In
+contrast to [6], we ran the code on a single CPU core in order to have a fair run-
+time comparison. Only three iterations of the TRW-S method were computed.
+For the sake of completeness, we also ran the method of Shekhovtsov et al. [12].
+We used the authors implementation with similar settings as in the case of other
+methods. We remark that the implementation of [12] applies the TRW-S method
+as inference, however, the considered energy is not the same as the energy (9),
+therefore, this comparison is not completely fair.
+The quantitative results are shown in Table 1. We can observe that the clas-
+sical move-making algorithms become quickly prohibitive as the size of the label
+set grows. Our proposed method provides comparable accuracy to those meth-
+ods. The FullFlow method always provided the least average endpoint error, but
+its runtime grows linearly with respect to |L|. Our method provided moderately
+worse results comparing to the FullFlow method, however, the runtime of our
+method increases very slowly and always stayed below a second. The method [12]
+provided larger errors than the other methods.
+14
+C. Domokos, F. R. Schmidt, and D. Cremers
+Iteration 1
+Iteration 2
+Iteration 3
+0 1
+2 3
+L1
+L2
+i
+0 1
+2 3
+L1
+L2
+j
+0 1
+2 3
+L1
+L2
+i
+0 1
+2 3
+L1
+L2
+j
+0 1
+2 3
+L1
+L2
+i
+0 1
+2 3
+L1
+L2
+j
+Fig. 5. Illustration of three iterations of label reﬁnement. At the given level of the
+coarse-to-ﬁne approach, we have the (coarse) labels fi = 1 and fj = 0, and consider
+their 3 × 3 neighborhoods in the (coarse) label space {0, . . . , 7} × {0, . . . , 7}, shown by
+green, for reﬁnement. In the next iteration the 3 × 3 neighborhood of the reﬁned label
+is considered
+Label Reﬁnement One can observe from Table 1 that the error obtained by
+our method grows with the size of the label set. In fact, there is an inherent
+limitation of our coarse-to-ﬁne strategy. When it makes a decision for a pixel at
+a current level, then only the corresponding region of labels will be taken into
+an account in the later iterations. Although, the min-pooling operation provides
+a strong guidance, the labeling at the current level is not necessarily optimal.
+To overcome this limitation, we investigated a label reﬁnement technique.
+In each iteration, we get a feasible solution, which is then reﬁned by apply-
+ing local move-making cuts. More precisely, for the current labeling we consider
+only the labels at the given level of the coarse-to-ﬁne approach, and explore
+3 × 3 neighborhoods in the label space (see Figure 5). The classical α −β swap
+algorithm is used over the 3 × 3 regions in order to reﬁne the current labeling.
+We reconsider the resulting labels again and use the same process until no more
+improvement is possible. As the α−β swap always decreases the energy, conver-
+gence is guaranteed. We observed slightly improvement of the results, however,
+at the price of higher runtime (see the supplementary material).
+5
+Conclusions
+In this work we have presented a new approach to compute a (locally) optimal
+labeling for a speciﬁc class of partially ordered label sets. We assume that the
+label set L can be represented as the Cartesian product of k diﬀerent totally or-
+dered label sets Lκ. Under the assumption that the convex prior on L is separable
+with respect to the k totally ordered label sets, we were able to design a graph-
+representable sub-modular energy. While this energy leads to a relaxed solution,
+we could show that the relaxation helps us to guide local move-making meth-
+ods. In combination with variational post-processing, we were able to provide
+optical ﬂow results that are comparable with state-of-the-art methods, based on
+combinatorial approaches, at reduced time complexity.
+Acknowledgment This work was partially supported by the Alexander von
+Humboldt Foundation.
+MRF Optimization with Separable Convex Prior on Posets
+15
+References
+1. Boykov, Y., Veksler, O., Zabih, R.:
+Fast approximate energy minimization via
+graph cuts.
+IEEE Transactions on Pattern Analysis and Machine Intelligence
+23(11) (November 2001) 1222–1239
+2. Kolmogorov, V.: Convergent tree-reweighted message passing for energy minimiza-
+tion.
+IEEE Transactions on Pattern Analysis and Machine Intelligence 28(10)
+(October 2006) 1568–1583
+3. Komodakis, N., Tziritas, G.: Approximate labeling via graph cuts based on linear
+programming. IEEE Transactions on Pattern Analysis and Machine Intelligence
+28(8) (August 2007) 1436–1453
+4. Ladick´y, L., Russell, C., Kohli, P., Torr, P.H.S.: Associative hierarchical random
+ﬁelds.
+IEEE Transactions on Pattern Analysis and Machine Intelligence 36(6)
+(June 2013) 1056–1077
+5. Menze, M., Heipke, C., Geiger, A.:
+Discrete optimization for optical ﬂow.
+In
+Gall, J., Gehler, P., Leibe, B., eds.: Proceedings of German Conference on Pattern
+Recognition. Volume 9358 of LNCS., Aachen, Germany, Springer (2015) 16–28
+6. Chen, Q., Koltun, V.: Full ﬂow: Optical ﬂow estimation by global optimization
+over regular grids. In: Proceedings of IEEE Conference on Computer Vision and
+Pattern Recognition, Las Vegas, NV, USA, IEEE (June 2015)
+7. Li, M., Shekhovtsov, A., Huber, D.: Complexity of discrete energy minimization
+problems. In Leibe, B., Matas, J., Sebe, N., Welling, M., eds.: Proceedings of Euro-
+pean Conference on Computer Vision. Volume 9906 of Lecture Notes in Computer
+Science., Amsterdam, The Netherlands, Springer (October 2016) 834–852
+8. Ishikawa, H.: Exact optimization for Markov random ﬁelds with convex priors.
+IEEE Transactions on Pattern Analysis and Machine Intelligence 25(10) (October
+2003) 1333–1336
+9. Kolmogorov, V., Zabin, R.: What energy functions can be minimized via graph
+cuts?
+IEEE Transactions on Pattern Analysis and Machine Intelligence 26(2)
+(February 2004) 147–159
+10. Ramalingam, S., Kohli, P., Alahari, K., Torr, P.H.S.: Exact inference in multi-label
+CRFs with higher order cliques. In: Proceedings of IEEE Conference on Computer
+Vision and Pattern Recognition, Anchorage, AK, USA, IEEE (June 2008)
+11. Boykov, Y., Kolmogorov, V.: An experimental comparison of min-cut/max- ﬂow
+algorithms for energy minimization in vision. IEEE Transactions on Pattern Anal-
+ysis and Machine Intelligence 26(9) (September 2004) 1124–1137
+12. Shekhovtsov, A., Kovtun, I., Hlav´a˘c, V.: Eﬃcient MRF deformation model for
+non-rigid image matching.
+Computer Vision and Image Understanding 112(1)
+(October 2008) 91–99
+13. Horn, B.K., Schunck, B.G.: Determining optical ﬂow. Artiﬁcial Intelligence 17(1–
+3) (August 1981) 185–203
+14. Kohli, P., Shekhovtsov, A., Rother, C., Kolmogorov, V., Torr, P.H.S.: On partial
+optimality in multi-label MRFs. In: Proceedings of International Conference on
+Machine Learning, Helsinki, Finland, ACM (July 2008) 480–487
+15. Kolmogorov, V., Rother, C.:
+Minimizing nonsubmodular functions with graph
+cuts-A review. IEEE Transactions on Pattern Analysis and Machine Intelligence
+29(7) (July 2007) 1274–1279
+16. Goldstein, T., Bresson, X., Osher, S.: Global minimization of Markov random ﬁelds
+with applications to optical ﬂow. Inverse Problems & Imaging 6(4) (November
+2012) 623–644
+16
+C. Domokos, F. R. Schmidt, and D. Cremers
+17. Goldluecke, B., Strekalovskiy, E., Cremers, D.: Tight convex relaxations for vector-
+valued labeling. SIAM Journal on Imaging Sciences 6(3) (March 2013) 1626–1664
+18. Topkis, D.M.: Minimizing a submodular function on a lattice. Operations Research
+26(2) (March–April 1978) 305–321
+19. Li, K., Wu, X., Chen, D., Sonka, M.: Optimal surface segmentation in volumetric
+images - A graph-theoretic approach. IEEE Transactions on Pattern Analysis and
+Machine Intelligence 28(1) (November 2006) 119–134
+20. Isack, H., Veksler, O., Oguz, I., Sonka, M., Boykov, Y.: Eﬃcient optimization for
+hierarchically-structured interacting segments (HINTS). In: Proceedings of IEEE
+Conference on Computer Vision and Pattern Recognition, Honolulu, HI, USA,
+IEEE (July 2017)
+21. Carr, P., Hartley, R.: Solving multilabel graph cut problems with multilabel swap.
+In: Proceedings of International Conference on Digital Image Computing, Mel-
+bourne, Australia, IEEE (December 2009)
+22. Butler, D.J., Wulﬀ, J., Stanley, G.B., Black, M.J.:
+A naturalistic open source
+movie for optical ﬂow evaluation.
+In Fitzgibbon, A., Lazebnik, S., Perona, P.,
+Sato, Y., Schmid, C., eds.: Proceedings of European Conference on Computer
+Vision. Volume 7577 of Lecture Notes in Computer Science., Springer (October
+2012) 611–625
+23. Revaud, J., Weinzaepfel, P., Harchaoui, Z., Schmid, C.: EpicFlow: Edge-preserving
+interpolation of correspondences for optical ﬂow. In: Proceedings of IEEE Con-
+ference on Computer Vision and Pattern Recognition, Boston, MA, USA, IEEE
+(June 2015)
+24. Kohli, P., Ladick´y, L., Torr, P.H.S.: Robust higher order potentials for enforcing
+label consistency. In: Proceedings of IEEE Conference on Computer Vision and
+Pattern Recognition, Anchorage, AK, USA, IEEE (2008)
+25. Bailer, C., Taetz, B., Stricker, D.:
+Flow ﬁelds: Dense correspondence ﬁelds for
+highly accurate large displacement optical ﬂow estimation. In: Proceedings of IEEE
+International Conference on Computer Vision, Santiago, Chile, IEEE (December
+2015) 4015–4023
