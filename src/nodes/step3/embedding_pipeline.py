@@ -134,19 +134,23 @@ def embedding_pipeline_node(state: dict) -> dict:
         log(f"→ Đã trích {len(text)} ký tự từ {pdf_path.name}")
 
         chunks = chunk_text(text)
-        # Nếu chunk_text trả về list[dict], thì trích ra phần text
         if isinstance(chunks[0], dict):
-            texts = [c["text"] for c in chunks]
+            texts = [c.get("text", "") for c in chunks]
+            metas = []
+            for i, c in enumerate(chunks):
+                metas.append({
+                    "source": pdf_path.name,
+                    "chunk_id": c.get("chunk_id", i + 1)
+                })
         else:
             texts = chunks
-
-        total_chunks += len(texts)
-        log(f"→ Chia thành {len(texts)} đoạn, đang embedding...")
+            metas = [{"source": pdf_path.name, "chunk_id": i + 1} for i in range(len(chunks))]
 
         ids = [f"{pdf_path.stem}_{i}" for i in range(len(texts))]
-        vectordb.add_texts(texts, ids=ids, metadatas=[{"source": pdf_path.name}] * len(texts))
 
-        log(f"→ Đã lưu {pdf_path.name} vào Chroma.")
+        vectordb.add_texts(texts, ids=ids, metadatas=metas)
+        total_chunks += len(texts)
+        log(f"→ Đã lưu {len(texts)} đoạn từ {pdf_path.name} vào Chroma.")
 
     elapsed = time.time() - start_time
     log("=== HOÀN TẤT EMBEDDING PIPELINE ===")

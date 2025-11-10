@@ -32,8 +32,8 @@ coverage/
 *.swp
 
 *.ini
-*.ppk
 *.jsonl
 
 *.env
 venv
+db/chroma_instruct2ds/chroma.sqlite3

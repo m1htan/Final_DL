@@ -12,4 +12,4 @@ def print_tree(startpath, prefix=""):
             print_tree(path, prefix + extension)
 
 # Gọi hàm với đường dẫn dự án
-print_tree("/Users/minhtan/Documents/GitHub/Final_DL/data")
+print_tree("D:\Github\Final_DL\db")
