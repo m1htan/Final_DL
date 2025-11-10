@@ -36,4 +36,4 @@ coverage/
 
 *.env
 venv
-db/chroma_instruct2ds/chroma.sqlite3
+chroma.sqlite3

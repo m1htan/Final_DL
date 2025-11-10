@@ -1,0 +1,21 @@
+[2025-11-10 13:47:26] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-10 13:47:26] Câu hỏi: Công trình Transformer đầu tiên xuất hiện ở hội nghị nào?
+[2025-11-10 13:47:26] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct (CPU).
+[2025-11-10 13:47:32] Thực hiện similarity_search(top_k=10)...
+[2025-11-10 13:47:35] Truy xuất được 10 đoạn context.
+[2025-11-10 13:47:35] Gọi Gemini để sinh câu trả lời...
+[2025-11-10 13:47:36] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-10 13:47:36] Thời gian thực thi: 10.11s
+[2025-11-10 13:47:36] ----- KẾT QUẢ LLM -----
+[2025-11-10 13:47:36] Không đủ thông tin trong NGỮ CẢNH để kết luận.
+[2025-11-10 13:47:36] ----- NGUỒN -----
+[2025-11-10 13:47:36] - ACL_xxxx_bringing-natural-language-processing-to-the-microcomputer-market-the-story-of-qa.pdf [chunk 3]
+- ACL_xxxx_a-practical-nonmonotonic-theory-for-reasoning-about-speech-acts.pdf [chunk 30]
+- ACL_xxxx_a-model-of-early-syntactic-development.pdf [chunk 0]
+- ACL_xxxx_robust-processing-in-machine-translation.pdf [chunk 0]
+- ACL_xxxx_translation-by-quasi-logical-form-transfer.pdf [chunk 26]
+- ACL_xxxx_taxonomy-descriptions-and-individuals-in-natural-language-understanding.pdf [chunk 26]
+- ACL_xxxx_phrasal-analysis-of-long-noun-sequences.pdf [chunk 1]
+- ACL_xxxx_eufid-a-friendly-and-flexible-front-end-for-data-management-systems.pdf [chunk 14]
+- ACL_xxxx_a-transfer-model-using-a-typed-feature-structure-rewriting-system-with-inheritance.pdf [chunk 19]
+- ACL_xxxx_tutorial-abstracts.pdf [chunk 4]

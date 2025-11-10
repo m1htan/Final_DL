@@ -3770,3 +3770,11 @@
 [2025-11-10 11:57:05] Tổng số chunk đã embed: 0
 [2025-11-10 11:57:05] Thư mục DB: db\chroma_instruct2ds
 [2025-11-10 11:57:05] Thời gian thực thi: 7.87s
+[2025-11-10 13:47:26] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-10 13:47:26] Câu hỏi: Công trình Transformer đầu tiên xuất hiện ở hội nghị nào?
+[2025-11-10 13:47:26] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct (CPU).
+[2025-11-10 13:47:32] Thực hiện similarity_search(top_k=10)...
+[2025-11-10 13:47:35] Truy xuất được 10 đoạn context.
+[2025-11-10 13:47:35] Gọi Gemini để sinh câu trả lời...
+[2025-11-10 13:47:36] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-10 13:47:36] Thời gian thực thi: 10.11s

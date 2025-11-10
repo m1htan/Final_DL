@@ -5,6 +5,7 @@ from src.state import OrchestratorState
 from src.nodes.step1.planner import planner_node
 from src.nodes.step1.router import ingest_stub, query_stub
 from src.nodes.step3.embedding_pipeline import embedding_pipeline_node
+from src.nodes.step4.query_pipeline import query_pipeline_node
 
 def build_graph(force_mode=None):
     graph = StateGraph(OrchestratorState)
@@ -12,8 +13,8 @@ def build_graph(force_mode=None):
     # Add nodes
     graph.add_node("planner", planner_node)
     graph.add_node("ingest", ingest_stub)
-    graph.add_node("query", query_stub)
     graph.add_node("embed", embedding_pipeline_node)
+    graph.add_node("query", query_pipeline_node)
 
     # Entry
     # Nếu ép mode thì vào thẳng node đó, bỏ qua planner
