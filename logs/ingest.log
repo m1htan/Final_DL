@@ -3778,3 +3778,636 @@
 [2025-11-10 13:47:35] Gọi Gemini để sinh câu trả lời...
 [2025-11-10 13:47:36] === HOÀN TẤT QUERY PIPELINE ===
 [2025-11-10 13:47:36] Thời gian thực thi: 10.11s
+[2025-11-10 16:29:14] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 16:29:14] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 16:29:20] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 16:29:20] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 16:29:20] Đang sinh 30 câu hỏi ngắn từ dữ liệu hiện có...
+[2025-11-10 16:29:30] → Tổng số câu hỏi thu được: 10
+[2025-11-10 16:29:30] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-10 16:31:22] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 16:31:22] Tổng số câu hỏi: 10
+[2025-11-10 16:31:22] Số câu đúng (sim >= 0.7): 0
+[2025-11-10 16:31:22] Độ chính xác trung bình: 0.00%
+[2025-11-10 16:31:22] Thời gian đánh giá: 111.20s
+[2025-11-10 16:31:22] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-10 16:31:22] → Biểu đồ timeline: logs/evaluated/accuracy_timeline.png
+[2025-11-10 16:31:22] [AUTO] Accuracy 0.00% < 80% → Tiến hành fine-tuning...
+[2025-11-10 16:31:22] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 16:31:22] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 16:31:27] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 16:31:30] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 16:31:30] Thời gian fine-tune: 8.00s
+[2025-11-10 16:31:30] === KẾT THÚC FINE-TUNING ===
+[2025-11-10 16:40:44] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 16:40:44] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 16:40:49] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 16:43:19] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 16:43:19] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 16:43:25] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 16:43:31] → Số câu hỏi sinh từ corpus: 10
+[2025-11-10 16:43:31] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-10 16:43:51] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 16:43:51] Tổng số câu hỏi: 10
+[2025-11-10 16:43:51] Số câu đúng: 9
+[2025-11-10 16:43:51] Độ chính xác trung bình: 90.00%
+[2025-11-10 16:43:51] Thời gian đánh giá: 20.49s
+[2025-11-10 16:43:51] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-10 16:43:51] → Biểu đồ timeline: logs/evaluated/accuracy_timeline.png
+[2025-11-10 16:43:51] [OK] Accuracy 90.00% đạt yêu cầu, không cần fine-tuning.
+[2025-11-10 16:57:19] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 16:57:19] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 16:57:26] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 16:57:35] → Số câu hỏi sinh từ corpus: 15
+[2025-11-10 16:57:35] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-10 16:57:50] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 9.677926127s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 9
+}
+]
+[2025-11-10 16:57:52] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 7.186795041s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 7
+}
+]
+[2025-11-10 16:57:55] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 4.693339827s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 4
+}
+]
+[2025-11-10 16:57:57] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 2.206616873s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 2
+}
+]
+[2025-11-10 16:58:00] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 59.712244216s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 59
+}
+]
+[2025-11-10 16:58:02] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 57.209228544s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 57
+}
+]
+[2025-11-10 16:58:05] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 54.741090283s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 54
+}
+]
+[2025-11-10 16:58:07] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 52.280833033s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 52
+}
+]
+[2025-11-10 16:58:07] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 16:58:07] Tổng số câu hỏi: 15
+[2025-11-10 16:58:07] Số câu đúng: 0
+[2025-11-10 16:58:07] Độ chính xác trung bình: 0.00%
+[2025-11-10 16:58:07] Thời gian đánh giá: 31.82s
+[2025-11-10 16:58:07] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-10 16:58:07] → Biểu đồ timeline: logs/evaluated/accuracy_timeline.png
+[2025-11-10 16:58:07] [AUTO] Accuracy 0.00% < 80% → Tiến hành fine-tuning...
+[2025-11-10 16:58:07] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 16:58:07] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 16:58:12] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 16:58:15] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 16:58:15] Thời gian fine-tune: 8.00s
+[2025-11-10 16:58:15] === KẾT THÚC FINE-TUNING ===
+[2025-11-10 17:09:16] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 17:09:16] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 17:09:21] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 17:09:31] → Số câu hỏi sinh từ corpus: 15
+[2025-11-10 17:09:31] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-10 17:09:46] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 13.624753582s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 13
+}
+]
+[2025-11-10 17:09:48] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 11.178688891s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 11
+}
+]
+[2025-11-10 17:09:51] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 8.756116074s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 8
+}
+]
+[2025-11-10 17:09:53] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 6.330456501s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 6
+}
+]
+[2025-11-10 17:09:56] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 3.878096149s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 3
+}
+]
+[2025-11-10 17:09:58] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 1.415069106s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 1
+}
+]
+[2025-11-10 17:10:01] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 58.973406677s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 58
+}
+]
+[2025-11-10 17:10:01] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 17:10:01] Tổng số câu hỏi: 15
+[2025-11-10 17:10:01] Số câu đúng: 0
+[2025-11-10 17:10:01] Độ chính xác trung bình: 0.00%
+[2025-11-10 17:10:01] Thời gian đánh giá: 29.84s
+[2025-11-10 17:10:01] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-10 17:10:01] → Biểu đồ timeline: logs/evaluated/accuracy_timeline.png
+[2025-11-10 17:10:01] [AUTO] Accuracy 0.00% < 80% → Tiến hành fine-tuning...
+[2025-11-10 17:10:01] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 17:10:01] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 17:10:06] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 17:10:09] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 17:10:09] Thời gian fine-tune: 8.01s
+[2025-11-10 17:10:09] === KẾT THÚC FINE-TUNING ===
+[2025-11-10 17:12:29] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 17:12:29] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 17:12:34] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 17:12:42] → Số câu hỏi sinh từ corpus: 14
+[2025-11-10 17:12:42] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-10 17:13:00] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 59.87788664s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 59
+}
+]
+[2025-11-10 17:13:02] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 57.39706518s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 57
+}
+]
+[2025-11-10 17:13:05] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 54.908538089s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 54
+}
+]
+[2025-11-10 17:13:07] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 52.435790235s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 52
+}
+]
+[2025-11-10 17:13:10] [WARN] Lỗi gọi LLM: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15
+Please retry in 49.938826626s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 49
+}
+]
+[2025-11-10 17:13:10] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 17:13:10] Tổng số câu hỏi: 14
+[2025-11-10 17:13:10] Số câu đúng: 1
+[2025-11-10 17:13:10] Độ chính xác trung bình: 7.14%
+[2025-11-10 17:13:10] Thời gian đánh giá: 27.26s
+[2025-11-10 17:13:10] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-10 17:13:10] → Biểu đồ timeline: logs/evaluated/accuracy_timeline.png
+[2025-11-10 17:13:10] [AUTO] Accuracy 7.14% < 80% → Tiến hành fine-tuning...
+[2025-11-10 17:13:10] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 17:13:10] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 17:13:15] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 17:13:18] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 17:13:18] Thời gian fine-tune: 8.01s
+[2025-11-10 17:13:18] === KẾT THÚC FINE-TUNING ===
+[2025-11-10 17:13:49] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 17:13:49] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 17:13:54] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 17:14:00] → Số câu hỏi sinh từ corpus: 10
+[2025-11-10 17:14:00] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-10 17:14:16] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 17:14:16] Tổng số câu hỏi: 10
+[2025-11-10 17:14:16] Số câu đúng: 0
+[2025-11-10 17:14:16] Độ chính xác trung bình: 0.00%
+[2025-11-10 17:14:16] Thời gian đánh giá: 15.50s
+[2025-11-10 17:14:16] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-10 17:14:16] → Biểu đồ timeline: logs/evaluated/accuracy_timeline.png
+[2025-11-10 17:14:16] [AUTO] Accuracy 0.00% < 80% → Tiến hành fine-tuning...
+[2025-11-10 17:14:16] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 17:14:16] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 17:14:21] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 17:14:24] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 17:14:24] Thời gian fine-tune: 8.00s
+[2025-11-10 17:14:24] === KẾT THÚC FINE-TUNING ===
+[2025-11-10 17:16:34] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 17:16:34] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-10 17:16:41] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 17:16:46] → Số câu hỏi sinh từ corpus: 10
+[2025-11-10 17:16:46] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-10 17:17:02] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 17:17:02] Tổng số câu hỏi: 10
+[2025-11-10 17:17:02] Số câu đúng: 0
+[2025-11-10 17:17:02] Độ chính xác trung bình: 0.00%
+[2025-11-10 17:17:02] Thời gian đánh giá: 15.89s
+[2025-11-10 17:17:02] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-10 17:17:02] → Biểu đồ timeline: logs/evaluated/accuracy_timeline.png
+[2025-11-10 17:17:02] [AUTO] Accuracy 0.00% < 80% → Tiến hành fine-tuning...
+[2025-11-10 17:17:02] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 17:17:02] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 17:17:07] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 17:17:10] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 17:17:10] Thời gian fine-tune: 8.00s
+[2025-11-10 17:17:10] === KẾT THÚC FINE-TUNING ===
+[2025-11-10 17:31:11] === BẮT ĐẦU BƯỚC 5 (V2): EVALUATION & FINE-TUNING ===
+[2025-11-10 17:31:11] [INIT] Khởi tạo embedding & ChromaDB...
+[2025-11-10 17:31:16] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 17:33:19] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 17:33:19] [INIT] Khởi tạo embedding & ChromaDB...
+[2025-11-10 17:33:25] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 17:33:33] → Sinh 15 cặp QA từ corpus
+[2025-11-10 17:33:33] [EVAL] Strict mode: False | Threshold=0.75 | top_k=4
+[2025-11-10 17:34:05] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 17:34:05] Tổng câu hỏi: 15
+[2025-11-10 17:34:05] Số câu đạt (≥ khá đúng): 9
+[2025-11-10 17:34:05] Độ chính xác: 60.00%
+[2025-11-10 17:34:05] Thời gian đánh giá: 31.72s
+[2025-11-10 17:34:05] → Báo cáo: logs/evaluated/eval_report_v2.csv
+[2025-11-10 17:34:05] → Biểu đồ: logs/evaluated/similarity_distribution_v2.png
+[2025-11-10 17:34:05] [AUTO] Accuracy 60.00% < 80% → Fine-tuning...
+[2025-11-10 17:34:05] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 17:34:05] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 17:34:10] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 17:34:13] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 17:34:13] Thời gian fine-tune: 8.00s
+[2025-11-10 17:34:13] === KẾT THÚC FINE-TUNING ===
+[2025-11-10 18:09:17] === BẮT ĐẦU BƯỚC 5: EVALUATION & FINE-TUNING ===
+[2025-11-10 18:09:17] [INIT] Khởi tạo embedding & ChromaDB...
+[2025-11-10 18:09:22] [INIT] Dùng Gemini model: gemini-2.5-flash-lite
+[2025-11-10 18:09:28] → Sinh 10 cặp QA từ corpus
+[2025-11-10 18:09:28] [EVAL] Strict mode: False | Threshold=0.75 | top_k=4
+[2025-11-10 18:09:49] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-10 18:09:49] Tổng câu hỏi: 10
+[2025-11-10 18:09:49] Số câu đạt (≥ khá đúng): 6
+[2025-11-10 18:09:49] Độ chính xác: 60.00%
+[2025-11-10 18:09:49] Thời gian đánh giá: 20.48s
+[2025-11-10 18:09:49] → Báo cáo: logs/evaluated/eval_report.csv
+[2025-11-10 18:09:49] → Biểu đồ: logs/evaluated/similarity_distribution.png
+[2025-11-10 18:09:49] [AUTO] Accuracy 60.00% < 80% → Fine-tuning...
+[2025-11-10 18:09:49] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-10 18:09:49] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-10 18:09:54] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-10 18:09:57] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-10 18:09:57] Thời gian fine-tune: 8.00s
+[2025-11-10 18:09:57] === KẾT THÚC FINE-TUNING ===

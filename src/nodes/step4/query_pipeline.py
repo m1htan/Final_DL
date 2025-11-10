@@ -2,11 +2,12 @@ import time
 from pathlib import Path
 from typing import List
 from src.utils.logger import log
-from src.llm import make_gemini
+from src.llm import make_llm
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
-DB_DIR = Path("db/chroma_instruct2ds")
+DB_DIR = Path(CHROMA_DIR)
 COLLECTION_NAME = "instruct2ds"
 QUERY_LOG = Path("logs/query.log")
 QUERY_LOG.parent.mkdir(exist_ok=True)
@@ -58,7 +59,7 @@ def query_pipeline_node(state: dict) -> dict:
     # Khởi tạo embedding model cho truy vấn
     log("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct (CPU).")
     qlog("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct (CPU).")
-    embedder = HuggingFaceEmbeddings(model_name="Alibaba-NLP/gte-Qwen2-1.5B-instruct")
+    embedder = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 
     # Kết nối Chroma
     vectordb = Chroma(
@@ -111,7 +112,7 @@ def query_pipeline_node(state: dict) -> dict:
         "3) Cuối câu trả lời, liệt kê Nguồn theo dạng <tên file> [chunk X].\n"
     )
 
-    llm = make_gemini()
+    llm = make_llm()
     log("Gọi Gemini để sinh câu trả lời...")
     qlog("Gọi Gemini để sinh câu trả lời...")
 

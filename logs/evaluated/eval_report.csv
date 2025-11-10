@@ -1,0 +1,11 @@
+question,gold,pred,cosine,f1,label
+Hệ thống này cho phép một thành phần cú pháp điền vào nhiều hơn một đối số không?,"Có, hệ thống này cho phép cùng một thành phần cú pháp điền vào nhiều hơn một đối số.",Không đủ thông tin,0.5231,0.0,Sai
+"Trong miền pulley, vai trò của INSTRUMENTS là gì?","Trong miền pulley, INSTRUMENTS là 'trung gian' trong các mối quan hệ 'treo' và 'kết nối'.",Không đủ thông tin,0.4714,0.0,Sai
+PPN sử dụng loại hàm mất mát nào để huấn luyện các nhánh phát hiện khớp và hồi quy dày đặc?,PPN sử dụng hàm mất mát L2 để huấn luyện cả hai nhánh.,Không đủ thông tin,0.5513,0.0,Sai
+Có bao nhiêu module Hourglass (giai đoạn) được sử dụng trong PPN?,Có 8 module Hourglass (giai đoạn) được sử dụng trong PPN.,Không đủ thông tin.,0.7377,0.0,Khá đúng
+Các phương pháp phục hồi độ sâu ảnh đơn sử dụng mạng sâu không cần bản đồ độ sâu thực tế dựa vào điều gì để điều khiển mạng?,Chúng dựa vào việc giảm thiểu lỗi biến dạng quang trắc theo cách không giám sát.,Không đủ thông tin.,0.7059,0.1,Khá đúng
+Phương pháp của Zhou et.al. sử dụng kỹ thuật nào để chọn dữ liệu huấn luyện và loại bỏ các bản vá không cung cấp thông tin?,Họ áp dụng ràng buộc TV (total variation) để chọn dữ liệu huấn luyện.,Không đủ thông tin.,0.7103,0.0,Khá đúng
+LUTE-EJ Parser trích xuất cấu trúc ngữ nghĩa của câu như thế nào?,LUTE-EJ Parser trích xuất cấu trúc ngữ nghĩa như một sự kiện hoặc trạng thái được tạo ra từ một khung ngữ nghĩa.,Không đủ thông tin,0.5035,0.0,Sai
+Một khe ngữ nghĩa trong phân tích mệnh đề bao gồm những gì?,"Một khe ngữ nghĩa bao gồm điều kiện điền ngữ nghĩa, khe đánh dấu cú pháp và khe đánh dấu ngữ nghĩa.",Không đủ thông tin.,0.6917,0.0,Khá đúng
+Mục tiêu của thiết kế thuật toán hiện tại là gì?,Mục tiêu là sự rõ ràng về khái niệm thay vì hiệu quả.,Không đủ thông tin,0.6369,0.0,Khá đúng
+Cb được hiện thực hóa như thế nào trong đoạn trích?,Cb được hiện thực hóa như một đại từ.,Không đủ thông tin.,0.7285,0.0,Khá đúng

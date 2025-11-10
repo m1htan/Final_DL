@@ -6,6 +6,7 @@ from src.nodes.step1.planner import planner_node
 from src.nodes.step1.router import ingest_stub, query_stub
 from src.nodes.step3.embedding_pipeline import embedding_pipeline_node
 from src.nodes.step4.query_pipeline import query_pipeline_node
+from src.nodes.step5.evaluation_pipeline import evaluation_pipeline_node
 
 def build_graph(force_mode=None):
     graph = StateGraph(OrchestratorState)
@@ -15,10 +16,13 @@ def build_graph(force_mode=None):
     graph.add_node("ingest", ingest_stub)
     graph.add_node("embed", embedding_pipeline_node)
     graph.add_node("query", query_pipeline_node)
+    graph.add_node("evaluate", evaluation_pipeline_node)
 
     # Entry
     # Nếu ép mode thì vào thẳng node đó, bỏ qua planner
-    if force_mode == "ingest":
+    if force_mode == "evaluate":
+        graph.set_entry_point("evaluate")
+    elif force_mode == "ingest":
         graph.set_entry_point("ingest")
     elif force_mode == "embed":
         graph.set_entry_point("embed")
@@ -35,6 +39,7 @@ def build_graph(force_mode=None):
             "INGEST": "ingest",
             "EMBED": "embed",
             "QUERY": "query",
+            "EVAL": "evaluate",
             "END": END
         },
     )
@@ -42,13 +47,14 @@ def build_graph(force_mode=None):
     graph.add_edge("ingest", END)
     graph.add_edge("embed", END)
     graph.add_edge("query", END)
+    graph.add_edge("evaluate", END)
 
     return graph.compile()
 
 def run_cli():
     parser = argparse.ArgumentParser(description="RAG-Orchestrator (LangGraph + Gemini)")
     parser.add_argument("--mode", type=str, default="plan_only",
-                        choices=["plan_only", "ingest", "embed", "query"],
+                        choices=["plan_only", "ingest", "embed", "query", "evaluate"],
                         help="Chế độ ép nhánh.")
     parser.add_argument("--input", type=str, default="",
                         help="Câu lệnh/câu hỏi từ người dùng.")

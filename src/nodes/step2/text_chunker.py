@@ -1,7 +1,7 @@
 from typing import List, Dict
 from langchain_text_splitters import TokenTextSplitter
 
-# Cấu hình token-aware: 1200 tokens + overlap 240 theo yêu cầu
+# Cấu hình token-aware: 1200 tokens + overlap 240
 DEFAULT_CHUNK_SIZE = 1200
 DEFAULT_OVERLAP = 240
 

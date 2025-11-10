@@ -1,9 +1,10 @@
 from sentence_transformers import SentenceTransformer
 import numpy as np
 import time
+from src.config import EMBEDDING_MODEL
 
 def get_model():
-    model = SentenceTransformer("Alibaba-NLP/gte-Qwen2-1.5B-instruct", device="cpu")
+    model = SentenceTransformer(EMBEDDING_MODEL, device="cpu")
     return model
 
 def embed_chunks(model, chunks):

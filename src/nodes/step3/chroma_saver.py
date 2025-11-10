@@ -1,8 +1,9 @@
 from chromadb import PersistentClient
 from pathlib import Path
 import time
+from src.config import CHROMA_DIR
 
-def save_to_chroma(chunks, collection_name="instruct2ds", persist_dir="db/chroma_instruct2ds"):
+def save_to_chroma(chunks, collection_name="instruct2ds", persist_dir=CHROMA_DIR):
     """Lưu toàn bộ chunk + embedding vào ChromaDB."""
     client = PersistentClient(path=persist_dir)
     col = client.get_or_create_collection(collection_name)

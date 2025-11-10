@@ -19,13 +19,14 @@ from src.utils.logger import log
 from src.nodes.step3.text_chunker import chunk_text
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 import torch
+from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
 DATA_DIR = Path("data")
 PDF_DIR = DATA_DIR / "papers_raw"
 TEXT_DIR = DATA_DIR / "papers_text"
 TEXT_DIR.mkdir(parents=True, exist_ok=True)
 
-DB_DIR = Path("db/chroma_instruct2ds")
+DB_DIR = Path(CHROMA_DIR)
 COLLECTION_NAME = "instruct2ds"
 
 
@@ -78,7 +79,7 @@ def embedding_pipeline_node(state: dict) -> dict:
     log(f"Đã có {len(text_files_existing)} file text trích xuất sẵn trong papers_text/.")
 
     device_candidates = _device_candidates()
-    model_name = "Alibaba-NLP/gte-Qwen2-1.5B-instruct"
+    model_name = EMBEDDING_MODEL
     embeddings = None
     last_error: Optional[Exception] = None
 

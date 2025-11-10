@@ -5,11 +5,12 @@ from tqdm import tqdm
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
+from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
-CHROMA_DIR = Path("db") / "chroma_instruct2ds"
+CHROMA_DIR = CHROMA_DIR
 CHROMA_DIR.mkdir(parents=True, exist_ok=True)
 
-EMBED_MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+EMBED_MODEL_NAME = EMBEDDING_MODEL
 
 # Cache embedding model (CPU-only)
 _EMB = None

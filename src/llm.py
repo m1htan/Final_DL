@@ -1,11 +1,12 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from src.config import GEMINI_API_KEY, GEMINI_MODEL
+from langchain_ollama import ChatOllama
+from src.config import LLM_MODEL_OLLAMA, LLM_TEMPERATURE, EMBEDDING_MODEL, CHROMA_DIR
 
-def make_gemini():
-    # Temperature thấp để lập kế hoạch ổn định; sẽ tinh chỉnh theo node sau.
-    return ChatGoogleGenerativeAI(
-        api_key=GEMINI_API_KEY,
-        model=GEMINI_MODEL,
-        temperature=0.2,
-        convert_system_message_to_human=True,
+def make_llm(model_name=None):
+    """Tạo Ollama model Qwen2.5."""
+    model_name = model_name or LLM_MODEL_OLLAMA
+    return ChatOllama(
+        model=model_name,
+        temperature=LLM_TEMPERATURE,
+        num_ctx=4096,
+        num_predict=512,
     )

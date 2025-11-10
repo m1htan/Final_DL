@@ -1,6 +1,6 @@
 from typing import Dict
 from langchain_core.messages import SystemMessage, HumanMessage
-from src.llm import make_gemini
+from src.llm import make_llm
 
 SYSTEM_PROMPT = """Bạn là Orchestrator cho hệ thống RAG.
 Bạn CHỈ trả về JSON với field: next_action in ["INGEST","QUERY","END"] và plan (vắn tắt).
@@ -11,7 +11,7 @@ Quy tắc:
 """
 
 def planner_node(state: Dict) -> Dict:
-    llm = make_gemini()
+    llm = make_llm()
     user = state.get("user_input","").strip()
     mode = state.get("mode","plan_only")
 
