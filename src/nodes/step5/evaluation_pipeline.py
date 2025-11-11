@@ -42,8 +42,8 @@ CV_QG_PROMPT = """Bạn là trợ lý học thuật. Dựa DUY NHẤT vào ĐO�
 Hãy sinh 2 câu hỏi NGẮN gọn về Computer Vision (ECCV), và TRẢ LỜI được từ đoạn trích. 
 Mỗi câu trả lời ≤ 30 từ. Xuất đúng JSON (list) dạng:
 [
-  {"question": "...", "answer": "..."},
-  {"question": "...", "answer": "..."}
+  {{"question": "...", "answer": "..."}},
+  {{"question": "...", "answer": "..."}}
 ] 
 Không thêm văn bản ngoài JSON.
 """
@@ -123,7 +123,9 @@ def evaluate_rag_accuracy(llm, embeddings, vectordb, qa_items, top_k=6):
     correct = 0
     total = 0
     rows = []
-    cos_scores, f1_scores = []
+
+    cos_scores = []
+    f1_scores = []
 
     for item in tqdm(qa_items, desc="Đánh giá RAG"):
         q = item["question"].strip()
