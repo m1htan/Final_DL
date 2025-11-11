@@ -8,8 +8,6 @@ from langchain_community.vectorstores import Chroma
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
 CHROMA_DIR = CHROMA_DIR
-CHROMA_DIR.mkdir(parents=True, exist_ok=True)
-
 EMBED_MODEL_NAME = EMBEDDING_MODEL
 
 # Cache embedding model (CPU-only)

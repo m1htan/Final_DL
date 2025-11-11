@@ -5,7 +5,7 @@ class OrchestratorState(TypedDict, total=False):
     user_input: str
     response: str
 
-    # Điều phối (bổ sung 'embed')
+    # Điều phối
     mode: Literal["plan_only", "ingest", "embed", "query"]
     plan: str
     next_action: Literal["INGEST", "EMBED", "QUERY", "END"]
