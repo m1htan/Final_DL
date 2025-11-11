@@ -7,7 +7,8 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
-CHROMA_DIR = CHROMA_DIR
+PERSIST_DIR = Path(CHROMA_DIR)
+PERSIST_DIR.mkdir(parents=True, exist_ok=True)
 EMBED_MODEL_NAME = EMBEDDING_MODEL
 
 # Cache embedding model (CPU-only)
@@ -31,9 +32,9 @@ def upsert_chunks_into_chroma(chunks: List[Dict], batch_size: int = 16) -> int:
 
     embeddings = get_embedder()
     store = Chroma(
-        collection_name="instruct2ds_all",
+        collection_name="instruct2ds",
         embedding_function=embeddings,
-        persist_directory=str(CHROMA_DIR),
+        persist_directory=str(PERSIST_DIR),
     )
 
     # Upsert theo batch
@@ -59,3 +60,4 @@ def upsert_chunks_into_chroma(chunks: List[Dict], batch_size: int = 16) -> int:
 
     store.persist()
     return total
+

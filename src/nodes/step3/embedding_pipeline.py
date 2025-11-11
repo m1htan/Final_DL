@@ -17,7 +17,7 @@ from tqdm import tqdm
 from langchain_chroma import Chroma
 from src.utils.logger import log
 from src.nodes.step3.text_chunker import chunk_text
-from langchain_community.embeddings import HuggingFaceBgeEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 import torch
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
@@ -27,6 +27,7 @@ TEXT_DIR = DATA_DIR / "papers_text"
 TEXT_DIR.mkdir(parents=True, exist_ok=True)
 
 DB_DIR = Path(CHROMA_DIR)
+DB_DIR.mkdir(parents=True, exist_ok=True)
 COLLECTION_NAME = "instruct2ds"
 
 
@@ -86,7 +87,7 @@ def embedding_pipeline_node(state: dict) -> dict:
     for device in device_candidates:
         log(f"Đang khởi tạo model {model_name} trên thiết bị '{device}'.")
         try:
-            embeddings = HuggingFaceBgeEmbeddings(
+            embeddings = HuggingFaceEmbeddings(
                 model_name=model_name,
                 model_kwargs={"device": device},
                 encode_kwargs={"normalize_embeddings": True}
@@ -165,5 +166,7 @@ def embedding_pipeline_node(state: dict) -> dict:
         f"Đã trích xuất và embedding {total_new_texts} PDF ({total_chunks} chunks) "
         f"vào collection '{COLLECTION_NAME}'."
     )
-    state.setdefault("trace", []).append(f"[embed] {total_new_texts} PDF, {total_chunks} chunks, lưu tại {DB_DIR}")
+    state.setdefault("trace", []).append(
+        f"[embed] {total_new_texts} PDF, {total_chunks} chunks, lưu tại {DB_DIR}"
+    )
     return state

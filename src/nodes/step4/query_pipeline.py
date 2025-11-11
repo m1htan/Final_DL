@@ -8,6 +8,7 @@ from langchain_chroma import Chroma
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
 DB_DIR = Path(CHROMA_DIR)
+DB_DIR.mkdir(parents=True, exist_ok=True)
 COLLECTION_NAME = "instruct2ds"
 QUERY_LOG = Path("logs/query.log")
 QUERY_LOG.parent.mkdir(exist_ok=True)
@@ -57,11 +58,21 @@ def query_pipeline_node(state: dict) -> dict:
     qlog(f"Câu hỏi: {user_query}")
 
     # Khởi tạo embedding model cho truy vấn
-    log("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct (CPU).")
-    qlog("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct (CPU).")
+    log("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.")
+    qlog("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.")
     embedder = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 
     # Kết nối Chroma
+    if not any(DB_DIR.iterdir()):
+        msg = (
+            "ChromaDB chưa có dữ liệu. Hãy chạy pipeline ingest/embed trước khi truy vấn."
+        )
+        log(msg)
+        qlog(msg)
+        state["response"] = msg
+        state.setdefault("trace", []).append("[query] Không tìm thấy dữ liệu trong Chroma.")
+        return state
+
     vectordb = Chroma(
         collection_name=COLLECTION_NAME,
         persist_directory=str(DB_DIR),
@@ -100,7 +111,7 @@ def query_pipeline_node(state: dict) -> dict:
 
     context_str = "\n\n".join(context_blocks)
 
-    # Prompt LLM (Gemini)
+    # Prompt LLM (Qwen2.5)
     prompt = (
         "Bạn là trợ lý học thuật. Trả lời CHỈ dựa trên NGỮ CẢNH cho trước.\n"
         "Nếu NGỮ CẢNH không chứa đủ bằng chứng, hãy nói rõ: 'Không đủ thông tin trong NGỮ CẢNH để kết luận.'\n\n"
@@ -113,8 +124,8 @@ def query_pipeline_node(state: dict) -> dict:
     )
 
     llm = make_llm()
-    log("Gọi Gemini để sinh câu trả lời...")
-    qlog("Gọi Gemini để sinh câu trả lời...")
+    log("Gọi Qwen2.5 để sinh câu trả lời...")
+    qlog("Gọi Qwen2.5 để sinh câu trả lời...")
 
     llm_raw = llm.invoke(prompt)
     llm_answer = getattr(llm_raw, "content", str(llm_raw)).strip()
@@ -147,3 +158,4 @@ def query_pipeline_node(state: dict) -> dict:
     qlog(sources_str)
 
     return state
+

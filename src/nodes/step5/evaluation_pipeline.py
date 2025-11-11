@@ -13,7 +13,7 @@ from typing import List, Dict
 from src.utils.logger import log
 from src.config import EMBEDDING_MODEL, CHROMA_DIR
 from langchain_chroma import Chroma
-from langchain_community.embeddings import HuggingFaceBgeEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from src.nodes.step5.finetune_manager import run_finetune
 from src.llm import make_llm
 
@@ -21,7 +21,7 @@ from src.llm import make_llm
 def load_embeddings_and_db():
     """Load embedding + ChromaDB một lần, dùng lại toàn bộ."""
     log("[INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...")
-    embeddings = HuggingFaceBgeEmbeddings(
+    embeddings = HuggingFaceEmbeddings(
         model_name=EMBEDDING_MODEL,
         model_kwargs={"device": "cpu"},
         encode_kwargs={"normalize_embeddings": True},
@@ -215,6 +215,9 @@ def evaluation_pipeline_node(state: dict) -> dict:
     else:
         log(f"[OK] Accuracy {acc:.2f}% đạt yêu cầu, không cần fine-tuning.")
 
-    state["response"] = f"Đánh giá hoàn tất (Ollama). Độ chính xác trung bình: {acc:.2f}%"
+    state["response"] = (
+        f"Đánh giá hoàn tất (Qwen2.5 qua Ollama). Độ chính xác trung bình: {acc:.2f}%"
+    )
     state.setdefault("trace", []).append(f"[evaluate_qwen] accuracy={acc:.2f}%")
     return state
+

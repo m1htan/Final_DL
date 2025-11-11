@@ -6,9 +6,9 @@ class OrchestratorState(TypedDict, total=False):
     response: str
 
     # Điều phối
-    mode: Literal["plan_only", "ingest", "embed", "query"]
+    mode: Literal["plan_only", "ingest", "embed", "query", "evaluate"]
     plan: str
-    next_action: Literal["INGEST", "EMBED", "QUERY", "END"]
+    next_action: Literal["INGEST", "EMBED", "QUERY", "EVAL", "END"]
 
     # Log/trace
     trace: List[str]
@@ -16,8 +16,10 @@ class OrchestratorState(TypedDict, total=False):
     # Payload tương lai (bước 2–3 sẽ dùng)
     ingestion_args: Optional[dict]
     embedding_args: Optional[dict]
+    evaluation_args: Optional[dict]
     query_args: Optional[dict]
     context_chunks: Optional[List[dict]]
     llm_answer: Optional[str]
     post_processed: Optional[str]
     extra: Optional[Any]
+
