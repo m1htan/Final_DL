@@ -1,11 +1,12 @@
 question,gold,pred,cosine,f1,label
-Hệ thống này cho phép một thành phần cú pháp điền vào nhiều hơn một đối số không?,"Có, hệ thống này cho phép cùng một thành phần cú pháp điền vào nhiều hơn một đối số.",Không đủ thông tin,0.5231,0.0,Sai
-"Trong miền pulley, vai trò của INSTRUMENTS là gì?","Trong miền pulley, INSTRUMENTS là 'trung gian' trong các mối quan hệ 'treo' và 'kết nối'.",Không đủ thông tin,0.4714,0.0,Sai
-PPN sử dụng loại hàm mất mát nào để huấn luyện các nhánh phát hiện khớp và hồi quy dày đặc?,PPN sử dụng hàm mất mát L2 để huấn luyện cả hai nhánh.,Không đủ thông tin,0.5513,0.0,Sai
-Có bao nhiêu module Hourglass (giai đoạn) được sử dụng trong PPN?,Có 8 module Hourglass (giai đoạn) được sử dụng trong PPN.,Không đủ thông tin.,0.7377,0.0,Khá đúng
-Các phương pháp phục hồi độ sâu ảnh đơn sử dụng mạng sâu không cần bản đồ độ sâu thực tế dựa vào điều gì để điều khiển mạng?,Chúng dựa vào việc giảm thiểu lỗi biến dạng quang trắc theo cách không giám sát.,Không đủ thông tin.,0.7059,0.1,Khá đúng
-Phương pháp của Zhou et.al. sử dụng kỹ thuật nào để chọn dữ liệu huấn luyện và loại bỏ các bản vá không cung cấp thông tin?,Họ áp dụng ràng buộc TV (total variation) để chọn dữ liệu huấn luyện.,Không đủ thông tin.,0.7103,0.0,Khá đúng
-LUTE-EJ Parser trích xuất cấu trúc ngữ nghĩa của câu như thế nào?,LUTE-EJ Parser trích xuất cấu trúc ngữ nghĩa như một sự kiện hoặc trạng thái được tạo ra từ một khung ngữ nghĩa.,Không đủ thông tin,0.5035,0.0,Sai
-Một khe ngữ nghĩa trong phân tích mệnh đề bao gồm những gì?,"Một khe ngữ nghĩa bao gồm điều kiện điền ngữ nghĩa, khe đánh dấu cú pháp và khe đánh dấu ngữ nghĩa.",Không đủ thông tin.,0.6917,0.0,Khá đúng
-Mục tiêu của thiết kế thuật toán hiện tại là gì?,Mục tiêu là sự rõ ràng về khái niệm thay vì hiệu quả.,Không đủ thông tin,0.6369,0.0,Khá đúng
-Cb được hiện thực hóa như thế nào trong đoạn trích?,Cb được hiện thực hóa như một đại từ.,Không đủ thông tin.,0.7285,0.0,Khá đúng
+Đào tạo mạng sâu cho việc khớp hình ảnh stereo như thế nào?,Học cách học đặc trưng hình ảnh tốt hơn và tiêu chuẩn hóa kỹ thuật khớp hình ảnh.,Không đủ thông tin trong ngữ cảnh.,0.8599,0.0,Đúng
+Các phương pháp không giám sát trongStereo Matching có gì khác biệt?,Không sử dụng dữ liệu huấn luyện để thực hiện nhiệm vụ này.,Không đủ thông tin trong ngữ cảnh.,0.9078,0.1,Đúng
+Bài nào đề cập đến Stacked Hourglass Networks?,"Newell, A., Yang, K., Deng, J.",Không đủ thông tin trong ngữ cảnh.,0.2524,0.0,Sai
+Định nghĩa của định mức natural-language determiners là gì?,của type (e --* t) --* (e --* 10 ---+ ¢),Không đủ thông tin trong ngữ cảnh.,0.3296,0.0,Sai
+Quy tắc quantifier raising có vai trò gì trong ngữ cảnh này?,enforcing the free-variable constraint,Quy tắc quantifier raising giúp xác định và tạo ra các entitas cần thiết dựa trên NPs trong cấu trúc từ句，请使用中文重新组织答案。,0.2799,0.0,Sai
+LSTM blocks giúp mạng làm gì?,điều chỉnh hành vi dựa trên kinh nghiệm quá khứ.,Không đủ thông tin trong ngữ cảnh.,0.8395,0.0,Đúng
+Mạng luôn thực hiện quá trình nào sau mỗi feed-forward?,quá trình backprop cập nhật trực tuyến.,Mạng luôn thực hiện backward pass và cập nhật tham số sau mỗi feed-forward.,0.9028,0.1905,Đúng
+Biases và time offsets có xu hướng như thế nào?,Converge nhanh.,Không đủ thông tin trong ngữ cảnh.,0.8613,0.0,Đúng
+Tại sao relative rotations dễ dàng được ước lượng?,Do là tích phân bậc nhất của vận tốc góc và bias gyroscope.,Không đủ thông tin trong ngữ cảnh.,0.7916,0.0,Đúng
+Đoạn trích nói gì về SUBJ và OBJ?,SUBJ SUPPORTS OBJ AT locpart.,SUBJ和OBJ指的是相对_clause中的主语和宾语。在规则的编码中，它们被用来表示名词短语在句子中的角色。,0.5482,0.0,Sai
+p2 liên quan đến ai trong cấu trúc?,p2 là OFPP.,Không đủ thông tin trong ngữ cảnh.,0.6935,0.0,Sai
