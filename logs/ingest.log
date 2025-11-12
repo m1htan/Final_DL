@@ -6812,3 +6812,86 @@ Please retry in 49.938826626s. [links {
 [2025-11-11 19:47:16] → Hoàn tất fine-tuning (mô phỏng).
 [2025-11-11 19:47:16] Thời gian fine-tune: 8.00s
 [2025-11-11 19:47:16] === KẾT THÚC FINE-TUNING ===
+[2025-11-12 21:01:52] === BẮT ĐẦU BƯỚC 5 (Qwen2.5 - Ollama) ===
+[2025-11-12 21:01:52] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-12 21:02:09] → Số câu hỏi sinh ra: 8
+[2025-11-12 21:02:09] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-12 21:02:25] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-12 21:02:25] Tổng số câu hỏi: 8
+[2025-11-12 21:02:25] Số câu đúng: 2
+[2025-11-12 21:02:25] Độ chính xác trung bình: 25.00%
+[2025-11-12 21:02:25] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-12 21:02:25] → Biểu đồ phân phối: logs/evaluated/accuracy_distribution.png
+[2025-11-12 21:02:25] [AUTO] Accuracy 25.00% < 80% → Tiến hành fine-tuning...
+[2025-11-12 21:02:25] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-12 21:02:25] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-12 21:02:30] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-12 21:02:33] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-12 21:02:33] Thời gian fine-tune: 8.00s
+[2025-11-12 21:02:33] === KẾT THÚC FINE-TUNING ===
+[2025-11-12 21:08:21] === BẮT ĐẦU BƯỚC 5 (Qwen2.5 - Ollama) ===
+[2025-11-12 21:08:21] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-12 21:08:42] → Số câu hỏi sinh ra: 14
+[2025-11-12 21:08:42] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-12 21:09:10] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-12 21:09:10] Tổng số câu hỏi: 14
+[2025-11-12 21:09:10] Số câu đúng: 1
+[2025-11-12 21:09:10] Độ chính xác trung bình: 7.14%
+[2025-11-12 21:09:10] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-12 21:09:10] → Biểu đồ phân phối: logs/evaluated/accuracy_distribution.png
+[2025-11-12 21:09:10] [AUTO] Accuracy 7.14% < 80% → Tiến hành fine-tuning...
+[2025-11-12 21:09:10] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-12 21:09:10] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-12 21:09:15] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-12 21:09:18] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-12 21:09:18] Thời gian fine-tune: 8.00s
+[2025-11-12 21:09:18] === KẾT THÚC FINE-TUNING ===
+[2025-11-12 21:34:08] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:34:08] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-12 21:34:08] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:34:12] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:34:13] Truy xuất được 10 đoạn context.
+[2025-11-12 21:34:13] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:34:20] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:34:20] Thời gian thực thi: 12.50s
+[2025-11-12 21:34:54] === BẮT ĐẦU BƯỚC 5 (Qwen2.5 - Ollama) ===
+[2025-11-12 21:34:54] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-12 21:35:12] → Số câu hỏi sinh ra: 12
+[2025-11-12 21:35:12] === BẮT ĐẦU ĐÁNH GIÁ RAG ===
+[2025-11-12 21:35:37] === KẾT QUẢ ĐÁNH GIÁ RAG ===
+[2025-11-12 21:35:37] Tổng số câu hỏi: 12
+[2025-11-12 21:35:37] Số câu đúng: 3
+[2025-11-12 21:35:37] Độ chính xác trung bình: 25.00%
+[2025-11-12 21:35:37] → Báo cáo chi tiết: logs/evaluated/eval_report.csv
+[2025-11-12 21:35:37] → Biểu đồ phân phối: logs/evaluated/accuracy_distribution.png
+[2025-11-12 21:35:37] [AUTO] Accuracy 25.00% < 80% → Tiến hành fine-tuning...
+[2025-11-12 21:35:37] === BẮT ĐẦU FINE-TUNING (GIẢ LẬP) ===
+[2025-11-12 21:35:37] Sử dụng dữ liệu từ: data/papers_text/
+[2025-11-12 21:35:42] Đang tinh chỉnh các tham số embedding/retrieval...
+[2025-11-12 21:35:45] → Hoàn tất fine-tuning (mô phỏng).
+[2025-11-12 21:35:45] Thời gian fine-tune: 8.00s
+[2025-11-12 21:35:45] === KẾT THÚC FINE-TUNING ===
+[2025-11-12 21:36:38] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:36:38] Câu hỏi: Mô hình RAG được giới thiệu ở hội nghị nào?
+[2025-11-12 21:36:38] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:36:43] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:36:44] Truy xuất được 10 đoạn context.
+[2025-11-12 21:36:44] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:36:46] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:36:46] Thời gian thực thi: 7.76s
+[2025-11-12 21:37:40] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:37:40] Câu hỏi: Vai trò của ngữ pháp Chomsky trong các bài nghiên cứu được công bố ở ACL những năm 1970 là gì?
+[2025-11-12 21:37:40] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:37:45] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:37:46] Truy xuất được 10 đoạn context.
+[2025-11-12 21:37:47] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:37:49] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:37:49] Thời gian thực thi: 9.16s
+[2025-11-12 21:38:02] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:38:02] Câu hỏi: Vai trò của ngữ pháp Chomsky trong các bài nghiên cứu được công bố ở ACL những năm 1970 là gì?
+[2025-11-12 21:38:02] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:38:07] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:38:08] Truy xuất được 10 đoạn context.
+[2025-11-12 21:38:09] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:38:10] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:38:10] Thời gian thực thi: 8.08s

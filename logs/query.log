@@ -61,3 +61,93 @@
 - ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 34]
 - ACL_xxxx_noun-classification-from-predicate-argument-structures.pdf [chunk 22]
 - ACL_xxxx_discourse-deixis-reference-to-discourse-segments.pdf [chunk 32]
+[2025-11-12 21:34:08] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:34:08] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-12 21:34:08] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:34:12] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:34:13] Truy xuất được 10 đoạn context.
+[2025-11-12 21:34:13] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:34:20] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:34:20] Thời gian thực thi: 12.50s
+[2025-11-12 21:34:20] ----- KẾT QUẢ LLM -----
+[2025-11-12 21:34:20] Transformer được sử dụng trong NLP. Không đủ thông tin trong NGỮ CẢNH để kết luận.
+
+<ACL_xxxx_discourse-deixis-reference-to-discourse-segments.pdf> [chunk 32]
+[2025-11-12 21:34:20] ----- NGUỒN -----
+[2025-11-12 21:34:20] - ACL_xxxx_phrasal-analysis-of-long-noun-sequences.pdf [chunk 1]
+- ACL_xxxx_taxonomy-descriptions-and-individuals-in-natural-language-understanding.pdf [chunk 26]
+- ACL_xxxx_towards-a-self-extending-parser.pdf [chunk 8]
+- ACL_xxxx_discourse-entities-in-janus.pdf [chunk 6]
+- ACL_xxxx_semantic-acquisition-in-teli-a-transportable-user-customized-natural-language-processor.pdf [chunk 6]
+- ACL_xxxx_syntactic-approaches-to-automatic-book-indexing.pdf [chunk 12]
+- ACL_xxxx_reading-with-a-purpose.pdf [chunk 17]
+- ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 34]
+- ACL_xxxx_noun-classification-from-predicate-argument-structures.pdf [chunk 22]
+- ACL_xxxx_discourse-deixis-reference-to-discourse-segments.pdf [chunk 32]
+[2025-11-12 21:36:38] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:36:38] Câu hỏi: Mô hình RAG được giới thiệu ở hội nghị nào?
+[2025-11-12 21:36:38] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:36:43] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:36:44] Truy xuất được 10 đoạn context.
+[2025-11-12 21:36:44] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:36:46] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:36:46] Thời gian thực thi: 7.76s
+[2025-11-12 21:36:46] ----- KẾT QUẢ LLM -----
+[2025-11-12 21:36:46] Không đủ thông tin trong NGữ Cảnh để kết luận.
+[2025-11-12 21:36:46] ----- NGUỒN -----
+[2025-11-12 21:36:46] - ACL_xxxx_bringing-natural-language-processing-to-the-microcomputer-market-the-story-of-qa.pdf [chunk 3]
+- ACL_xxxx_a-model-of-early-syntactic-development.pdf [chunk 0]
+- ACL_xxxx_a-practical-nonmonotonic-theory-for-reasoning-about-speech-acts.pdf [chunk 30]
+- ACL_xxxx_tree-unification-grammar.pdf [chunk 42]
+- ACL_xxxx_towards-a-self-extending-parser.pdf [chunk 8]
+- ACL_xxxx_natural-language-and-computer-interface-design.pdf [chunk 12]
+- ACL_xxxx_eufid-a-friendly-and-flexible-front-end-for-data-management-systems.pdf [chunk 14]
+- ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 34]
+- ACL_xxxx_structure-sharing-with-binary-trees.pdf [chunk 13]
+- ACL_xxxx_taxonomy-descriptions-and-individuals-in-natural-language-understanding.pdf [chunk 26]
+[2025-11-12 21:37:40] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:37:40] Câu hỏi: Vai trò của ngữ pháp Chomsky trong các bài nghiên cứu được công bố ở ACL những năm 1970 là gì?
+[2025-11-12 21:37:40] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:37:45] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:37:46] Truy xuất được 10 đoạn context.
+[2025-11-12 21:37:47] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:37:49] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:37:49] Thời gian thực thi: 9.16s
+[2025-11-12 21:37:49] ----- KẾT QUẢ LLM -----
+[2025-11-12 21:37:49] Không đủ thông tin trong NGỮ CẢNH để kết luận.
+
+<ACL_xxxx_a-centering-approach-to-pronouns.pdf> [chunk 20]
+[2025-11-12 21:37:49] ----- NGUỒN -----
+[2025-11-12 21:37:49] - ACL_xxxx_taxonomy-descriptions-and-individuals-in-natural-language-understanding.pdf [chunk 26]
+- ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 34]
+- ACL_xxxx_a-centering-approach-to-pronouns.pdf [chunk 20]
+- ACL_xxxx_discourse-deixis-reference-to-discourse-segments.pdf [chunk 32]
+- ACL_xxxx_towards-a-self-extending-lexicon.pdf [chunk 29]
+- ACL_xxxx_noun-classification-from-predicate-argument-structures.pdf [chunk 22]
+- ACL_xxxx_a-model-of-revision-in-natural-language-generation.pdf [chunk 24]
+- ACL_xxxx_tree-unification-grammar.pdf [chunk 42]
+- ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 35]
+- ACL_xxxx_discourse-entities-in-janus.pdf [chunk 6]
+[2025-11-12 21:38:02] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-12 21:38:02] Câu hỏi: Vai trò của ngữ pháp Chomsky trong các bài nghiên cứu được công bố ở ACL những năm 1970 là gì?
+[2025-11-12 21:38:02] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-12 21:38:07] Thực hiện similarity_search(top_k=10)...
+[2025-11-12 21:38:08] Truy xuất được 10 đoạn context.
+[2025-11-12 21:38:09] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-12 21:38:10] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-12 21:38:10] Thời gian thực thi: 8.08s
+[2025-11-12 21:38:10] ----- KẾT QUẢ LLM -----
+[2025-11-12 21:38:10] Không đủ thông tin trong NGỮ CẢNH để kết luận.
+
+<ACL_xxxx_a-centering-approach-to-pronouns.pdf> [chunk 20]
+[2025-11-12 21:38:10] ----- NGUỒN -----
+[2025-11-12 21:38:10] - ACL_xxxx_taxonomy-descriptions-and-individuals-in-natural-language-understanding.pdf [chunk 26]
+- ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 34]
+- ACL_xxxx_a-centering-approach-to-pronouns.pdf [chunk 20]
+- ACL_xxxx_discourse-deixis-reference-to-discourse-segments.pdf [chunk 32]
+- ACL_xxxx_towards-a-self-extending-lexicon.pdf [chunk 29]
+- ACL_xxxx_noun-classification-from-predicate-argument-structures.pdf [chunk 22]
+- ACL_xxxx_a-model-of-revision-in-natural-language-generation.pdf [chunk 24]
+- ACL_xxxx_tree-unification-grammar.pdf [chunk 42]
+- ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 35]
+- ACL_xxxx_discourse-entities-in-janus.pdf [chunk 6]

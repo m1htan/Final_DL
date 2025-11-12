@@ -32,4 +32,3 @@ class OrchestratorState(TypedDict, total=False):
     latency_seconds: Optional[float]
     context_prompt: Optional[str]
     ui_request: Optional[bool]
-

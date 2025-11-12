@@ -18,16 +18,9 @@ if LOCAL_ENV.exists():
 load_dotenv(override=False)
 
 # OLLAMA BACKEND CONFIG
-LLM_MODEL_OLLAMA = os.getenv("LLM_MODEL_OLLAMA", "qwen2.5:7b")
-try:
-    LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", "0.1"))
-except ValueError:
-    LLM_TEMPERATURE = 0.1
+LLM_MODEL_OLLAMA = os.getenv("LLM_MODEL_OLLAMA")
+LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE"))
 
 # EMBEDDING CONFIG
-EMBEDDING_MODEL = os.getenv(
-    "EMBEDDING_MODEL", "Alibaba-NLP/gte-Qwen2-1.5B-instruct"
-)
-CHROMA_DIR = os.getenv(
-    "CHROMA_DIR", str(ROOT_DIR / "db" / "chroma_instruct2ds")
-)
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
+CHROMA_DIR = os.getenv("CHROMA_DIR", str(ROOT_DIR / "db" / "chroma_instruct2ds"))

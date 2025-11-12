@@ -1,12 +1,13 @@
 question,gold,pred,cosine,f1,label
-Đào tạo mạng sâu cho việc khớp hình ảnh stereo như thế nào?,Học cách học đặc trưng hình ảnh tốt hơn và tiêu chuẩn hóa kỹ thuật khớp hình ảnh.,Không đủ thông tin trong ngữ cảnh.,0.8599,0.0,Đúng
-Các phương pháp không giám sát trongStereo Matching có gì khác biệt?,Không sử dụng dữ liệu huấn luyện để thực hiện nhiệm vụ này.,Không đủ thông tin trong ngữ cảnh.,0.9078,0.1,Đúng
-Bài nào đề cập đến Stacked Hourglass Networks?,"Newell, A., Yang, K., Deng, J.",Không đủ thông tin trong ngữ cảnh.,0.2524,0.0,Sai
-Định nghĩa của định mức natural-language determiners là gì?,của type (e --* t) --* (e --* 10 ---+ ¢),Không đủ thông tin trong ngữ cảnh.,0.3296,0.0,Sai
-Quy tắc quantifier raising có vai trò gì trong ngữ cảnh này?,enforcing the free-variable constraint,Quy tắc quantifier raising giúp xác định và tạo ra các entitas cần thiết dựa trên NPs trong cấu trúc từ句，请使用中文重新组织答案。,0.2799,0.0,Sai
-LSTM blocks giúp mạng làm gì?,điều chỉnh hành vi dựa trên kinh nghiệm quá khứ.,Không đủ thông tin trong ngữ cảnh.,0.8395,0.0,Đúng
-Mạng luôn thực hiện quá trình nào sau mỗi feed-forward?,quá trình backprop cập nhật trực tuyến.,Mạng luôn thực hiện backward pass và cập nhật tham số sau mỗi feed-forward.,0.9028,0.1905,Đúng
-Biases và time offsets có xu hướng như thế nào?,Converge nhanh.,Không đủ thông tin trong ngữ cảnh.,0.8613,0.0,Đúng
-Tại sao relative rotations dễ dàng được ước lượng?,Do là tích phân bậc nhất của vận tốc góc và bias gyroscope.,Không đủ thông tin trong ngữ cảnh.,0.7916,0.0,Đúng
-Đoạn trích nói gì về SUBJ và OBJ?,SUBJ SUPPORTS OBJ AT locpart.,SUBJ和OBJ指的是相对_clause中的主语和宾语。在规则的编码中，它们被用来表示名词短语在句子中的角色。,0.5482,0.0,Sai
-p2 liên quan đến ai trong cấu trúc?,p2 là OFPP.,Không đủ thông tin trong ngữ cảnh.,0.6935,0.0,Sai
+Đoạn trích có liên quan đến Computer Vision không?,Không,Không đủ thông tin trong ngữ cảnh.,0.2322,0.25,Sai
+Có bài viết nào về ngữ nghĩa học trong đoạn trích không?,"Có, Fillmore, Charniak",Không đủ thông tin trong ngữ cảnh.,0.4,0.0,Sai
+"Đối vớiStereo Video Matching, LSTM已被应用于哪些任务？",其他视频处理任务（如序列字幕或人体动作识别）,LSTM已应用于其他视频处理任务，如序列字幕生成或人体动作识别。,0.5428,0.0,Sai
+Stereo匹配是计算机视觉中的经典问题吗？,是的，已经研究了几十年。,是， Stereo匹配是计算机视觉中的经典问题。,0.5686,0.0,Sai
+Đặc điểm của framework được đề xuất là gì?,"Dạng dense regression, giảm độ phức tạp phát hiện joints.",Framework này dựa trên nguyên tắc chia công việc và chuyển đổi node-by-node để nghiên cứu độ sâu biểu diễn một cách hệ thống.,0.8234,0.0588,Đúng
+Centroid được sử dụng để biểu diễn gì trong không gian H?,Biểu diễn giả thuyết về vị trí centroid của từng người.,Không đủ thông tin trong ngữ cảnh.,0.7952,0.0,Đúng
+VIO需要哪两种传感器？,一个单目视觉惯性 odometry，由一个IMU和一个摄像头组成。,视觉传感器和惯性传感器。,0.802,0.0,Đúng
+如何确保VIO正常工作？,需要对齐空间上和时间上的视觉和惯性测量。,采用不确定性意识初始化方案，确保VIO稳健启动。,0.6498,0.0,Sai
+Gray-box攻击与Black-box攻击的主要区别是什么？,源模型可以是部分训练的且具有不同网络架构。,灰盒攻击（Gray-box攻击）中部分模型信息是已知的，如架构和训练过程，但参数不同；而黑盒攻击中攻击者对目标模型一无所知。,0.6317,0.0,Sai
+什么是extended white-box攻击？,一些设置方面已知而另一些未知，具体来说，源和目标模型的架构相同但参数不同。,不相关，给定的语境中未提及extended white-box攻击。,0.4087,0.0,Sai
+Độ dài trung bình của đặc trưng ảnh là bao nhiêu?,52.62,Không đủ thông tin trong ngữ cảnh.,0.0922,0.0,Sai
+CMPM mất mát được sử dụng để làm gì?,Giảm tính tương thích của cặp không khớp và tối đa hóa sự liên quan của những cặp khớp,Không đủ thông tin trong ngữ cảnh.,0.6701,0.0769,Sai
