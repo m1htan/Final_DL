@@ -158,4 +158,3 @@ def query_pipeline_node(state: dict) -> dict:
     qlog(sources_str)
 
     return state
-

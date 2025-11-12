@@ -34,6 +34,5 @@ coverage/
 *.ini
 *.jsonl
 
-*.env
 venv
 chroma.sqlite3

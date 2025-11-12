@@ -23,3 +23,13 @@ class OrchestratorState(TypedDict, total=False):
     post_processed: Optional[str]
     extra: Optional[Any]
 
+    # Tham số phục vụ UI/query
+    top_k: Optional[int]
+    max_context_chars: Optional[int]
+    retrieved_docs: Optional[List[dict]]
+    sources_markdown: Optional[str]
+    answer_model: Optional[str]
+    latency_seconds: Optional[float]
+    context_prompt: Optional[str]
+    ui_request: Optional[bool]
+
