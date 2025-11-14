@@ -5,6 +5,9 @@ from src.utils.logger import log
 from src.llm import make_llm
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+from langdetect import detect
+from deep_translator import GoogleTranslator
+
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
 DB_DIR = Path(CHROMA_DIR)
@@ -42,6 +45,22 @@ def _maybe_filter_nlp(docs, query):
         return filtered if filtered else docs
     return docs
 
+def _detect_and_translate_to_english(text: str) -> str:
+    """Nếu câu hỏi là tiếng Việt → tự dịch sang tiếng Anh."""
+    try:
+        lang = detect(text)
+        if lang == "vi":
+            return GoogleTranslator(source="vi", target="en").translate(text)
+        return text
+    except:
+        return text
+
+def _translate_answer_to_vietnamese(text: str) -> str:
+    try:
+        return GoogleTranslator(source="auto", target="vi").translate(text)
+    except:
+        return text
+
 def query_pipeline_node(state: dict) -> dict:
     t0 = time.time()
     user_query = (state.get("user_input") or "").strip()
@@ -56,6 +75,13 @@ def query_pipeline_node(state: dict) -> dict:
     qlog("=== BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===")
     log(f"Câu hỏi: {user_query}")
     qlog(f"Câu hỏi: {user_query}")
+
+    query_en = _detect_and_translate_to_english(user_query)
+    if query_en != user_query:
+        log(f"→ Dịch sang tiếng Anh để truy vấn: {query_en}")
+        qlog(f"→ Dịch sang tiếng Anh để truy vấn: {query_en}")
+    else:
+        query_en = user_query
 
     # Khởi tạo embedding model cho truy vấn
     log("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.")
@@ -83,7 +109,7 @@ def query_pipeline_node(state: dict) -> dict:
     top_k = 10
     log(f"Thực hiện similarity_search(top_k={top_k})...")
     qlog(f"Thực hiện similarity_search(top_k={top_k})...")
-    docs = vectordb.similarity_search(user_query, k=top_k)
+    docs = vectordb.similarity_search(query_en, k=top_k)
     docs = _maybe_filter_nlp(docs, user_query)
 
     if not docs:
@@ -115,7 +141,7 @@ def query_pipeline_node(state: dict) -> dict:
     prompt = (
         "Bạn là trợ lý học thuật. Trả lời CHỈ dựa trên NGỮ CẢNH cho trước.\n"
         "Nếu NGỮ CẢNH không chứa đủ bằng chứng, hãy nói rõ: 'Không đủ thông tin trong NGỮ CẢNH để kết luận.'\n\n"
-        f"CÂU HỎI: {user_query}\n\n"
+        f"CÂU HỎI: {query_en}\n\n"
         f"NGỮ CẢNH:\n{context_str}\n\n"
         "YÊU CẦU:\n"
         "1) Trả lời ngắn gọn, chính xác, bằng tiếng Việt.\n"
@@ -129,6 +155,7 @@ def query_pipeline_node(state: dict) -> dict:
 
     llm_raw = llm.invoke(prompt)
     llm_answer = getattr(llm_raw, "content", str(llm_raw)).strip()
+    llm_answer_vi = _translate_answer_to_vietnamese(llm_answer)
 
     elapsed = time.time() - t0
     log("=== HOÀN TẤT QUERY PIPELINE ===")
@@ -140,12 +167,12 @@ def query_pipeline_node(state: dict) -> dict:
     sources_str = _format_sources(docs, include_chunks=True)
 
     full_response = (
-        f"**Câu trả lời:**\n{llm_answer}\n\n"
+        f"**Câu trả lời:**\n{llm_answer_vi}\n\n"
         f"**Nguồn tham chiếu:**\n{sources_str}"
     )
 
     # Cập nhật state
-    state["llm_answer"] = llm_answer
+    state["llm_answer"] = llm_answer_vi
     state["response"] = full_response
     state.setdefault("trace", []).append(
         f"[query] top_k={top_k}, results={len(docs)}, elapsed={elapsed:.2f}s"

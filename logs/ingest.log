@@ -8639,3 +8639,190 @@ Please retry in 49.938826626s. [links {
 [2025-11-14 15:14:57] === BẮT ĐẦU BƯỚC 5 (Qwen2.5 - Ollama) ===
 [2025-11-14 15:14:57] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
 [2025-11-14 15:16:30] → Số câu hỏi sinh ra: 10
+[2025-11-14 15:31:45] === BẮT ĐẦU BƯỚC 5 (Qwen2.5 - Ollama) ===
+[2025-11-14 15:31:45] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-14 15:33:06] → Số câu hỏi sinh ra: 10
+[2025-11-14 15:33:06] → Đã lưu danh sách câu hỏi tại: logs/evaluated/questions_generated_20251114_153306.csv
+[2025-11-14 15:33:06] === BẮT ĐẦU ĐÁNH GIÁ RAG (baseline_similarity) ===
+[2025-11-14 15:37:05] === KẾT QUẢ ĐÁNH GIÁ RAG (baseline_similarity) ===
+[2025-11-14 15:37:05] Tổng số câu hỏi: 10
+[2025-11-14 15:37:05] Số câu đúng: 1
+[2025-11-14 15:37:05] Độ chính xác trung bình: 10.00%
+[2025-11-14 15:37:05] Điểm cosine trung bình: 0.4055
+[2025-11-14 15:37:05] Điểm F1 trung bình: 0.0733
+[2025-11-14 15:37:05] [SUGGESTION 1] Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+[2025-11-14 15:37:05] [SUGGESTION 2] Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+[2025-11-14 15:37:05] [SUGGESTION 3] Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+[2025-11-14 15:37:05] [SUGGESTION 4] Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+[2025-11-14 15:37:05] [SUGGESTION 5] Kết hợp chiến lược truy xuất đa dạng (MMR, reranker) để giảm trùng lặp và bao phủ thông tin tốt hơn.
+[2025-11-14 15:37:05] → Báo cáo chi tiết: logs/evaluated\baseline_similarity\eval_report.csv
+[2025-11-14 15:37:05] → Biểu đồ phân phối: logs/evaluated\baseline_similarity\accuracy_distribution.png
+[2025-11-14 15:37:05] → Gợi ý cải thiện: logs/evaluated\baseline_similarity\improvement_plan.txt
+[2025-11-14 15:37:05] === BẮT ĐẦU ĐÁNH GIÁ RAG (mmr_high_topk) ===
+[2025-11-14 15:41:51] === KẾT QUẢ ĐÁNH GIÁ RAG (mmr_high_topk) ===
+[2025-11-14 15:41:51] Tổng số câu hỏi: 10
+[2025-11-14 15:41:51] Số câu đúng: 1
+[2025-11-14 15:41:51] Độ chính xác trung bình: 10.00%
+[2025-11-14 15:41:51] Điểm cosine trung bình: 0.4333
+[2025-11-14 15:41:51] Điểm F1 trung bình: 0.0199
+[2025-11-14 15:41:51] [SUGGESTION 1] Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+[2025-11-14 15:41:51] [SUGGESTION 2] Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+[2025-11-14 15:41:51] [SUGGESTION 3] Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+[2025-11-14 15:41:52] [SUGGESTION 4] Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+[2025-11-14 15:41:52] → Báo cáo chi tiết: logs/evaluated\mmr_high_topk\eval_report.csv
+[2025-11-14 15:41:52] → Biểu đồ phân phối: logs/evaluated\mmr_high_topk\accuracy_distribution.png
+[2025-11-14 15:41:52] → Gợi ý cải thiện: logs/evaluated\mmr_high_topk\improvement_plan.txt
+[2025-11-14 15:41:52] === BẮT ĐẦU ĐÁNH GIÁ RAG (cite_prompt) ===
+[2025-11-14 15:48:44] === KẾT QUẢ ĐÁNH GIÁ RAG (cite_prompt) ===
+[2025-11-14 15:48:44] Tổng số câu hỏi: 10
+[2025-11-14 15:48:44] Số câu đúng: 0
+[2025-11-14 15:48:44] Độ chính xác trung bình: 0.00%
+[2025-11-14 15:48:44] Điểm cosine trung bình: 0.4336
+[2025-11-14 15:48:44] Điểm F1 trung bình: 0.0183
+[2025-11-14 15:48:44] [SUGGESTION 1] Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+[2025-11-14 15:48:44] [SUGGESTION 2] Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+[2025-11-14 15:48:44] [SUGGESTION 3] Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+[2025-11-14 15:48:44] [SUGGESTION 4] Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+[2025-11-14 15:48:44] [SUGGESTION 5] Kết hợp chiến lược truy xuất đa dạng (MMR, reranker) để giảm trùng lặp và bao phủ thông tin tốt hơn.
+[2025-11-14 15:48:44] → Báo cáo chi tiết: logs/evaluated\cite_prompt\eval_report.csv
+[2025-11-14 15:48:44] → Biểu đồ phân phối: logs/evaluated\cite_prompt\accuracy_distribution.png
+[2025-11-14 15:48:44] → Gợi ý cải thiện: logs/evaluated\cite_prompt\improvement_plan.txt
+[2025-11-14 15:48:44] === Tổng kết các cấu hình đánh giá ===
+[2025-11-14 15:48:44] [baseline_similarity] accuracy=10.00% | avg_f1=0.0733 | avg_cosine=0.4055
+[2025-11-14 15:48:44] [mmr_high_topk] accuracy=10.00% | avg_f1=0.0199 | avg_cosine=0.4333
+[2025-11-14 15:48:44] [cite_prompt] accuracy=0.00% | avg_f1=0.0183 | avg_cosine=0.4336
+[2025-11-14 15:48:44] [AUTO] Cấu hình hiệu quả nhất: baseline_similarity (top_k=6, retrieval=similarity, prompt=strict)
+[2025-11-14 15:48:44] [CLEANUP] Đang đóng vectordb trước khi rebuild...
+[2025-11-14 15:48:44] [WARN] Không thể đóng vectordb đúng cách: property '_collection' of 'Chroma' object has no setter
+[2025-11-14 15:48:44] [AUTO] Accuracy 10.00% < 80% → Tiến hành fine-tuning và tái đánh giá...
+[2025-11-14 15:48:44] === BẮT ĐẦU FINE-TUNING (THẬT) ===
+[2025-11-14 15:48:44] → Thu thập dữ liệu từ 120 tài liệu.
+[2025-11-14 15:48:44] → Tổng số cặp câu huấn luyện: 1600
+[2025-11-14 15:48:44] → Sử dụng thiết bị: cpu
+[2025-11-14 15:48:51] → Bắt đầu fine-tune embedding model (RAM-safe, pseudo-gradient)...
+[2025-11-14 15:56:09] → Epoch 1 | Loss trung bình: 0.0049
+[2025-11-14 15:56:09] → Hoàn tất fine-tune (RAM-safe pseudo loop)
+[2025-11-14 15:56:31] → Đã lưu model fine-tuned tại: models\finetuned_embeddings\run_1763110569
+[2025-11-14 15:56:31] → Xây dựng lại Chroma với embedding mới...
+[2025-11-14 15:56:32] → Bắt đầu rebuild Chroma với 800 đoạn văn bản...
+[2025-11-14 15:58:53] → Đã xử lý 100/800 đoạn...
+[2025-11-14 16:01:15] → Đã xử lý 200/800 đoạn...
+[2025-11-14 16:03:21] → Đã xử lý 300/800 đoạn...
+[2025-11-14 16:05:56] → Đã xử lý 400/800 đoạn...
+[2025-11-14 16:07:55] → Đã xử lý 500/800 đoạn...
+[2025-11-14 16:10:19] → Đã xử lý 600/800 đoạn...
+[2025-11-14 16:13:03] → Đã xử lý 700/800 đoạn...
+[2025-11-14 16:15:53] → Đã xử lý 800/800 đoạn...
+[2025-11-14 16:15:53] → Đang lưu Chroma xuống đĩa...
+[2025-11-14 16:15:53] → Chroma mới đã được lưu tại: D:\Github\Final_DL\db\chroma_instruct2ds_finetuned
+[2025-11-14 16:15:53] → Chroma mới: D:\Github\Final_DL\db\chroma_instruct2ds_finetuned
+[2025-11-14 16:15:53] Thời gian fine-tune: 1629.11s
+[2025-11-14 16:15:53] === KẾT THÚC FINE-TUNING ===
+[2025-11-14 16:15:53] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-14 16:19:49] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 16:19:49] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-14 16:19:50] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-14 16:19:50] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 16:19:55] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 16:19:57] Truy xuất được 8 đoạn context.
+[2025-11-14 16:19:57] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 16:20:30] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 16:20:30] Thời gian thực thi: 41.19s
+[2025-11-14 16:21:55] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 16:21:55] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-14 16:21:56] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-14 16:21:56] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 16:22:01] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 16:22:04] Truy xuất được 8 đoạn context.
+[2025-11-14 16:22:05] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 16:22:35] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 16:22:35] Thời gian thực thi: 40.19s
+[2025-11-14 16:23:14] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 16:23:14] Câu hỏi: Mô hình RAG được giới thiệu ở hội nghị nào?
+[2025-11-14 16:23:15] → Dịch sang tiếng Anh để truy vấn: At which conference was the RAG model introduced?
+[2025-11-14 16:23:15] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 16:23:21] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 16:23:24] Truy xuất được 10 đoạn context.
+[2025-11-14 16:23:24] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 16:24:14] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 16:24:14] Thời gian thực thi: 60.18s
+[2025-11-14 16:46:13] === BẮT ĐẦU BƯỚC 5 (Qwen2.5 - Ollama) ===
+[2025-11-14 16:46:13] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-14 16:47:34] → Số câu hỏi sinh ra: 10
+[2025-11-14 16:47:34] → Đã lưu danh sách câu hỏi tại: logs/evaluated/questions_generated_20251114_164734.csv
+[2025-11-14 16:47:34] === BẮT ĐẦU ĐÁNH GIÁ RAG (baseline_similarity) ===
+[2025-11-14 16:52:30] === KẾT QUẢ ĐÁNH GIÁ RAG (baseline_similarity) ===
+[2025-11-14 16:52:30] Tổng số câu hỏi: 10
+[2025-11-14 16:52:30] Số câu đúng: 2
+[2025-11-14 16:52:30] Độ chính xác trung bình: 20.00%
+[2025-11-14 16:52:30] Điểm cosine trung bình: 0.4716
+[2025-11-14 16:52:30] Điểm F1 trung bình: 0.0244
+[2025-11-14 16:52:30] [SUGGESTION 1] Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+[2025-11-14 16:52:30] [SUGGESTION 2] Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+[2025-11-14 16:52:30] [SUGGESTION 3] Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+[2025-11-14 16:52:30] [SUGGESTION 4] Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+[2025-11-14 16:52:30] [SUGGESTION 5] Kết hợp chiến lược truy xuất đa dạng (MMR, reranker) để giảm trùng lặp và bao phủ thông tin tốt hơn.
+[2025-11-14 16:52:30] → Báo cáo chi tiết: logs/evaluated\baseline_similarity\eval_report.csv
+[2025-11-14 16:52:30] → Biểu đồ phân phối: logs/evaluated\baseline_similarity\accuracy_distribution.png
+[2025-11-14 16:52:30] → Gợi ý cải thiện: logs/evaluated\baseline_similarity\improvement_plan.txt
+[2025-11-14 16:52:30] === BẮT ĐẦU ĐÁNH GIÁ RAG (mmr_high_topk) ===
+[2025-11-14 16:57:57] === KẾT QUẢ ĐÁNH GIÁ RAG (mmr_high_topk) ===
+[2025-11-14 16:57:57] Tổng số câu hỏi: 10
+[2025-11-14 16:57:57] Số câu đúng: 2
+[2025-11-14 16:57:57] Độ chính xác trung bình: 20.00%
+[2025-11-14 16:57:57] Điểm cosine trung bình: 0.4442
+[2025-11-14 16:57:57] Điểm F1 trung bình: 0.0233
+[2025-11-14 16:57:57] [SUGGESTION 1] Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+[2025-11-14 16:57:57] [SUGGESTION 2] Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+[2025-11-14 16:57:57] [SUGGESTION 3] Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+[2025-11-14 16:57:57] [SUGGESTION 4] Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+[2025-11-14 16:57:57] → Báo cáo chi tiết: logs/evaluated\mmr_high_topk\eval_report.csv
+[2025-11-14 16:57:57] → Biểu đồ phân phối: logs/evaluated\mmr_high_topk\accuracy_distribution.png
+[2025-11-14 16:57:57] → Gợi ý cải thiện: logs/evaluated\mmr_high_topk\improvement_plan.txt
+[2025-11-14 16:57:57] === BẮT ĐẦU ĐÁNH GIÁ RAG (cite_prompt) ===
+[2025-11-14 17:03:31] === KẾT QUẢ ĐÁNH GIÁ RAG (cite_prompt) ===
+[2025-11-14 17:03:31] Tổng số câu hỏi: 10
+[2025-11-14 17:03:31] Số câu đúng: 2
+[2025-11-14 17:03:31] Độ chính xác trung bình: 20.00%
+[2025-11-14 17:03:31] Điểm cosine trung bình: 0.4429
+[2025-11-14 17:03:31] Điểm F1 trung bình: 0.0228
+[2025-11-14 17:03:31] [SUGGESTION 1] Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+[2025-11-14 17:03:31] [SUGGESTION 2] Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+[2025-11-14 17:03:31] [SUGGESTION 3] Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+[2025-11-14 17:03:31] [SUGGESTION 4] Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+[2025-11-14 17:03:31] [SUGGESTION 5] Kết hợp chiến lược truy xuất đa dạng (MMR, reranker) để giảm trùng lặp và bao phủ thông tin tốt hơn.
+[2025-11-14 17:03:31] → Báo cáo chi tiết: logs/evaluated\cite_prompt\eval_report.csv
+[2025-11-14 17:03:31] → Biểu đồ phân phối: logs/evaluated\cite_prompt\accuracy_distribution.png
+[2025-11-14 17:03:31] → Gợi ý cải thiện: logs/evaluated\cite_prompt\improvement_plan.txt
+[2025-11-14 17:03:31] === Tổng kết các cấu hình đánh giá ===
+[2025-11-14 17:03:31] [baseline_similarity] accuracy=20.00% | avg_f1=0.0244 | avg_cosine=0.4716
+[2025-11-14 17:03:31] [mmr_high_topk] accuracy=20.00% | avg_f1=0.0233 | avg_cosine=0.4442
+[2025-11-14 17:03:31] [cite_prompt] accuracy=20.00% | avg_f1=0.0228 | avg_cosine=0.4429
+[2025-11-14 17:03:31] [AUTO] Cấu hình hiệu quả nhất: baseline_similarity (top_k=6, retrieval=similarity, prompt=strict)
+[2025-11-14 17:03:31] [CLEANUP] Đang đóng vectordb trước khi rebuild...
+[2025-11-14 17:03:31] [WARN] Không thể đóng vectordb đúng cách: property '_collection' of 'Chroma' object has no setter
+[2025-11-14 17:03:31] [AUTO] Accuracy 20.00% < 80% → Tiến hành fine-tuning và tái đánh giá...
+[2025-11-14 17:03:31] === BẮT ĐẦU FINE-TUNING (THẬT) ===
+[2025-11-14 17:03:31] → Thu thập dữ liệu từ 120 tài liệu.
+[2025-11-14 17:03:31] → Tổng số cặp câu huấn luyện: 1600
+[2025-11-14 17:03:31] → Sử dụng thiết bị: cpu
+[2025-11-14 17:04:03] → Bắt đầu fine-tune embedding model (RAM-safe, pseudo-gradient)...
+[2025-11-14 17:11:21] → Epoch 1 | Loss trung bình: 0.0049
+[2025-11-14 17:11:21] → Hoàn tất fine-tune (RAM-safe pseudo loop)
+[2025-11-14 17:11:52] → Đã lưu model fine-tuned tại: models\finetuned_embeddings\run_1763115081
+[2025-11-14 17:11:52] → Xây dựng lại Chroma với embedding mới...
+[2025-11-14 17:11:52] → Bắt đầu rebuild Chroma với 800 đoạn văn bản...
+[2025-11-14 17:15:19] → Đã xử lý 100/800 đoạn...
+[2025-11-14 17:18:52] → Đã xử lý 200/800 đoạn...
+[2025-11-14 17:22:11] → Đã xử lý 300/800 đoạn...
+[2025-11-14 17:26:34] → Đã xử lý 400/800 đoạn...
+[2025-11-14 17:30:40] → Đã xử lý 500/800 đoạn...
+[2025-11-14 17:35:02] → Đã xử lý 600/800 đoạn...
+[2025-11-14 17:39:34] → Đã xử lý 700/800 đoạn...
+[2025-11-14 17:43:22] → Đã xử lý 800/800 đoạn...
+[2025-11-14 17:43:22] → Đang lưu Chroma xuống đĩa...
+[2025-11-14 17:43:22] → Chroma mới đã được lưu tại: D:\Github\Final_DL\db\chroma_instruct2ds_finetuned
+[2025-11-14 17:43:22] → Chroma mới: D:\Github\Final_DL\db\chroma_instruct2ds_finetuned
+[2025-11-14 17:43:22] Thời gian fine-tune: 2391.05s
+[2025-11-14 17:43:22] === KẾT THÚC FINE-TUNING ===
+[2025-11-14 17:43:22] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...

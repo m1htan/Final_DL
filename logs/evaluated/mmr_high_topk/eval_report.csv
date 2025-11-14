@@ -1,117 +1,68 @@
 question,gold,pred,cosine,f1,label
-Metarules consist of how many parts?,two parts,"Based on the description provided in the text, metarules can be classified into three types:
+Đoạn trích nói gì về cách sử dụng dữ liệu không nhãn?,Sử dụng cấu trúc đồ thị để phản ánh nội bộ của dữ liệu.,"Dựa trên thông tin được cung cấp trong đoạn trích, không có thông tin cụ thể nào đề cập đến việc sử dụng dữ liệu không nhãn (unlabeled data). Đoạn trích dường như tập trung vào các công trình nghiên cứu về nhận dạng khuôn mặt và học máy, nhưng không đề cập đến cách sử dụng dữ liệu không nhãn trong bối cảnh này. Tuy nhiên, có một số công trình được liệt kê ở cuối đoạn trích (từ 16 đến 22) đã đề cập đến việc sử dụng dữ liệu không nhãn:
 
-1. Introductory metarules: These have one part - an instantiation form (IF).
-2. Deletion metarules: These also have one part - a match form (MF).
-3. Derivation metarules: These have two parts - both a match form (MF) and an instantiation form (IF).
+- Công trình của Ng và Winkler (2014) đề xuất phương pháp xử lý lớn dữ liệu khuôn mặt bằng cách sử dụng dữ liệu không nhãn.
+- Công trình của Schroff, Kalenichenko, và Philbin (2015) về FaceNet cũng có thể liên quan đến việc sử dụng dữ liệu không nhãn trong quá trình học.
 
-So in total, metarules can consist of 1 to 2 parts depending on their type.
+Nhưng để đưa ra một kết luận chính xác hơn, cần xem xét toàn bộ nội dung của các công trình này.",0.7528,0.0757,Đúng
+CDP gồm những phần nào?,Bao gồm 'committee' và môđun khác.,"Theo thông tin được cung cấp trong đoạn văn, CDP (Conceptual Dependency Parsing) bao gồm các phần sau:
 
-- Introductory and deletion metarules consist of 1 part.
-- Derivation metarules consist of 2 parts.",0.2466,0.044,Sai
-What are the two parts of metarules?,match template and instantiation template,"Based on the information provided in the text, it appears that there are no explicit mentions of ""metarules"" being divided into two specific parts. The text focuses on describing a parser for Japanese language and its components.
+1. Events: Các sự kiện hoặc hành động được mô tả.
 
-However, if we interpret your question in the context of metarules as used in parsing or grammar rules, typically metarules can be thought of as higher-level rules that govern how other (lower-level) grammatical rules are applied. They often come in pairs or have two main aspects:
+2. Agents: Những chủ thể thực hiện các sự kiện.
 
-1. **Directionality**: This could refer to whether a rule is applied from left-to-right or right-to-left in the sentence structure.
-2. **Scope**: This might relate to the extent of application, such as whether a rule applies globally or locally within a sentence.
+3. Themes: Các đối tượng tham gia vào hoặc bị ảnh hưởng bởi các sự kiện.
 
-Without more specific context about what ""metarules"" refers to in this particular text, these are general interpretations based on common usage in parsing and grammar frameworks. If you have additional details about where you encountered the term ""metarules,"" please provide them for a more accurate answer.",0.2788,0.0114,Sai
-Đoạn trích nói gì về cách xử lý 'and' trong câu?,'And' kết nối cả hai-clause sau nó.,"Đoạn trích không cung cấp thông tin cụ thể về cách xử lý từ ""and"" trong câu. Để có thể trả lời chính xác, cần thêm thông tin hoặc ví dụ liên quan đến cách xử lý từ ""and"" được đề cập trong đoạn trích. Đoạn trích này chủ yếu tập trung vào việc giải thích cấu trúc và cách phân tích các thành phần của câu, nhưng không đề cập cụ thể đến từ ""and"".",0.7526,0.0,Đúng
-Algorithms假信息已被纠正：原始请求涉及计算机视觉，但提供的段落讨论的是句子成分分析。因此，无法从给定段落中生成关于计算机视觉的问题。正确的JSON格式答案应基于段落内容而非计算机视觉主题。,'And' thường kết nối hai-clause trong cùng một câu.,"由于给定的段落主要讨论了句子成分分析和语义知识获取，并未涉及计算机视觉相关的内容，因此无法直接从该段落中提出关于计算机视觉的问题。但是，如果我们需要根据段落内容生成一个问题，则可以基于句子成分分析方面来设计问题。
+4. Paths: Các đường dẫn hoặc quan hệ giữa các sự kiện, chủ thể và đối tượng.
 
-例如：
-```json
-{
-  ""question"": ""在讨论句子成分分析时，KIP是如何评估动态关注的？"",
-  ""answer"": ""KIP通过检查存储计划USE-LSPR-COMMAND的条件，并为当前计划创建相应的动态关注。对于最有可能导致计划失败的情况（如打印机是否有纸、是否在线），它会首先考虑这些情况。""
-}
-```
+CDP là một phương pháp phân tích ngữ nghĩa sâu của câu tiếng Việt, mô tả cấu trúc ý nghĩa của câu dưới dạng các mối liên kết giữa các yếu tố như sự kiện, chủ thể và đối tượng.",0.8083,0.0508,Đúng
+Ai đã đề xuất sử dụng loại trong FUGs?,Bob Kasper,"The use of ""contrastive"" in FUGs (Functional Unification Grammar) was proposed by McKeown and Elhadad. Specifically, they contrasted different versions of FUG for surface language generation tasks in their work. However, it's important to note that the term ""contrastive evaluation"" rather than just ""contrastive"" is more accurately used here. They evaluated different aspects of FUGs to see how well they could generate natural language text, including choices of connectives and other grammatical elements.",0.2138,0.0,Sai
+Đoạn trích này có liên quan đến Computer Vision (ECCV) không?,Không,"Không, đoạn trích này không có liên quan trực tiếp đến Computer Vision (ECCV). Đoạn văn đề cập đến các khái niệm và thuật ngữ trong lĩnh vực xử lý ngôn ngữ tự nhiên như học máy, phân loại từ vựng, và hệ thống hỗ trợ quyết định. Nó không đề cập đến bất kỳ chủ đề nào liên quan đến thị giác máy tính hoặc ECCV (European Conference on Computer Vision).",0.2321,0.0274,Sai
+Đoạn trích có liên quan đến Computer Vision không?,Không,"Không, đoạn trích này không liên quan đến Computer Vision. Nội dung của đoạn trích dường như tập trung vào các chủ đề về logic toán học, lý thuyết ngôn ngữ tự nhiên (Natural Language Theory), và hệ thống nhận thức tri thức (Knowledge Representation System). Cụ thể:
 
-此问题和答案对基于段落内容，而不是计算机视觉主题。",0.2864,0.0,Sai
-"Trong mô tả khung cảnh, việc gì là quan trọng?",Set up and run event simulations.,"Để trả lời câu hỏi này một cách chính xác, tôi cần thêm thông tin về ngữ cảnh cụ thể bạn đang đề cập. Tuy nhiên, dựa trên những gì được mô tả trong đoạn trích, có vẻ như việc xác định các yếu tố quan trọng trong khung cảnh mô tả là:
+1. Nó thảo luận về việc giải quyết công thức logic boolean.
+2. Có menção đến các khái niệm từ học như schemata và definitional patterns.
+3. Nêu tên của một số hệ thống nhận thức tri thức như KL-ONE, NIKL.
+4. Đề cập đến các tác giả nghiên cứu trong lĩnh vực này như R. Mooney, M.G. Moser, R. Schank.
 
-1. Chi tiết về vị trí hoặc địa điểm: Ví dụ như ""the door to the""
-2. Các đối tượng hoặc vật thể xung quanh: Ví dụ như ""shoe"" trong ví dụ (a1)
-3. Tình huống hoặc hành động có thể xảy ra: Ví dụ như việc di chuyển đến hầm để lấy giày
-4. Sự kiện hoặc vấn đề tiềm tàng: Ví dụ như việc cửa bị khóa (a2) hay cầu thang trơn trượt (a3)
+Computer Vision thường liên quan đến việc xử lý và phân tích hình ảnh bằng máy tính, không có bất kỳ yếu tố nào trong đoạn trích này đề cập đến chủ đề này.",0.2157,0.0139,Sai
+Dow Jones industrial average có biến động như thế nào trong các ngày được đề cập?,"Có tăng, giảm và ổn định","Xin lỗi, nhưng thông tin bạn cung cấp không bao gồm dữ liệu về biến động của Chỉ số Dow Jones công nghiệp trong bất kỳ ngày cụ thể nào. Để trả lời câu hỏi này chính xác, tôi cần biết các ngày cụ thể bạn đang quan tâm đến. Bạn có thể cung cấp thêm thông tin về những ngày bạn muốn biết về biến động chỉ số không?",0.6072,0.0263,Sai
+Những nguyên tắc chung nào cần thiết?,General principles are needed to explain how readers recognize the ending boundaries of subjective contexts.,"Dựa trên thông tin được cung cấp trong đoạn văn, không có liệt kê cụ thể về những nguyên tắc chung nào cần thiết. Đoạn văn này dường như đề cập đến các công trình nghiên cứu về định vị và định hướng (SLAM - Simultaneous Localization and Mapping) cho máy bay không người lái (MAV), nhưng không nêu rõ bất kỳ nguyên tắc chung cụ thể nào.
 
-Trong các ví dụ được cung cấp, những yếu tố này đều đóng vai trò quan trọng trong việc tạo ra một khung cảnh mô tả đầy đủ và hữu ích.",0.3136,0.0,Sai
-Việc gì giúp đánh giá tính khả thi của mô tả?,Experience in attempting to set up and run the simulation.,"Việc đánh giá tính khả thi của mô tả thường phụ thuộc vào việc xem xét các ""concern"" hoặc mối quan tâm liên quan đến hành động được mô tả. Trong ví dụ về hệ thống KIP, các yếu tố như:
+Để trả lời chính xác câu hỏi, chúng ta cần thêm thông tin từ nguồn gốc đầy đủ của đoạn văn này. Tuy nhiên, dựa trên nội dung đã có, tôi có thể đưa ra một số giả định:
 
-1. **Trạng thái hiện tại**: Xác định liệu máy in có sẵn sàng không (online/offline).
-2. **Tình trạng vật lý**: Kiểm tra xem có giấy trong máy in hay không.
-3. **Mối quan tâm động**: Các yếu tố có thể thay đổi như việc có giấy bị kẹt hoặc máy in gặp sự cố.
+1. Có thể các nguyên tắc chung bao gồm: 
+- Nguyên tắc sử dụng kết hợp dữ liệu từ nhiều cảm biến
+- Nguyên tắc xử lý đồng thời xác định vị trí và tạo bản đồ
+- Nguyên tắc tích hợp thông tin hình ảnh và dữ liệu động lực học
 
-Việc đánh giá các ""concern"" này giúp xác định liệu hành động (trong trường hợp này là in) có khả thi hay không, và nếu không khả thi, cần đưa ra lời khuyên cho người dùng về những vấn đề cụ thể.",0.4611,0.0136,Sai
-Số lượng thành viên trong committee ảnh hưởng thế nào đến chất lượng?,More committee members bring more meaningful pairs.,"Số lượng thành viên trong committee có thể ảnh hưởng đến chất lượng công việc củacommittee một cách tích cực hoặc tiêu cực, tùy thuộc vào nhiều yếu tố:
+Nhưng đây chỉ là suy đoán dựa trên nội dung đã có, không phải là những nguyên tắc chung được nêu rõ trong đoạn văn.",0.434,0.0,Sai
+Các yếu tố gì giúp xác định giới hạn của ngữ cảnh chủ quan?,"Tense, deictic terms, characters' goals and argument structure often exhibited by thoughts.","Giới hạn của ngữ cảnh chủ quan thường được xác định bởi một số yếu tố sau:
 
-1. Tích cực: 
-- Số lượng lớn hơn có thể mang lại góc nhìn đa dạng và phong phú hơn.
-- Có nhiều nguồn lực và chuyên môn khác nhau để chia sẻ.
-- Có thể thảo luận sâu rộng hơn về các vấn đề.
+1. Thông tin nội bộ: Các thông tin, kiến thức và kinh nghiệm cá nhân của người nói và người nghe.
 
-2. Tiêu cực:
-- Quản lý công việc trở nên phức tạp hơn khi số lượng tăng lên.
-- Thời gian họp có thể kéo dài và tốn kém.
-- Có thể khó đạt được sự đồng thuận giữa nhiều thành viên.
-- Thông tin có thể bị mất đi nếu không quản lý tốt quá trình trao đổi.
+2. Mối quan hệ giữa các bên tham gia giao tiếp: Quan hệ xã hội, vai trò trong cuộc đối thoại.
 
-Tuy nhiên, nghiên cứu cho thấy 5-7 thành viên thường là số lượng phù hợp nhất để đảm bảo hiệu quả trong các committee. Số lượng này đủ lớn để mang lại góc nhìn đa dạng nhưng vẫn nhỏ gọn dễ quản lý và đạt được sự đồng thuận.
+3. Văn hóa và ngữ cảnh văn hóa: Giá trị, quy tắc ứng xử, ngôn ngữ thể hiện của cộng đồng.
 
-Quan trọng nhất là chất lượng của từng thành viên tham gia, không chỉ dựa vào số lượng. Thành viên cần có kinh nghiệm, kiến thức chuyên môn phù hợp và tinh thần làm việc nhóm tốt.",0.5664,0.0088,Sai
-Những vector nào cải thiện hiệu suất của 'mediator'?,"'affinity vector', 'neighbors distribution vector'","Dựa trên thông tin trong đoạn văn, không có đề cập cụ thể đến những vector cụ thể đã cải thiện hiệu suất của ""mediator"". Tuy nhiên, có một số điểm có thể suy luận:
+4. Mục đích giao tiếp cụ thể: Đối tượng muốn truyền đạt thông tin gì, mong muốn gì từ người nghe.
 
-- Vector Dx Ci chứa các giá trị cosin tính từ vec tơ đặc trưng FCi(x) và FCi(xk) giữa hai nút x và xk. Điều này cho thấy việc sử dụng vector đặc trưng giúp mô hình phân biệt mối quan hệ.
+5. Thời điểm và không gian diễn ra cuộc đối thoại: Điều kiện vật lý và thời gian thực tế.
 
-- Việc sử dụng nhiều ""committee members"" cung cấp đa dạng ý kiến, có thể giúp cải thiện độ chính xác của quyết định cuối cùng của mediator.
+6. Các yếu tố ngôn ngữ: Từ vựng, cấu trúc câu, cách diễn đạt được sử dụng.
 
-- Cơ chế trao đổi thông tin giữa các thành viên ban đầu và mediator cũng đóng vai trò quan trọng trong quá trình ra quyết định cuối cùng.
+7. Mối quan hệ giữa các phát biểu: Cách liên kết các câu trong cuộc trò chuyện.
 
-Nếu cần biết thêm chi tiết về vector cụ thể nào đã cải thiện hiệu suất, có thể cần xem xét thêm thông tin từ nguồn gốc của đoạn văn này.",0.2049,0.0,Sai
-CO-OP hệ thống cần gì để thay đổi cơ sở dữ liệu?,Chỉ cần cập nhật lexicon và database schema.,"Để CO-OP hệ thống có thể thay đổi cơ sở dữ liệu, cần có một số yếu tố quan trọng sau:
+8. Trạng thái tâm lý của người nói và người nghe: Tình cảm, ý định, tình huống hiện tại.
 
-1. Quyền truy cập: Hệ thống phải có quyền cập nhật hoặc quản lý cơ sở dữ liệu.
+9. Các thông tin đã được chia sẻ trước đó: Lịch sử giao tiếp giữa các bên.
 
-2. Giao diện quản trị: Có giao diện người dùng (UI) hoặc API cho phép thực hiện các thay đổi.
+10. Mối quan hệ giữa ngôn ngữ và thực tế thế giới: Cách liên kết giữa từ vựng và đối tượng trong thế giới thực.
 
-3. Lựa chọn ngôn ngữ lập trình: Cần sử dụng ngôn ngữ lập trình phù hợp để viết mã cập nhật cơ sở dữ liệu.
+Những yếu tố này cùng nhau tạo nên một không gian ngữ cảnh chủ quan mà người nói có thể sử dụng để hiểu và diễn đạt ý nghĩa của mình, đồng thời cũng xác định được những giới hạn về thông tin và cách thức giao tiếp mà họ có thể sử dụng.",0.5083,0.0,Sai
+Đoạn trích có đề cập đến Computer Vision không?,Không,"Không, đoạn trích này không đề cập đến Computer Vision. Đoạn văn tập trung vào các khái niệm và thuật ngữ về logic hình học bê tông, bao gồm các công thức Boolean và cách giải quyết chúng. Nó không mention hay liên quan đến lĩnh vực Computer Vision nào cả.",0.2179,0.0385,Sai
+Có bài báo nào liên quan đến ngữ pháp chức năng không?,"Có, Halliday, Michael A.K. (1985)","Dựa trên thông tin được cung cấp, có một bài báo đề cập đến ngữ pháp chức năng:
 
-4. Mã lệnh SQL hoặc CSDL: Cần có câu lệnh SQL hoặc các hàm, phương thức của hệ quản trị cơ sở dữ liệu (DBMS) để thực hiện thay đổi.
+Bài báo ""An Augmented Chart Parsing Algorithm Integrating Unification Grammar and Markov Language Model for Continuous Speech Recognition"" của Chien, Chen và Lee (1990) đã mô tả việc áp dụng ngữ pháp chức năng (Unification Grammar) trong quá trình phân tích ngôn ngữ tự nhiên. Tuy nhiên, đây không phải là một bài báo chuyên về ngữ pháp chức năng mà là một ứng dụng cụ thể của nó trong lĩnh vực nhận dạng ngôn ngữ nói liên tục.
 
-5. Kiểm tra và xác minh: Có quy trình kiểm tra để đảm bảo thay đổi được thực hiện đúng và không gây ra vấn đề khác.
-
-6. Lưu bản sao lưu: Trước khi thực hiện thay đổi, nên tạo bản sao lưu cơ sở dữ liệu để phòng trường hợp cần khôi phục.
-
-7. Logs: Ghi lại các thay đổi đã thực hiện để theo dõi lịch sử và kiểm tra sau này.
-
-8. Phân quyền: Nếu có nhiều người dùng hoặc hệ thống khác truy cập cùng một cơ sở dữ liệu, cần phân quyền cho họ.
-
-9. Kiểm thử: Thực hiện kiểm thử kỹ lưỡng sau khi thay đổi để đảm bảo tính toàn vẹn và hiệu năng của hệ thống.
-
-10. Xác minh với người dùng: Đảm bảo rằng các thay đổi phù hợp với yêu cầu và mong muốn của người dùng cuối cùng.
-
-Tất cả những yếu tố này giúp CO-OP hệ thống thực hiện thay đổi cơ sở dữ liệu một cách an toàn, hiệu quả và tuân thủ quy định.",0.6788,0.0267,Sai
-Paraphraser của CO-OP làm gì cho người dùng không chuyên?,Trả lời bằng tiếng Anh để kiểm tra lỗi.,"Paraphraser của CO-OP giúp người dùng không chuyên dễ dàng chuyển đổi và biến tấu các câu văn gốc thành những phiên bản khác nhau mà vẫn giữ được ý nghĩa chính. Công cụ này tự động hóa quá trình viết lại, cho phép người dùng tạo ra nhiều cách diễn đạt khác biệt chỉ với một cú nhấp chuột, tiết kiệm thời gian và công sức so với việc viết tay.",0.7916,0.0,Đúng
-Trong ví dụ nào Hannah chỉ nhận biết violets là 'small dots of purple'?,(20),"Thông tin về điều này không được đề cập trong đoạn văn bạn đã cung cấp. Ví dụ mà bạn hỏi về cách Hannah nhận biết hoa violet như ""small dots of purple"" không có trong nội dung được trình bày. Để trả lời câu hỏi này, chúng ta cần thêm thông tin hoặc ví dụ cụ thể từ nguồn khác.",0.2485,0.0,Sai
-Superordinate term thể hiện gì trong việc mô tả của Muhammad?,Muhammad không biết referents là gì,"Thông tin về superordinate term không được cung cấp trong câu hỏi và không có thông tin liên quan nào trong đoạn trích đã cho. Để trả lời chính xác câu hỏi này, chúng ta cần thêm thông tin về ngữ cảnh hoặc nội dung mà Muhammad đang mô tả.
-
-Tuy nhiên, dựa trên từ vựng thường gặp:
-
-- Superordinate term thường chỉ một từ chung hơn (superordinate) so với các từ con (subordinates) trong hệ thống phân loại.
-- Trong mô tả của Muhammad, superordinate term có thể thể hiện khái niệm chung hoặc tổng quát hơn mà anh ta đang sử dụng để phân loại hoặc tổ chức thông tin.
-
-Nếu bạn có thêm thông tin về ngữ cảnh hoặc cụm từ mà Muhammad đang mô tả, tôi sẽ có thể đưa ra một trả lời chính xác hơn.",0.6976,0.0272,Sai
-Có bài viết nào liên quan đếnSemantic Network trong đoạn trích không?,"Có, Shapiro và Rapaport (1987) đã trình bày về SNePS.","Có một số bài viết liên quan đến Semantic Network trong đoạn trích này:
-
-1. Trong phần ""References"" cuối cùng, có đề cập đến nhiều công trình nghiên cứu về Semantic Network như:
-   - SNePS (Semantic Networks with Production Systems) của Li Nai-long 
-   - Representation for Natural Category Systems của Peters và Shapiro
-   - A Relxesentation for Natural Category Systems của Maida và Shapiro
-
-2. Công trình của Grosz and Sidner (1986) cũng đề cập đến việc sử dụng Semantic Network trong xử lý ngôn ngữ tự nhiên.
-
-3. Trong phần mô tả hệ thống generator, có sử dụng các khái niệm như ""x-con"", ""y-con"", ""z-con"" - đây có thể là các quy tắc hoặc cấu trúc được định nghĩa trong một semantic network để quyết định sự thỏa mãn của công thức logic.
-
-Tuy nhiên, đoạn trích này chủ yếu tập trung vào việc mô tả một hệ thống kiểm tra sự thỏa mãn của công thức logic boolean, không phải là một bài viết cụ thể về Semantic Network.",0.7155,0.0442,Sai
-Đoạn trích đề cập đến tác giả nào nghiên cứu về Comprehension của Definite Anaphora?,Sidner (1983) đã nghiên cứu về Comprehension của Definite Anaphora.,"Dựa trên thông tin trong đoạn trích, tác giả được đề cập đến nghiên cứu về Comprehension của Definite Anaphora là Charles J. Fillmore. Cụ thể,Fillmore đã đưa ra mô hình ""Buffered Realization"" để giải thích về quá trình hiểu và sử dụng các từ đồng nghĩa giới hạn (Definite Anaphora) trong ngôn ngữ tự nhiên.",0.9002,0.2121,Đúng
+Nếu bạn đang tìm kiếm một bài báo trực tiếp tập trung vào ngữ pháp chức năng, thông tin cung cấp không đề cập đến. Để có thêm thông tin chính xác, bạn có thể cần tra cứu thêm các nguồn học thuật chuyên về ngữ pháp chức năng hoặc hệ thống phân tích ngôn ngữ dựa trên ngữ pháp chức năng.",0.4518,0.0,Sai
