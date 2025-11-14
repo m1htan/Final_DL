@@ -281,3 +281,46 @@ ACL_xxxx_referring_as_requesting.txt [chunk 8]
 - ACL_xxxx_donnellans-distinction-and-a-computational-model-of-reference.txt [chunk 8]
 - ACL_xxxx_a-calculus-for-semantic-composition-and-scoping.txt [chunk 9]
 - ACL_xxxx_machine-readable-dictionaries.txt [chunk 10]
+[2025-11-14 20:13:06] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 20:13:06] Câu hỏi: Bài 'a computational mechanism for pronominal reference' đề xuất cách xử lý đại từ như thế nào?
+[2025-11-14 20:13:07] → Dịch sang tiếng Anh để truy vấn: How does 'a computational mechanism for pronominal reference' suggest how to handle pronouns?
+[2025-11-14 20:13:07] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 20:13:12] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 20:13:14] Truy xuất được 10 đoạn context.
+[2025-11-14 20:13:14] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 20:13:33] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 20:13:33] Thời gian thực thi: 26.32s
+[2025-11-14 20:13:33] ----- KẾT QUẢ LLM -----
+[2025-11-14 20:13:33] Không đủ thông tin trong NGỮ CẢNH để kết luận.
+[2025-11-14 20:13:33] ----- NGUỒN -----
+[2025-11-14 20:13:33] - ACL_xxxx_expressing-concern.txt [chunk 1]
+- ACL_xxxx_expressing-concern.txt [chunk 2]
+- ACL_xxxx_a-calculus-for-semantic-composition-and-scoping.txt [chunk 3]
+- ACL_xxxx_donnellans-distinction-and-a-computational-model-of-reference.txt [chunk 4]
+- ACL_xxxx_paraphrasing-using-given-and-new-information-in-a-question-answer-system.txt [chunk 5]
+- ACL_xxxx_paraphrasing-using-given-and-new-information-in-a-question-answer-system.txt [chunk 6]
+- ACL_xxxx_a-case-analysis-method-cooperating-with-atng-and-its-application-to-machine-translation.txt [chunk 7]
+- ACL_xxxx_paraphrasing-using-given-and-new-information-in-a-question-answer-system.txt [chunk 8]
+- ACL_xxxx_solving-thematic-divergences-in-machine-translation.txt [chunk 9]
+- ACL_xxxx_panel-natural-language-and-databases-again.txt [chunk 10]
+[2025-11-14 21:24:10] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 21:24:10] Câu hỏi: hello
+[2025-11-14 21:24:10] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 21:25:30] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 21:26:05] Truy xuất được 10 đoạn context.
+[2025-11-14 21:26:06] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 21:31:31] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 21:31:31] Thời gian thực thi: 441.80s
+[2025-11-14 21:31:42] ----- KẾT QUẢ LLM -----
+[2025-11-14 21:31:42] Không đủ thông tin trong NGỮ CẢNH để kết luận.
+[2025-11-14 21:31:42] ----- NGUỒN -----
+[2025-11-14 21:31:42] - ACL_xxxx_a-computational-analysis-of-complex-noun-phrases-in-navy-messages.pdf [chunk 9]
+- ACL_xxxx_a-centering-approach-to-pronouns.pdf [chunk 10]
+- ACL_xxxx_a-centering-approach-to-pronouns.pdf [chunk 12]
+- ACL_xxxx_a-case-for-rule-driven-semantic-processing.pdf [chunk 16]
+- ACL_xxxx_2002-another-score.pdf [chunk 5]
+- ACL_xxxx_a-case-analysis-method-cooperating-with-atng-and-its-application-to-machine-translation.pdf [chunk 11]
+- ACL_xxxx_a-compositional-semantics-of-temporal-expressions-in-english.pdf [chunk 18]
+- ACL_xxxx_a-centering-approach-to-pronouns.pdf [chunk 9]
+- ACL_xxxx_a-compositional-semantics-of-temporal-expressions-in-english.pdf [chunk 19]
+- ACL_xxxx_a-compositional-semantics-of-temporal-expressions-in-english.pdf [chunk 1]

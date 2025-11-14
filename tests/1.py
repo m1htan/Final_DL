@@ -1,25 +1,17 @@
 import os
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = Path(r"D:\Github\Final_DL\data")
+PDF_DIR = DATA_DIR / "papers_raw"
+TEXT_DIR = DATA_DIR / "papers_text"
+TEXT_DIR.mkdir(parents=True, exist_ok=True)
+txt_files = []
+for root, dirs, files in os.walk(TEXT_DIR):
+    for f in files:
+        if f.endswith(".txt"):
+            txt_files.append(os.path.join(root, f))
 
-def print_tree_limited(startpath, prefix="", level=0, max_level=4):
-    if level >= max_level:
-        return
+print("Số file txt:", len(txt_files))
+print(txt_files[:10])
 
-    try:
-        items = sorted([
-            f for f in os.listdir(startpath)
-            if not f.startswith('.') and f not in ['venv', '.venv', '__pycache__', '.git', '.idea']
-        ])
-    except PermissionError:
-        return
-
-    for i, name in enumerate(items):
-        path = os.path.join(startpath, name)
-        connector = "└── " if i == len(items) - 1 else "├── "
-        print(prefix + connector + name)
-
-        if os.path.isdir(path):
-            extension = "    " if i == len(items) - 1 else "│   "
-            print_tree_limited(path, prefix + extension, level + 1, max_level)
-
-# Gọi hàm
-print_tree_limited(r"D:\Github\Final_DL", max_level=4)
+print(open(txt_files[0], encoding="utf-8").read()[:500])

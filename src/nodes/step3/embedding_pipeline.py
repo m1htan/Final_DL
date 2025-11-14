@@ -21,7 +21,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 import torch
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
 
-DATA_DIR = Path("data")
+DATA_DIR = Path(r"D:\Github\Final_DL\data")
 PDF_DIR = DATA_DIR / "papers_raw"
 TEXT_DIR = DATA_DIR / "papers_text"
 TEXT_DIR.mkdir(parents=True, exist_ok=True)
@@ -44,24 +44,21 @@ def extract_text_from_pdf(pdf_path: Path) -> str:
         return ""
 
 
-def _device_candidates() -> List[str]:
-    """Xác định thứ tự ưu tiên các thiết bị có thể dùng cho embedding."""
-    candidates: List[str] = []
+def _device_candidates():
+    candidates = []
 
-    if torch is None:
-        return ["cpu"]
-
+    # ƯU TIÊN GPU ĐẦU TIÊN
     if torch.cuda.is_available():
         candidates.append("cuda")
 
-    # Ưu tiên CPU trước MPS để tránh treo model khi backend MPS chưa ổn định
+    # sau đó mới tới cpu
     candidates.append("cpu")
 
-    mps_backend = getattr(torch.backends, "mps", None)
-    if mps_backend is not None and mps_backend.is_available():
-        candidates.append("mps")
     return candidates
 
+import torch
+torch.set_grad_enabled(False)
+torch.backends.cudnn.benchmark = True
 
 def embedding_pipeline_node(state: dict) -> dict:
     """Thực hiện trích xuất text và embedding toàn bộ PDF vào Chroma."""
@@ -88,10 +85,15 @@ def embedding_pipeline_node(state: dict) -> dict:
         log(f"Đang khởi tạo model {model_name} trên thiết bị '{device}'.")
         try:
             embeddings = HuggingFaceEmbeddings(
-                model_name=model_name,
+                model_name=EMBEDDING_MODEL,
                 model_kwargs={"device": device},
-                encode_kwargs={"normalize_embeddings": True}
+                encode_kwargs={
+                    "normalize_embeddings": True,
+                    "batch_size": 64
+                }
             )
+            log("[GPU] Đã khởi tạo embedding trên CUDA (RTX 4060).")
+
         except Exception as err:
             last_error = err
             log(f"[WARN] Không khởi tạo được trên '{device}': {err}")
@@ -150,7 +152,12 @@ def embedding_pipeline_node(state: dict) -> dict:
 
         ids = [f"{pdf_path.stem}_{i}" for i in range(len(texts))]
 
-        vectordb.add_texts(texts, ids=ids, metadatas=metas)
+        # GPU batch embedding → Chroma
+        vectordb.add_texts(
+            texts=texts,
+            ids=ids,
+            metadatas=metas,
+        )
         total_chunks += len(texts)
         log(f"→ Đã lưu {len(texts)} đoạn từ {pdf_path.name} vào Chroma.")
 

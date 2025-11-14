@@ -9,6 +9,7 @@ from langdetect import detect
 from deep_translator import GoogleTranslator
 
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
+from src.nodes.step4.users_query import users_query
 
 DB_DIR = Path(CHROMA_DIR)
 DB_DIR.mkdir(parents=True, exist_ok=True)
@@ -114,6 +115,15 @@ def query_pipeline_node(state: dict) -> dict:
 
     if not docs:
         msg = "Không tìm thấy context phù hợp trong cơ sở dữ liệu. Hãy thử từ khóa khác hoặc câu hỏi cụ thể hơn."
+
+        if len(docs[0].page_content.strip()) < 50:
+            msg = "Không đủ thông tin trong NGỮ CẢNH để trả lời câu hỏi này."
+            log(msg)
+            qlog(msg)
+            state["response"] = msg
+            state.setdefault("trace", []).append("[query] context quá yếu → từ chối trả lời.")
+            return state
+
         log(msg)
         qlog(msg)
         state["response"] = msg
@@ -155,6 +165,13 @@ def query_pipeline_node(state: dict) -> dict:
 
     llm_raw = llm.invoke(prompt)
     llm_answer = getattr(llm_raw, "content", str(llm_raw)).strip()
+
+    context_text_small = (context_str[:1000] or "").lower()
+    answer_small = llm_answer.lower()
+
+    if not any(tok in context_text_small for tok in answer_small.split()[:5]):
+        llm_answer = "Không đủ thông tin trong NGỮ CẢNH để kết luận."
+
     llm_answer_vi = _translate_answer_to_vietnamese(llm_answer)
 
     elapsed = time.time() - t0
@@ -173,7 +190,7 @@ def query_pipeline_node(state: dict) -> dict:
 
     # Cập nhật state
     state["llm_answer"] = llm_answer_vi
-    state["response"] = full_response
+    state["response"] = users_query(user_query, full_response)
     state.setdefault("trace", []).append(
         f"[query] top_k={top_k}, results={len(docs)}, elapsed={elapsed:.2f}s"
     )
