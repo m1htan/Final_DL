@@ -17,14 +17,6 @@ COLLECTION_NAME = "instruct2ds"
 QUERY_LOG = Path("logs/query.log")
 QUERY_LOG.parent.mkdir(exist_ok=True)
 
-def qlog(message: str, print_also: bool = False):
-    ts = time.strftime("%Y-%m-%d %H:%M:%S")
-    line = f"[{ts}] {message}"
-    with open(QUERY_LOG, "a", encoding="utf-8") as f:
-        f.write(line + "\n")
-    if print_also:
-        print(line)
-
 def _format_sources(docs: List, include_chunks=True) -> str:
     lines = []
     for i, d in enumerate(docs):
@@ -67,26 +59,21 @@ def query_pipeline_node(state: dict) -> dict:
     user_query = (state.get("user_input") or "").strip()
     if not user_query:
         msg = "Không có câu truy vấn nào được cung cấp."
-        log(msg)     # dùng logger mặc định
-        qlog(msg)    # và ghi thêm vào query.log
+        log(msg)
         state["response"] = msg
         return state
 
     log("=== BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===")
-    qlog("=== BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===")
     log(f"Câu hỏi: {user_query}")
-    qlog(f"Câu hỏi: {user_query}")
 
     query_en = _detect_and_translate_to_english(user_query)
     if query_en != user_query:
         log(f"→ Dịch sang tiếng Anh để truy vấn: {query_en}")
-        qlog(f"→ Dịch sang tiếng Anh để truy vấn: {query_en}")
     else:
         query_en = user_query
 
     # Khởi tạo embedding model cho truy vấn
     log("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.")
-    qlog("Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.")
     embedder = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 
     # Kết nối Chroma
@@ -95,7 +82,6 @@ def query_pipeline_node(state: dict) -> dict:
             "ChromaDB chưa có dữ liệu. Hãy chạy pipeline ingest/embed trước khi truy vấn."
         )
         log(msg)
-        qlog(msg)
         state["response"] = msg
         state.setdefault("trace", []).append("[query] Không tìm thấy dữ liệu trong Chroma.")
         return state
@@ -109,7 +95,6 @@ def query_pipeline_node(state: dict) -> dict:
     # Retrieval
     top_k = 10
     log(f"Thực hiện similarity_search(top_k={top_k})...")
-    qlog(f"Thực hiện similarity_search(top_k={top_k})...")
     docs = vectordb.similarity_search(query_en, k=top_k)
     docs = _maybe_filter_nlp(docs, user_query)
 
@@ -119,19 +104,16 @@ def query_pipeline_node(state: dict) -> dict:
         if len(docs[0].page_content.strip()) < 50:
             msg = "Không đủ thông tin trong NGỮ CẢNH để trả lời câu hỏi này."
             log(msg)
-            qlog(msg)
             state["response"] = msg
             state.setdefault("trace", []).append("[query] context quá yếu → từ chối trả lời.")
             return state
 
         log(msg)
-        qlog(msg)
         state["response"] = msg
         state.setdefault("trace", []).append("[query] 0 context, không có kết quả.")
         return state
 
     log(f"Truy xuất được {len(docs)} đoạn context.")
-    qlog(f"Truy xuất được {len(docs)} đoạn context.")
 
     # Chuẩn bị context rút gọn để prompt (tránh quá dài)
     # Lấy text + nguồn (giảm rủi ro prompt quá lớn)
@@ -161,7 +143,6 @@ def query_pipeline_node(state: dict) -> dict:
 
     llm = make_llm()
     log("Gọi Qwen2.5 để sinh câu trả lời...")
-    qlog("Gọi Qwen2.5 để sinh câu trả lời...")
 
     llm_raw = llm.invoke(prompt)
     llm_answer = getattr(llm_raw, "content", str(llm_raw)).strip()
@@ -176,9 +157,7 @@ def query_pipeline_node(state: dict) -> dict:
 
     elapsed = time.time() - t0
     log("=== HOÀN TẤT QUERY PIPELINE ===")
-    qlog("=== HOÀN TẤT QUERY PIPELINE ===")
     log(f"Thời gian thực thi: {elapsed:.2f}s")
-    qlog(f"Thời gian thực thi: {elapsed:.2f}s")
 
     # Ghép “nguồn” đúng yêu cầu: file + vị trí chunk
     sources_str = _format_sources(docs, include_chunks=True)
@@ -196,9 +175,9 @@ def query_pipeline_node(state: dict) -> dict:
     )
 
     # Ghi log chi tiết kết quả
-    qlog("----- KẾT QUẢ LLM -----")
-    qlog(llm_answer if len(llm_answer) <= 2000 else llm_answer[:2000] + "...[truncated]")
-    qlog("----- NGUỒN -----")
-    qlog(sources_str)
+    log("----- KẾT QUẢ LLM -----")
+    log(llm_answer if len(llm_answer) <= 2000 else llm_answer[:2000] + "...[truncated]")
+    log("----- NGUỒN -----")
+    log(sources_str)
 
     return state
