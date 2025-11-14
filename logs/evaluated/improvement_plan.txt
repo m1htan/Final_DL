@@ -1,0 +1,80 @@
+# Gợi ý cải thiện độ chính xác
+
+Tổng số câu hỏi: 14
+Số câu chính xác: 4
+Độ chính xác trung bình: 28.57%
+
+## Cấu hình đánh giá tối ưu
+- name: baseline_similarity
+- top_k: 6
+- retrieval: similarity
+- prompt_variant: strict
+- cosine_threshold: 0.75
+- f1_threshold: 0.75
+
+## Đề xuất chính
+1. Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+2. Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+3. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+4. Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+5. Kết hợp chiến lược truy xuất đa dạng (MMR, reranker) để giảm trùng lặp và bao phủ thông tin tốt hơn.
+
+## Các ví dụ cần xem xét thêm
+-
+  Câu hỏi: Metarules consist of how many parts?
+  Gold: two parts
+  Pred: Không đủ thông tin trong ngữ cảnh.
+  Cosine=0.0333, F1=0.0000, Label=Sai
+-
+  Câu hỏi: What are the two parts of metarules?
+  Gold: match template and instantiation template
+  Pred: Not enough information in the given context.
+  Cosine=0.1353, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Trong mô tả khung cảnh, việc gì là quan trọng?
+  Gold: Set up and run event simulations.
+  Pred: Để trả lời câu hỏi này, tôi cần thêm thông tin về ngữ cảnh cụ thể bạn đang đề cập. Tuy nhiên, dựa trên các từ khóa trong câu hỏi, có vẻ như bạn đang hỏi về yếu tố nào được coi là quan trọng khi mô tả một khung cảnh.
+
+Trong việc mô tả khung cảnh, những điều sau thường được xem là quan trọng:
+
+1. Mô tả chi tiết về địa điểm hoặc môi trường: Các yếu tố như ánh sáng, thời tiết, âm thanh, mùi vị có thể tạo nên cảm giác của khung cảnh.
+
+2. Thông tin về các đối tượng trong khung cảnh: Điều này bao gồm cả vật thể vật lý và các nhân vật (nếu có).
+
+3. Mô tả về cách thức sắp xếp hoặc tương tác giữa các yếu tố trong khung cảnh.
+
+4. Chi tiết về góc nhìn hoặc quan điểm của người mô tả.
+
+5. Thông tin về thời gian hoặc trạng thái hiện tại của khung cảnh.
+
+Nếu bạn cung cấp thêm thông tin về ngữ cảnh cụ thể, tôi có thể đưa ra một câu trả lời chính xác hơn.
+  Cosine=0.2564, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Việc gì giúp đánh giá tính khả thi của mô tả?
+  Gold: Experience in attempting to set up and run the simulation.
+  Pred: Việc sử dụng cấu trúc khai báo cho vấn đề giúp đánh giá tính khả thi của mô tả. Trong trường hợp này, cấu trúc khai báo của một vấn đề hoặc kế hoạch có thể cung cấp thông tin về các vấn đề tiềm tàng mà không cần phải triển khai toàn bộ kế hoạch. Điều này cho phép hệ thống KIP (Knowledge-Based Intelligent Planning and Reasoning System) đưa ra quyết định hiệu quả trong bối cảnh quá trình lập kế hoạch của nó, và đồng thời giảm thiểu rủi ro thực hiện các kế hoạch không khả thi.
+
+Cấu trúc khai báo giúp mô tả vấn đề một cách dễ hiểu hơn so với các mô tả quy trình chi tiết về sự thất bại của kế hoạch được sử dụng bởi các hệ thống trước đây. Điều này cho phép KIP nhận biết và phản ánh các vấn đề có thể xảy ra trong quá trình lập kế hoạch mà không cần phải thực hiện toàn bộ kế hoạch, từ đó giúp cải thiện tính khả thi của kế hoạch cuối cùng.
+  Cosine=0.4382, F1=0.0103, Label=Sai
+-
+  Câu hỏi: Số lượng thành viên trong committee ảnh hưởng thế nào đến chất lượng?
+  Gold: More committee members bring more meaningful pairs.
+  Pred: Chất lượng của quyết định hoặc kết quả từ một committee thường có thể bị ảnh hưởng bởi số lượng thành viên theo nhiều cách:
+
+1. **Đa dạng quan điểm**: Committee lớn hơn thường mang lại đa dạng quan điểm và góc nhìn, giúp phát hiện ra các ý tưởng mới và giải pháp sáng tạo.
+
+2. **Tính chính xác và độ tin cậy**: Với nhiều người tham gia, quyết định cuối cùng có thể được đưa ra dựa trên sự cân nhắc kỹ lưỡng từ nhiều nguồn thông tin khác nhau, tăng tính chính xác và độ tin cậy của kết quả.
+
+3. **Đảm bảo tính minh bạch**: Committee lớn hơn thường làm cho quá trình ra quyết định trở nên công bằng và minh bạch hơn, giảm thiểu nguy cơ thiên vị cá nhân.
+
+4. **Tăng khả năng giải quyết vấn đề phức tạp**: Vấn đề phức tạp cần nhiều góc nhìn để phân tích; committee lớn hơn có thể xử lý tốt hơn các vấn đề đa chiều.
+
+5. **Giảm rủi ro cá nhân**: Với nhiều thành viên, nguy cơ phụ thuộc vào một người nào đó giảm đi, giúp đưa ra quyết định không bị ảnh hưởng bởi yếu tố cá nhân.
+
+Tuy nhiên, số lượng thành viên quá lớn cũng có thể gây ra những vấn đề như:
+
+- **Tiếp cận và thảo luận khó khăn hơn**: Số lượng thành viên nhiều có thể làm chậm tiến trình thảo luận và đưa ra quyết định.
+- **Nguy cơ mâu thuẫn quan điểm tăng lên**: Với nhiều người tham gia, nguy cơ xung đột ý kiến cũng cao.
+
+Tóm lại, số lượng thành viên trong committee nên cân nhắc kỹ lưỡng để đảm bảo cả sự đa dạng quan điểm và hiệu quả hoạt động.
+  Cosine=0.5514, F1=0.0065, Label=Sai

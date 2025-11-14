@@ -1,0 +1,58 @@
+# Gợi ý cải thiện độ chính xác
+
+Tổng số câu hỏi: 14
+Số câu chính xác: 3
+Độ chính xác trung bình: 21.43%
+
+## Cấu hình đánh giá tối ưu
+- name: cite_prompt
+- top_k: 7
+- retrieval: similarity
+- prompt_variant: cite
+- cosine_threshold: 0.74
+- f1_threshold: 0.70
+
+## Đề xuất chính
+1. Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+2. Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+3. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+4. Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+5. Kết hợp chiến lược truy xuất đa dạng (MMR, reranker) để giảm trùng lặp và bao phủ thông tin tốt hơn.
+
+## Các ví dụ cần xem xét thêm
+-
+  Câu hỏi: Metarules consist of how many parts?
+  Gold: two parts
+  Pred: The provided text does not contain specific information about metarules or their structure. Without more context from the original source, I cannot determine how many parts metarules typically consist of. Metarules are generally higher-level rules that govern other rules in formal grammars or parsing systems, but the exact number of parts can vary depending on the specific definition and use case. If you have a particular reference or framework in mind, please provide more details so I can give an accurate answer.
+  Cosine=0.2069, F1=0.0238, Label=Sai
+-
+  Câu hỏi: What are the two parts of metarules?
+  Gold: match template and instantiation template
+  Pred: Not enough information in context.
+  Cosine=0.2139, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Đoạn trích nói gì về cách xử lý 'and' trong câu?
+  Gold: 'And' kết nối cả hai-clause sau nó.
+  Pred: Đoạn trích không cung cấp thông tin cụ thể về cách xử lý từ "and" trong câu. Để đưa ra nhận xét chính xác, tôi cần thêm thông tin hoặc上下文。你能提供更多的上下文吗？当前提供的信息不足以回答关于“and”这个词在段落中是如何被处理的。
+  Cosine=0.5075, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Algorithms假信息已被纠正：原始请求涉及计算机视觉，但提供的段落讨论的是句子成分分析。因此，无法从给定段落中生成关于计算机视觉的问题。正确的JSON格式答案应基于段落内容而非计算机视觉主题。
+  Gold: 'And' thường kết nối hai-clause trong cùng một câu.
+  Pred: {"answer":"Not enough information in context."}
+  Cosine=0.2670, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Trong mô tả khung cảnh, việc gì là quan trọng?
+  Gold: Set up and run event simulations.
+  Pred: Để trả lời câu hỏi này, tôi cần thêm thông tin về ngữ cảnh cụ thể bạn đang đề cập. Tuy nhiên, dựa trên các đoạn trích được cung cấp, có một số yếu tố quan trọng trong mô tả khung cảnh:
+
+1. Trong ví dụ về hệ thống KIP (Knowledge-based Intelligent Personal Agent):
+   - Thông tin về vị trí của đôi giày
+   - Phân tích và thông báo về các vấn đề có thể gặp phải khi thực hiện kế hoạch
+
+2. Trong ví dụ về hệ thống trợ lý:
+   - Thông báo về tình trạng cửa bị khóa
+   - Cảnh báo về sự cẩn trọng khi đi xuống cầu thang
+   - Đảm bảo tắt đèn dưới hầm
+
+Những yếu tố này đều quan trọng vì chúng giúp người dùng hoặc nhân vật biết trước các thông tin cần thiết và rủi ro có thể xảy ra, từ đó đưa ra quyết định phù hợp.
+  Cosine=0.3955, F1=0.0000, Label=Sai

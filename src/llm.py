@@ -27,6 +27,8 @@ def make_llm(temperature: Optional[float] = None):
     return ChatOllama(
         model=model,
         temperature=temp,
-        num_ctx=4096,
         num_predict=512,
+        num_ctx=2048,
+        num_gpu=1,
+        low_vram=True
     )

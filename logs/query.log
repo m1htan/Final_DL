@@ -151,3 +151,66 @@
 - ACL_xxxx_tree-unification-grammar.pdf [chunk 42]
 - ACL_xxxx_now-lets-talk-about-now-identifying-cue-phrases-intonationally.pdf [chunk 35]
 - ACL_xxxx_discourse-entities-in-janus.pdf [chunk 6]
+[2025-11-14 14:53:45] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 14:53:45] Câu hỏi: Mô hình RAG được giới thiệu ở hội nghị nào?
+[2025-11-14 14:53:45] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 14:53:53] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 14:53:55] Truy xuất được 10 đoạn context.
+[2025-11-14 14:53:56] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 14:54:19] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 14:54:19] Thời gian thực thi: 34.34s
+[2025-11-14 14:54:19] ----- KẾT QUẢ LLM -----
+[2025-11-14 14:54:19] Để trả lời về một chủ đề cụ thể từ các tệp tài liệu trên, bạn cần cung cấp thêm thông tin hoặc yêu cầu cụ thể. Ví dụ: Bạn muốn biết thông tin gì từ tệp nào? Tôi có thể trích dẫn nội dung từ tệp "ACL_xxxx_types_in_functional_unification_grammars.txt [chunk 9]" vềTypes in Functional Unification Grammar hay một chủ đề khác không?
+[2025-11-14 14:54:19] ----- NGUỒN -----
+[2025-11-14 14:54:19] - ACL_xxxx_expressing-concern.txt [chunk 1]
+- ACL_xxxx_an-environment-for-acquiring-semantic-information.txt [chunk 2]
+- ACL_xxxx_understanding-scene-descriptions-as-event-simulations.txt [chunk 3]
+- ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.txt [chunk 4]
+- ACL_xxxx_dictionaries-dictionary-grammars-and-dictionary-entry-parsing.txt [chunk 5]
+- ACL_xxxx_on-parsing-preferences.txt [chunk 6]
+- ACL_xxxx_computational-complexity-in-two-level-morphology.txt [chunk 7]
+- ACL_xxxx_automatically-extracting-and-representing-collocations-for-language-generation.txt [chunk 8]
+- ACL_xxxx_types-in-functional-unification-grammars.txt [chunk 9]
+- ACL_xxxx_a-computational-theory-of-perspective-and-reference-in-narrative.txt [chunk 10]
+[2025-11-14 14:55:22] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 14:55:22] Câu hỏi: Mô hình RAG được giới thiệu ở hội nghị nào?
+[2025-11-14 14:55:22] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 14:55:28] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 14:55:30] Truy xuất được 10 đoạn context.
+[2025-11-14 14:55:31] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 14:56:00] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 14:56:00] Thời gian thực thi: 37.61s
+[2025-11-14 14:56:00] ----- KẾT QUẢ LLM -----
+[2025-11-14 14:56:00] Dựa trên nội dung cung cấp, tôi không thể trích dẫn hoặc đưa ra thông tin cụ thể về các công trình nghiên cứu mà không có ngữ cảnh rõ ràng. Tuy nhiên, nếu bạn cần thông tin về một chủ đề cụ thể trong các tài liệu này, vui lòng chỉ rõ và tôi sẽ cố gắng hỗ trợ tốt nhất theo khả năng của mình dựa trên nội dung được cung cấp. <ACL_xxxx_types_in_functional_unification_grammars> [chunk 9]
+[2025-11-14 14:56:00] ----- NGUỒN -----
+[2025-11-14 14:56:00] - ACL_xxxx_expressing-concern.txt [chunk 1]
+- ACL_xxxx_an-environment-for-acquiring-semantic-information.txt [chunk 2]
+- ACL_xxxx_understanding-scene-descriptions-as-event-simulations.txt [chunk 3]
+- ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.txt [chunk 4]
+- ACL_xxxx_dictionaries-dictionary-grammars-and-dictionary-entry-parsing.txt [chunk 5]
+- ACL_xxxx_on-parsing-preferences.txt [chunk 6]
+- ACL_xxxx_computational-complexity-in-two-level-morphology.txt [chunk 7]
+- ACL_xxxx_automatically-extracting-and-representing-collocations-for-language-generation.txt [chunk 8]
+- ACL_xxxx_types-in-functional-unification-grammars.txt [chunk 9]
+- ACL_xxxx_a-computational-theory-of-perspective-and-reference-in-narrative.txt [chunk 10]
+[2025-11-14 14:56:50] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-14 14:56:50] Câu hỏi: Vì sao ACL dần chuyển trọng tâm từ các mô hình dựa trên quy tắc (rule-based) sang thống kê và học sâu?
+[2025-11-14 14:56:50] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-14 14:56:56] Thực hiện similarity_search(top_k=10)...
+[2025-11-14 14:56:58] Truy xuất được 10 đoạn context.
+[2025-11-14 14:56:58] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-14 14:57:33] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-14 14:57:33] Thời gian thực thi: 43.87s
+[2025-11-14 14:57:33] ----- KẾT QUẢ LLM -----
+[2025-11-14 14:57:33] Dựa trên nội dung cung cấp, không có thông tin cụ thể để trả lời câu hỏi. Vui lòng cung cấp thêm chi tiết hoặc đặt câu hỏi rõ ràng hơn. <ACL_xxxx_representing-knowledge-about-knowledge-and-mutual-knowledge.txt> [chunk 9]
+[2025-11-14 14:57:33] ----- NGUỒN -----
+[2025-11-14 14:57:33] - ACL_xxxx_understanding-scene-descriptions-as-event-simulations.txt [chunk 1]
+- ACL_xxxx_expressing-concern.txt [chunk 2]
+- ACL_xxxx_automatically-extracting-and-representing-collocations-for-language-generation.txt [chunk 3]
+- ACL_xxxx_types-in-functional-unification-grammars.txt [chunk 4]
+- ECCV_2018_consensus-driven-propagation-in-massive-unlabeled-data-for-face-recognition.txt [chunk 5]
+- ACL_xxxx_computational-complexity-in-two-level-morphology.txt [chunk 6]
+- ACL_xxxx_dictionaries-dictionary-grammars-and-dictionary-entry-parsing.txt [chunk 7]
+- ACL_xxxx_a-calculus-for-semantic-composition-and-scoping.txt [chunk 8]
+- ACL_xxxx_representing-knowledge-about-knowledge-and-mutual-knowledge.txt [chunk 9]
+- ACL_xxxx_a-computational-theory-of-perspective-and-reference-in-narrative.txt [chunk 10]

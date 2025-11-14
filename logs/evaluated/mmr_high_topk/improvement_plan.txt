@@ -1,0 +1,85 @@
+# Gợi ý cải thiện độ chính xác
+
+Tổng số câu hỏi: 14
+Số câu chính xác: 3
+Độ chính xác trung bình: 21.43%
+
+## Cấu hình đánh giá tối ưu
+- name: mmr_high_topk
+- top_k: 9
+- retrieval: mmr
+- prompt_variant: strict
+- cosine_threshold: 0.72
+- f1_threshold: 0.72
+
+## Đề xuất chính
+1. Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+2. Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+3. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+4. Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+
+## Các ví dụ cần xem xét thêm
+-
+  Câu hỏi: Metarules consist of how many parts?
+  Gold: two parts
+  Pred: Based on the description provided in the text, metarules can be classified into three types:
+
+1. Introductory metarules: These have one part - an instantiation form (IF).
+2. Deletion metarules: These also have one part - a match form (MF).
+3. Derivation metarules: These have two parts - both a match form (MF) and an instantiation form (IF).
+
+So in total, metarules can consist of 1 to 2 parts depending on their type.
+
+- Introductory and deletion metarules consist of 1 part.
+- Derivation metarules consist of 2 parts.
+  Cosine=0.2466, F1=0.0440, Label=Sai
+-
+  Câu hỏi: What are the two parts of metarules?
+  Gold: match template and instantiation template
+  Pred: Based on the information provided in the text, it appears that there are no explicit mentions of "metarules" being divided into two specific parts. The text focuses on describing a parser for Japanese language and its components.
+
+However, if we interpret your question in the context of metarules as used in parsing or grammar rules, typically metarules can be thought of as higher-level rules that govern how other (lower-level) grammatical rules are applied. They often come in pairs or have two main aspects:
+
+1. **Directionality**: This could refer to whether a rule is applied from left-to-right or right-to-left in the sentence structure.
+2. **Scope**: This might relate to the extent of application, such as whether a rule applies globally or locally within a sentence.
+
+Without more specific context about what "metarules" refers to in this particular text, these are general interpretations based on common usage in parsing and grammar frameworks. If you have additional details about where you encountered the term "metarules," please provide them for a more accurate answer.
+  Cosine=0.2788, F1=0.0114, Label=Sai
+-
+  Câu hỏi: Algorithms假信息已被纠正：原始请求涉及计算机视觉，但提供的段落讨论的是句子成分分析。因此，无法从给定段落中生成关于计算机视觉的问题。正确的JSON格式答案应基于段落内容而非计算机视觉主题。
+  Gold: 'And' thường kết nối hai-clause trong cùng một câu.
+  Pred: 由于给定的段落主要讨论了句子成分分析和语义知识获取，并未涉及计算机视觉相关的内容，因此无法直接从该段落中提出关于计算机视觉的问题。但是，如果我们需要根据段落内容生成一个问题，则可以基于句子成分分析方面来设计问题。
+
+例如：
+```json
+{
+  "question": "在讨论句子成分分析时，KIP是如何评估动态关注的？",
+  "answer": "KIP通过检查存储计划USE-LSPR-COMMAND的条件，并为当前计划创建相应的动态关注。对于最有可能导致计划失败的情况（如打印机是否有纸、是否在线），它会首先考虑这些情况。"
+}
+```
+
+此问题和答案对基于段落内容，而不是计算机视觉主题。
+  Cosine=0.2864, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Trong mô tả khung cảnh, việc gì là quan trọng?
+  Gold: Set up and run event simulations.
+  Pred: Để trả lời câu hỏi này một cách chính xác, tôi cần thêm thông tin về ngữ cảnh cụ thể bạn đang đề cập. Tuy nhiên, dựa trên những gì được mô tả trong đoạn trích, có vẻ như việc xác định các yếu tố quan trọng trong khung cảnh mô tả là:
+
+1. Chi tiết về vị trí hoặc địa điểm: Ví dụ như "the door to the"
+2. Các đối tượng hoặc vật thể xung quanh: Ví dụ như "shoe" trong ví dụ (a1)
+3. Tình huống hoặc hành động có thể xảy ra: Ví dụ như việc di chuyển đến hầm để lấy giày
+4. Sự kiện hoặc vấn đề tiềm tàng: Ví dụ như việc cửa bị khóa (a2) hay cầu thang trơn trượt (a3)
+
+Trong các ví dụ được cung cấp, những yếu tố này đều đóng vai trò quan trọng trong việc tạo ra một khung cảnh mô tả đầy đủ và hữu ích.
+  Cosine=0.3136, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Việc gì giúp đánh giá tính khả thi của mô tả?
+  Gold: Experience in attempting to set up and run the simulation.
+  Pred: Việc đánh giá tính khả thi của mô tả thường phụ thuộc vào việc xem xét các "concern" hoặc mối quan tâm liên quan đến hành động được mô tả. Trong ví dụ về hệ thống KIP, các yếu tố như:
+
+1. **Trạng thái hiện tại**: Xác định liệu máy in có sẵn sàng không (online/offline).
+2. **Tình trạng vật lý**: Kiểm tra xem có giấy trong máy in hay không.
+3. **Mối quan tâm động**: Các yếu tố có thể thay đổi như việc có giấy bị kẹt hoặc máy in gặp sự cố.
+
+Việc đánh giá các "concern" này giúp xác định liệu hành động (trong trường hợp này là in) có khả thi hay không, và nếu không khả thi, cần đưa ra lời khuyên cho người dùng về những vấn đề cụ thể.
+  Cosine=0.4611, F1=0.0136, Label=Sai

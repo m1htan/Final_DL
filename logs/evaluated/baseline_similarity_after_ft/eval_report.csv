@@ -1,0 +1,12 @@
+question,gold,pred,cosine,f1,label
+Phương pháp nào được sử dụng để loại bỏ các mô hình không đáng kể?,Cross-validation.,,0.0,0.0,Sai
+Cách tự động xác định bandwidth như thế nào trong thuật toán này?,Đặt ǫi là khoảng cách giữa instance và k hàng xóm gần nhất.,,0.0,0.0,Sai
+Adversarial training using FGSM-LL shows what in robustness plots?,no deep valleys,,0.0,0.0,Sai
+How does GAT perform compared to AT and EAT for a wide range of attack strength?,Aw is signiﬁcantly better,,0.0,0.0,Sai
+EAT có tạo ra sự đa dạng hiệu quả không?,không,,0.0,0.0,Sai
+Tham số trade-off được chọn như thế nào?,Được chọn empirically.,,0.0,0.0,Sai
+Thời gian xử lý trung bình của mạng là bao nhiêu?,0.8–1.6 giây,,0.0,0.0,Sai
+Faster RCNN和Mask RCNN采用的是哪种范式？,两阶段范式,,0.0,0.0,Sai
+为何需要增强每个提议区域的表示？,因为周围区域通常包含更多关于整体对象的信息,,0.0,0.0,Sai
+Đoạn trích nói gì về cách tính ωji?,ωji = ωs ji · ωg ji.,,0.0,0.0,Sai
+Các yếu tố nào ảnh hưởng đến ωs ji và ωg ji?,"lj, li, sj và IoU(bi, bj).",,0.0,0.0,Sai

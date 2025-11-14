@@ -1,0 +1,13 @@
+question,gold,pred,cosine,f1,label
+Đoạn trích có bài báo nào liên quan đến Computer Vision không?,Không.,,0.0,0.0,Sai
+Có bài báo nào được trình bày tại IJCAI-87 không?,"Có, Peters và Shapiro (1987b) đã trình bày.",,0.0,0.0,Sai
+Đoạn trích này nói về gì?,Nó nói về lý thuyết chức năng trong logik.,,0.0,0.0,Sai
+Có bao nhiêu quy tắc được đề cập?,Có hai quy tắc.,,0.0,0.0,Sai
+Đoạn trích này nói gì về việc lựa chọn từ điển?,Nó đề cập đến vấn đề lựa chọn giữa các từ điển thay thế.,,0.0,0.0,Sai
+Phương pháp nào được sử dụng trong quá trình này?,Phương pháp backtrack và cây quyết định được sử dụng.,,0.0,0.0,Sai
+Có bao nhiêu phần dữ liệu được tạo ra?,11 phần,,0.0,0.0,Sai
+Dữ liệu nào được sử dụng để điều chỉnh siêu tham số?,Phần không nhãn,,0.0,0.0,Sai
+Đoạn trích có đề cập đến Computer Vision không?,Không,,0.0,0.0,Sai
+Có bài báo nào về xử lý ngôn ngữ tự nhiên được trình bày ở đâu năm 1989?,"Full Text Indexing Based on Lexical Relations, Application: Software Libraries. Proceedings of the 12th International ACM SIGIR Conference, Cambridge, Ma, June 1989.",,0.0,0.0,Sai
+Đoạn trích nói về gì?,Hệ thống quyết định khả thi của công thức Boolean.,,0.0,0.0,Sai
+Có bao nhiêu biến trong đoạn trích?,"3 biến: x, y, z.",,0.0,0.0,Sai

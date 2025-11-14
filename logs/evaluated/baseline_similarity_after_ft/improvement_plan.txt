@@ -1,0 +1,46 @@
+# Gợi ý cải thiện độ chính xác
+
+Tổng số câu hỏi: 11
+Số câu chính xác: 0
+Độ chính xác trung bình: 0.00%
+
+## Cấu hình đánh giá tối ưu
+- name: baseline_similarity_after_ft
+- top_k: 8
+- retrieval: mmr
+- prompt_variant: strict
+- cosine_threshold: 0.73
+- f1_threshold: 0.73
+
+## Đề xuất chính
+1. Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
+2. Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
+3. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
+4. Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
+
+## Các ví dụ cần xem xét thêm
+-
+  Câu hỏi: Phương pháp nào được sử dụng để loại bỏ các mô hình không đáng kể?
+  Gold: Cross-validation.
+  Pred: 
+  Cosine=0.0000, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Cách tự động xác định bandwidth như thế nào trong thuật toán này?
+  Gold: Đặt ǫi là khoảng cách giữa instance và k hàng xóm gần nhất.
+  Pred: 
+  Cosine=0.0000, F1=0.0000, Label=Sai
+-
+  Câu hỏi: Adversarial training using FGSM-LL shows what in robustness plots?
+  Gold: no deep valleys
+  Pred: 
+  Cosine=0.0000, F1=0.0000, Label=Sai
+-
+  Câu hỏi: How does GAT perform compared to AT and EAT for a wide range of attack strength?
+  Gold: Aw is signiﬁcantly better
+  Pred: 
+  Cosine=0.0000, F1=0.0000, Label=Sai
+-
+  Câu hỏi: EAT có tạo ra sự đa dạng hiệu quả không?
+  Gold: không
+  Pred: 
+  Cosine=0.0000, F1=0.0000, Label=Sai

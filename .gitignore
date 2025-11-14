@@ -35,4 +35,5 @@ coverage/
 *.jsonl
 
 venv
-chroma.sqlite3
+
+models
