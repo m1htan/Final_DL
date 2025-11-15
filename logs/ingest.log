@@ -10369,3 +10369,100 @@ Please retry in 49.938826626s. [links {
 [2025-11-15 08:05:38] Gọi Qwen2.5 để sinh câu trả lời...
 [2025-11-15 08:05:57] === HOÀN TẤT QUERY PIPELINE ===
 [2025-11-15 08:05:57] Thời gian thực thi: 31.78s
+[2025-11-15 08:10:06] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:10:06] Câu hỏi: Mô hình RAG được giới thiệu ở hội nghị nào?
+[2025-11-15 08:10:07] → Dịch sang tiếng Anh để truy vấn: At which conference was the RAG model introduced?
+[2025-11-15 08:10:07] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:10:19] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:10:19] Truy xuất được 10 đoạn context.
+[2025-11-15 08:10:20] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:10:26] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:10:26] Thời gian thực thi: 20.18s
+[2025-11-15 08:13:07] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:13:07] Câu hỏi: Trong bài “Word Association Norms, Mutual Information, and Lexicography”, tác giả đề xuất dùng đại lượng nào để đo mức độ kết hợp từ (word association)?
+[2025-11-15 08:13:08] → Dịch sang tiếng Anh để truy vấn: In the article "Word Association Norms, Mutual Information, and Lexicography", what quantity does the author propose to use to measure the level of word association?
+[2025-11-15 08:13:08] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:13:20] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:13:20] Truy xuất được 10 đoạn context.
+[2025-11-15 08:13:21] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:14:38] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:14:38] Thời gian thực thi: 91.21s
+[2025-11-15 08:20:26] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:20:26] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 08:20:27] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 08:20:27] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:20:39] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:20:40] Truy xuất được 10 đoạn context.
+[2025-11-15 08:20:40] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:21:47] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:21:47] Thời gian thực thi: 80.85s
+[2025-11-15 08:23:36] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:23:36] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 08:23:36] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 08:23:36] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:23:50] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:23:51] Truy xuất được 10 đoạn context.
+[2025-11-15 08:23:52] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:24:12] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:24:12] Thời gian thực thi: 36.29s
+[2025-11-15 08:26:28] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:26:28] Câu hỏi: Transformer có được dùng trong NLP không
+[2025-11-15 08:26:30] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 08:26:30] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:26:49] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:26:49] Truy xuất được 10 đoạn context.
+[2025-11-15 08:26:50] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:28:05] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:28:05] Thời gian thực thi: 96.43s
+[2025-11-15 08:34:35] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:34:35] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 08:34:36] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 08:34:36] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:34:44] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:34:44] Truy xuất được 10 đoạn context.
+[2025-11-15 08:34:44] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:35:46] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:35:46] Thời gian thực thi: 70.73s
+[2025-11-15 08:41:26] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:41:26] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 08:41:27] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 08:41:27] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:41:40] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:41:41] Truy xuất được 10 đoạn context.
+[2025-11-15 08:41:41] Context không chứa từ khóa trọng tâm của câu hỏi → bỏ qua LLM.
+[2025-11-15 08:41:41] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:41:41] Thời gian thực thi: 14.36s
+[2025-11-15 08:41:46] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:41:46] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 08:41:47] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 08:41:47] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:42:00] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:42:02] Truy xuất được 10 đoạn context.
+[2025-11-15 08:42:02] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:42:34] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:42:34] Câu hỏi: hello
+[2025-11-15 08:42:34] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:43:07] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:43:09] Truy xuất được 10 đoạn context.
+[2025-11-15 08:43:09] Context không chứa từ khóa trọng tâm của câu hỏi → bỏ qua LLM.
+[2025-11-15 08:43:09] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:43:09] Thời gian thực thi: 35.72s
+[2025-11-15 08:43:16] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:43:16] Thời gian thực thi: 89.58s
+[2025-11-15 08:43:52] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:43:52] Câu hỏi: hello
+[2025-11-15 08:43:52] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:44:07] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:44:07] Truy xuất được 10 đoạn context.
+[2025-11-15 08:44:08] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:44:23] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:44:23] Thời gian thực thi: 30.17s
+[2025-11-15 08:45:29] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 08:45:29] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 08:45:30] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 08:45:30] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 08:45:42] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 08:45:43] Truy xuất được 10 đoạn context.
+[2025-11-15 08:45:43] Gọi Qwen2.5 để sinh câu trả lời...
+[2025-11-15 08:47:05] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 08:47:05] Thời gian thực thi: 95.94s

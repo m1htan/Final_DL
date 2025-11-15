@@ -15,13 +15,6 @@ from components.ui_sidebar import render_sidebar
 from components.ui_history import ensure_session_state, render_history, serialize_history
 from components.ui_main_helper import render_samples, render_suggestion_buttons
 
-SAMPLE_QUESTIONS = [
-    "Mô hình RAG được giới thiệu ở hội nghị nào?",
-    "Những hướng nghiên cứu tiêu biểu về dịch máy trong bộ dữ liệu này?",
-    "Các tác giả Việt Nam có đóng góp gì nổi bật?",
-]
-
-
 @st.cache_resource(show_spinner=False)
 def _load_query_graph():
     """Compile the LangGraph pipeline for query mode once per session."""
@@ -62,7 +55,6 @@ def main():
     with st.sidebar:
         top_k, context_limit, temperature, show_trace = render_sidebar()
 
-    render_samples(SAMPLE_QUESTIONS)
     question = st.text_area(
         "Nhập câu hỏi của bạn",
         height=160,
@@ -114,15 +106,6 @@ def main():
                             st.markdown(f"- **{d.metadata.get('source', '')}**: {d.page_content[:300]}...")
             cols = st.columns(4)
             latency = latest_result.get("latency") or latest_result.get("latency_seconds", 0.0)
-            cols[0].metric("Thời gian", f"{latency:.2f}s")
-            cols[1].metric("Số đoạn", len(latest_result.get("retrieved_docs", [])))
-            qa_args = latest_result.get("query_args", {})
-            cols[2].metric("Top-k", qa_args.get("top_k", top_k))
-            render_suggestion_buttons(latest_result.get("suggested_questions", []))
-            if show_trace:
-                st.markdown("### Trace LangGraph")
-                for line in latest_result.get("trace", []):
-                    st.code(line)
         else:
             st.info("Chưa có câu trả lời nào. Hãy nhập câu hỏi để bắt đầu.")
 

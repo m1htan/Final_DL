@@ -7,6 +7,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from langdetect import detect
 from deep_translator import GoogleTranslator
+import re
 
 from src.config import CHROMA_DIR, EMBEDDING_MODEL
 from src.nodes.step4.users_query import users_query
@@ -16,6 +17,57 @@ DB_DIR.mkdir(parents=True, exist_ok=True)
 COLLECTION_NAME = "instruct2ds"
 QUERY_LOG = Path("logs/query.log")
 QUERY_LOG.parent.mkdir(exist_ok=True)
+
+def _normalize(text: str) -> str:
+    return (text or "").lower()
+
+def _question_supported_by_context(question: str, context: str) -> bool:
+    """
+    Trả về True nếu trong NGỮ CẢNH có ít nhất một từ khóa 'dài' của câu hỏi.
+    Nếu không, coi như không có ngữ cảnh phù hợp để trả lời.
+    """
+    q = _normalize(question)
+    c = _normalize(context)
+
+    # Lấy token chữ+ số, bỏ dấu câu
+    tokens = re.findall(r"\w+", q)
+    # Giữ lại token dài >=5 ký tự (lọc bớt từ chức năng: có, được, trong, ...)
+    long_tokens = [t for t in tokens if len(t) >= 5]
+
+    if not long_tokens:
+        # Nếu câu hỏi toàn từ ngắn, chấp nhận là "được support"
+        return True
+
+    # Cần ít nhất 1 token dài xuất hiện trong context
+    return any(t in c for t in long_tokens)
+
+
+def _answer_consistent_with_context(answer: str, question: str, context: str) -> bool:
+    """
+    Hậu kiểm câu trả lời:
+    - Phải có từ khóa từ câu hỏi
+    - Phải dùng từ vựng xuất hiện trong context
+    Nếu không, coi như không đủ thông tin.
+    """
+    a = _normalize(answer)
+    q = _normalize(question)
+    c = _normalize(context)
+
+    # Nếu LLM đã trả câu "không đủ thông tin..." thì coi như ok
+    if "không đủ thông tin trong ngữ cảnh" in a:
+        return True
+
+    # 1) Câu trả lời phải đụng đến một số từ trong câu hỏi
+    q_tokens = [t for t in re.findall(r"\w+", q) if len(t) >= 4]
+    if q_tokens and not any(t in a for t in q_tokens):
+        return False
+
+    # 2) Câu trả lời phải dùng ít nhất một số từ 'dài' đã có trong context
+    a_tokens = [t for t in re.findall(r"\w+", a) if len(t) >= 5]
+    if a_tokens and not any(t in c for t in a_tokens):
+        return False
+
+    return True
 
 def _format_sources(docs: List, include_chunks=True) -> str:
     lines = []
@@ -107,18 +159,36 @@ def query_pipeline_node(state: dict) -> dict:
     log(f"Truy xuất được {len(docs)} đoạn context.")
 
     # Chuẩn bị context rút gọn để prompt (tránh quá dài)
-    # Lấy text + nguồn (giảm rủi ro prompt quá lớn)
     context_blocks = []
     for i, d in enumerate(docs, 1):
         src = d.metadata.get("source", "unknown.pdf")
         chunk_id = d.metadata.get("chunk_id", i)  # fallback i nếu không có
         snippet = d.page_content.strip()
-        # cắt ngắn mỗi đoạn để prompt gọn (tuỳ CPU/LLM hạn mức)
         if len(snippet) > 1200:
             snippet = snippet[:1200] + "..."
         context_blocks.append(f"[{i}] {src} [chunk {chunk_id}]\n{snippet}")
 
     context_str = "\n\n".join(context_blocks)
+
+    # ===== CHẶN TỪ GỐC: nếu context không support câu hỏi → KHÔNG GỌI LLM =====
+    if not _question_supported_by_context(query_en, context_str):
+        msg = "Không đủ thông tin trong NGỮ CẢNH để kết luận."
+        log("Context không chứa từ khóa trọng tâm của câu hỏi → bỏ qua LLM.")
+        elapsed = time.time() - t0
+        log("=== HOÀN TẤT QUERY PIPELINE ===")
+        log(f"Thời gian thực thi: {elapsed:.2f}s")
+
+        sources_str = _format_sources(docs, include_chunks=True)
+        full_response = (
+            f"**Câu trả lời:**\n{msg}\n\n"
+            f"**Nguồn tham chiếu:**\n{sources_str}"
+        )
+        state["llm_answer"] = msg
+        state["response"] = users_query(user_query, full_response)
+        state.setdefault("trace", []).append(
+            f"[query] top_k={top_k}, results={len(docs)}, elapsed={elapsed:.2f}s, no_support=True"
+        )
+        return state
 
     # Prompt LLM (Qwen2.5)
     prompt = (
@@ -140,18 +210,9 @@ def query_pipeline_node(state: dict) -> dict:
     llm_raw = llm.invoke(prompt)
     llm_answer = getattr(llm_raw, "content", str(llm_raw)).strip()
 
-    context_text_small = (context_str[:1000] or "").lower()
-    answer_small = llm_answer.lower()
-
-    # Lấy các từ khóa dài ≥ 5 ký tự để kiểm chứng (giảm nhiễu từ chức năng)
-    keywords = [tok for tok in answer_small.split() if len(tok) >= 5]
-
-    if keywords and not any(tok in context_text_small for tok in keywords):
-        llm_answer = "Không đủ thông tin trong NGỮ CẢNH để kết luận."
-
-    question_keywords = [tok.lower() for tok in user_query.split() if len(tok) >= 4]
-
-    if question_keywords and not any(qk in answer_small for qk in question_keywords):
+    # ===== HẬU KIỂM: nếu answer không nhất quán với context & question → ép fallback =====
+    if not _answer_consistent_with_context(llm_answer, user_query, context_str):
+        log("Câu trả lời không nhất quán với NGỮ CẢNH hoặc CÂU HỎI → ép fallback.")
         llm_answer = "Không đủ thông tin trong NGỮ CẢNH để kết luận."
 
     llm_answer_vi = _translate_answer_to_vietnamese(llm_answer)
