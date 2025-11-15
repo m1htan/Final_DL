@@ -1,55 +1,20 @@
 question,gold,pred,cosine,f1,label
-Đoạn trích nói gì về cách sử dụng dữ liệu không nhãn?,Sử dụng cấu trúc đồ thị để phản ánh nội bộ của dữ liệu.,"Dựa trên thông tin trong đoạn trích, không có đề cập trực tiếp đến việc sử dụng dữ liệu không nhãn (unsupervised data) trong bất kỳ ngữ cảnh nào. Đoạn trích chủ yếu tập trung vào các phương pháp và hệ thống xử lý ngôn ngữ tự nhiên nhưParsing, Lexical Semantics, Semantic Acquisition, Knowledge Representation, Natural Language Understanding, và Machine Learning Approaches for NLP. Do đó, không có thông tin cụ thể về cách sử dụng dữ liệu không nhãn trong đoạn trích này.",0.8107,0.0612,Đúng
-CDP gồm những phần nào?,Bao gồm 'committee' và môđun khác.,"Dựa trên thông tin được cung cấp trong câu hỏi và nội dung của đoạn văn, tôi có thể kết luận rằng CDP (Cognitive Developmental Parser) bao gồm các thành phần sau:
+"Trong đoạn trích, LOCATION có vai trò gì?",LOCATION là một function symbol liên kết với concept relevant.,Đoạn trích không cung cấp thông tin cụ thể về LOCATION là một từ hoặc thuật ngữ có ý nghĩa như thế nào trong上下文。从提供的信息来看，LOCATION没有被明确提及或讨论其角色。因此无法准确回答LOCATION的作用是什么。如果您能提供更多的相关信息或具体的段落内容，我将能够更好地帮助您理解LOCATION的角色。,0.5183,0.1765,Sai
+Syntactic categories như thế nào trong quá trình tạo cấu trúc?,Syntactic categories dẫn đến phần của mạng lưới tương ứng với chức năng.,"Trong quá trình tạo cấu trúc ngữ pháp, các syntactic categories (danh mục cú pháp) đóng vai trò quan trọng để phân loại và tổ chức các thành phần của câu. Cụ thể:
 
-1. Bộ phân tích cơ sở (Base Analyzer): Đây là bộ phận đầu vào của hệ thống, chịu trách nhiệm phân tích cấu trúc ngữ pháp cơ bản của câu.
+1. **Strong Rules vs Weak Rules**:
+   - **Strong Rules**: Đây là những quy tắc mạnh mẽ hơn, thường được sử dụng để định nghĩa các danh mục lớn như câu (sentence), cụm từ động từ (verb phrase) v.v. Chúng tạo ra một mức độ mới của cú pháp.
+   - **Weak Rules**: Những quy tắc này định nghĩa phân tích trong cùng một mức độ cú pháp. Ví dụ, những quy tắc phụ trợ như quy tắc đệ quy tìm các thành phần hậu vị của động từ.
 
-2. Nhóm giám khảo (Committee): Các thành viên trong nhóm này cung cấp các ý kiến đa dạng về mối quan hệ giữa các nút được rút ra từ mô hình cơ sở.
+2. **Hàm Chức Trong HLG**:
+   - Trong chế độ một-pass (one-pass mode) của HLG rule compiler, các strong rules được xử lý bằng cách thêm một gọi đến bộ phận giải thích ngữ nghĩa vào cuối câu lệnh Horn clause.
+   - Các weak rules chỉ thu thập thông tin để sử dụng trong gọi đến ngữ nghĩa do quy tắc mạnh hơn kế tiếp thực hiện.
 
-3. Người trung gian (Mediator): Người trung gian tổng hợp ý kiến của các thành viên trong nhóm và đưa ra quyết định cuối cùng về mối quan hệ giữa các nút.
+3. **Tạo Cấu Trúc**:
+   - Trong chế độ hai-pass (two-pass mode), HLG rule compiler xây dựng một nút cây tương ứng với mỗi strong rule, và nhãn nút này bằng danh mục xuất hiện bên trái của quy tắc strong đó.
+   
+4. **Ví dụ**:
+   - Ví dụ về một strong rule có thể là ""S -> NP VP"", trong đó S đại diện cho câu, NP đại diện cho cụm từ chủ ngữ, và VP đại diện cho cụm từ động từ.
+   - Trong khi weak rules như ""VP -> V NP"" hoặc ""VP -> V PP"" định nghĩa các cấu trúc cụ thể hơn trong cùng một mức độ cú pháp.
 
-4. Bộ phân tích dựa trên committee (Committee Analyzer): Sử dụng kết quả từ người trung gian để xác định mối quan hệ chính xác giữa các nút.
-
-5. Bộ phân tích cuối cùng (Final Analyzer): Kết hợp thông tin từ cả bộ phân tích cơ sở và bộ phân tích dựa trên committee để đưa ra quyết định cuối cùng về mối quan hệ giữa các nút.
-
-Đây là cấu trúc tổng thể của CDP theo mô tả trong đoạn văn, nhưng có thể còn bao gồm các thành phần hỗ trợ khác không được đề cập đến.",0.8009,0.0259,Đúng
-Ai đã đề xuất sử dụng loại trong FUGs?,Bob Kasper,"Dựa trên thông tin được cung cấp trong đoạn trích, không có tên cụ thể của người nào được đề cập đến việc đưa ra loại trong Functional Unification Grammars (FUGs). Tuy nhiên, câu hỏi này có vẻ liên quan đến bài báo của Elhadad năm 1990 về ""Types in Functional Unification Grammars"". Do đó, có thể trả lời rằng M. Elhadad là người đã đề xuất sử dụng loại trong FUGs theo thông tin được cung cấp ở đây.
-
-Nếu bạn cần thêm thông tin chi tiết từ bài báo này hoặc nguồn gốc cụ thể hơn, tôi sẽ cần xem xét nội dung của bài báo đó để đưa ra câu trả lời chính xác nhất.",0.1859,0.0,Sai
-Đoạn trích này có liên quan đến Computer Vision (ECCV) không?,Không,"Không, đoạn trích này không có liên quan đến Computer Vision (ECCV). Nội dung của đoạn trích dường như tập trung vào các khái niệm ngữ nghĩa học và phân tích ngôn ngữ tự nhiên, cụ thể là về các công thức logic và thuật toán quyết định tính satisfiability. Nó không đề cập đến bất kỳ chủ đề nào liên quan đến xử lý hình ảnh hoặc thị giác máy tính.",0.225,0.0274,Sai
-Đoạn trích có liên quan đến Computer Vision không?,Không,"Không, đoạn trích này không liên quan đến Computer Vision. Nội dung của đoạn trích tập trung vào các công trình nghiên cứu về xử lý ngôn ngữ tự nhiên và trí tuệ nhân tạo, bao gồm việc sử dụng hệ thống unification grammar cho việc sinh ra văn bản tự nhiên, mô hình hóa thông tin trong trí nhớ máy tính, và cách thức hiểu và tạo lập kiến thức từ ngữ cảnh. Không có nội dung nào đề cập đến lĩnh vực Computer Vision như nhận diện đối tượng, xử lý ảnh hoặc thị giác máy tính.",0.1962,0.02,Sai
-Dow Jones industrial average có biến động như thế nào trong các ngày được đề cập?,"Có tăng, giảm và ổn định","Xin lỗi, nhưng thông tin bạn cung cấp không bao gồm dữ liệu về biến động của Dow Jones Industrial Average (DJIA) trong bất kỳ ngày cụ thể nào. Để trả lời câu hỏi này chính xác, tôi cần biết các ngày cụ thể mà bạn đang quan tâm. Biến động của chỉ số DJIA có thể thay đổi đáng kể từ ngày này sang ngày khác do nhiều yếu tố kinh tế và thị trường khác nhau.",0.5589,0.0476,Sai
-Những nguyên tắc chung nào cần thiết?,General principles are needed to explain how readers recognize the ending boundaries of subjective contexts.,"Dựa trên nội dung bạn cung cấp, không có thông tin cụ thể về những nguyên tắc chung nào được đề cập. Tuy nhiên, từ ngữ cảnh, dường như bạn đang thảo luận về các hệ thống xử lý ngôn ngữ tự nhiên hoặc trí tuệ nhân tạo. Trong lĩnh vực này, một số nguyên tắc chung thường được áp dụng bao gồm:
-
-1. Nguyên tắc cấu trúc ngữ nghĩa: Xác định cấu trúc và ý nghĩa của câu từ góc độ ngữ nghĩa.
-
-2. Nguyên tắc giải quyết từ: Xử lý các vấn đề liên quan đến việc lựa chọn và sử dụng từ trong ngôn ngữ.
-
-3. Nguyên tắc hiểu văn bản: Phân tích và hiểu nội dung của đoạn văn hoặc câu nói.
-
-4. Nguyên tắc tạo ra văn bản: Sinh ra hoặc tạo ra ngôn ngữ tự nhiên một cách hợp lý.
-
-5. Nguyên tắc xử lý ngữ cảnh: Xem xét thông tin ngữ cảnh khi xử lý ngôn ngữ.
-
-6. Nguyên tắc giải quyết bất đồng: Xử lý các vấn đề có thể phát sinh từ sự không nhất quán trong dữ liệu hoặc ngữ cảnh.
-
-Nếu bạn đang nói về một hệ thống cụ thể như KIP (Knowledge-based Intelligent Processing), thì có thể có những nguyên tắc đặc biệt khác được áp dụng cho hệ thống này. Tuy nhiên, thông tin đầy đủ về các nguyên tắc chung cần thiết không được cung cấp trong đoạn trích của bạn.",0.3913,0.0,Sai
-Các yếu tố gì giúp xác định giới hạn của ngữ cảnh chủ quan?,"Tense, deictic terms, characters' goals and argument structure often exhibited by thoughts.","Theo tài liệu, các yếu tố sau có thể giúp xác định giới hạn của ngữ cảnh chủ quan:
-
-1. Thông tin nội tại (intentional concepts): Các khái niệm nội tại được đề cập trong SNePS như đã nêu trong đoạn văn: ""Intensional Concepts in Propositional Semantic Networks,"" Cognition 6: 291-330.
-
-2. Tầm nhìn của người nói (speaker's perspective): Việc xác định giới hạn ngữ cảnh chủ quan liên quan đến cách người nói nhìn nhận và hiểu biết về thế giới xung quanh.
-
-3. Thông tin nội tại của hệ thống (intrinsic information of the system): Các thông tin được lưu trữ trong hệ thống SNePS như đã đề cập: ""A Representation for Natural Category Systems,"" Proceedings of the 9th Annual Conference of the Cognitive Science Society (Seattle).
-
-4. Tầm nhìn của người nghe (listener's perspective): Mặc dù không được nêu rõ, nhưng việc hiểu biết về cách người nghe tiếp nhận thông tin cũng đóng vai trò trong xác định giới hạn ngữ cảnh.
-
-5. Thông tin nội tại của hệ thống ngôn ngữ (intrinsic information of the language system): Các đặc điểm cấu trúc và chức năng của hệ thống ngôn ngữ cũng ảnh hưởng đến cách xác định giới hạn ngữ cảnh.
-
-Tuy nhiên, tài liệu không cung cấp thông tin cụ thể về các yếu tố này như thế nào để xác định rõ ràng giới hạn của ngữ cảnh chủ quan.",0.4702,0.0,Sai
-Đoạn trích có đề cập đến Computer Vision không?,Không,"Không, đoạn trích này không đề cập đến Computer Vision. Đoạn trích dường như liên quan đến các phương pháp tạo văn bản tự nhiên (Natural Language Generation) và sử dụng hệ thống đa thành viên (committee system) để đánh giá mối quan hệ giữa các nút trong một mô hình đồ thị. Tuy nhiên, không có thông tin nào về Computer Vision ở đây.",0.2393,0.0303,Sai
-Có bài báo nào liên quan đến ngữ pháp chức năng không?,"Có, Halliday, Michael A.K. (1985)","Dựa trên danh sách tài liệu được cung cấp, có một bài báo liên quan đến ngữ pháp chức năng:
-
-Bài báo của Michael Moortgat năm 1988 có tiêu đề ""Categorial Investigations: Logical and Linguistic Aspects of the Lambek Calculus"" là một luận án tiến sĩ về ngữ pháp chức năng. Tuy không phải là một bài báo cụ thể, nhưng nó tập trung vào các khía cạnh ngữ pháp học và ngôn ngữ của hệ thống Lambek, một hệ thống lý thuyết ngữ pháp chức năng.
-
-Ngoài ra, có một số tài liệu khác đề cập đến ngữ nghĩa từ vựng (lexical semantics) và ngữ pháp categiaria (categorial grammar), nhưng không phải là trực tiếp về ngữ pháp chức năng.",0.5507,0.0159,Sai
+Tóm lại, syntactic categories giúp phân loại và tổ chức các thành phần của câu theo các mức độ cú pháp khác nhau, từ những danh mục lớn đến những cấu trúc cụ thể hơn.",0.8059,0.052,Đúng

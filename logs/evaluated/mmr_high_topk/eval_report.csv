@@ -1,68 +1,27 @@
 question,gold,pred,cosine,f1,label
-Đoạn trích nói gì về cách sử dụng dữ liệu không nhãn?,Sử dụng cấu trúc đồ thị để phản ánh nội bộ của dữ liệu.,"Dựa trên thông tin được cung cấp trong đoạn trích, không có thông tin cụ thể nào đề cập đến việc sử dụng dữ liệu không nhãn (unlabeled data). Đoạn trích dường như tập trung vào các công trình nghiên cứu về nhận dạng khuôn mặt và học máy, nhưng không đề cập đến cách sử dụng dữ liệu không nhãn trong bối cảnh này. Tuy nhiên, có một số công trình được liệt kê ở cuối đoạn trích (từ 16 đến 22) đã đề cập đến việc sử dụng dữ liệu không nhãn:
+"Trong đoạn trích, LOCATION có vai trò gì?",LOCATION là một function symbol liên kết với concept relevant.,"Đoạn trích không cung cấp thông tin cụ thể về LOCATION là gì hoặc nó đóng vai trò như thế nào. Để trả lời chính xác câu hỏi này, chúng ta cần thêm thông tin từ văn bản gốc. Tuy nhiên, dựa trên ngữ cảnh trong đoạn trích, có vẻ như LOCATION có thể liên quan đến địa điểm mà một người (trong trường hợp này là Brennan) đi đến hoặc tham gia vào một sự kiện (như lái xe tại Laguna Seca). Tuy nhiên, để xác định vai trò chính xác của LOCATION, cần xem xét toàn bộ văn bản.",0.7738,0.0721,Đúng
+Syntactic categories như thế nào trong quá trình tạo cấu trúc?,Syntactic categories dẫn đến phần của mạng lưới tương ứng với chức năng.,"Trong quá trình tạo cấu trúc, syntactic categories (danh từ, động từ, tính từ, v.v...) đóng vai trò quan trọng để phân loại và tổ chức các thành phần của câu theo quy tắc ngữ pháp. Cụ thể:
 
-- Công trình của Ng và Winkler (2014) đề xuất phương pháp xử lý lớn dữ liệu khuôn mặt bằng cách sử dụng dữ liệu không nhãn.
-- Công trình của Schroff, Kalenichenko, và Philbin (2015) về FaceNet cũng có thể liên quan đến việc sử dụng dữ liệu không nhãn trong quá trình học.
+1. Syntactic categories giúp xác định vị trí và chức năng của từng thành phần trong câu:
+- Danh từ (Noun): chủ ngữ, đối tượng
+- Động từ (Verb): động tác, trạng thái 
+- Tính từ (Adjective): mô tả danh từ
+- Cụm động từ (Verb phrase): nhóm các động từ liên kết với nhau
+- Trạng từ (Adverb): mô tả tính chất của động từ, tính từ
 
-Nhưng để đưa ra một kết luận chính xác hơn, cần xem xét toàn bộ nội dung của các công trình này.",0.7528,0.0757,Đúng
-CDP gồm những phần nào?,Bao gồm 'committee' và môđun khác.,"Theo thông tin được cung cấp trong đoạn văn, CDP (Conceptual Dependency Parsing) bao gồm các phần sau:
+2. Chúng giúp xác định cấu trúc câu theo quy tắc ngữ pháp:
+- Chủ ngữ + Động từ + Đối tượng 
+- Giới từ + Cụm danh từ
+- Tính từ + Danh từ
 
-1. Events: Các sự kiện hoặc hành động được mô tả.
+3. Syntactic categories còn hỗ trợ quá trình phân tích và hiểu nghĩa của câu:
+- Xác định chủ thể, đối tượng trong câu
+- Phân biệt các loại động tác (với các dạng động từ khác nhau)
+- Mô tả tính chất của danh từ bằng tính từ
 
-2. Agents: Những chủ thể thực hiện các sự kiện.
+4. Trong việc tạo cấu trúc ngữ pháp, syntactic categories giúp xác định:
+- Quan hệ giữa các thành phần 
+- Cấu trúc cốt lõi của câu
+- Các phụ trợ và cụm từ đi kèm
 
-3. Themes: Các đối tượng tham gia vào hoặc bị ảnh hưởng bởi các sự kiện.
-
-4. Paths: Các đường dẫn hoặc quan hệ giữa các sự kiện, chủ thể và đối tượng.
-
-CDP là một phương pháp phân tích ngữ nghĩa sâu của câu tiếng Việt, mô tả cấu trúc ý nghĩa của câu dưới dạng các mối liên kết giữa các yếu tố như sự kiện, chủ thể và đối tượng.",0.8083,0.0508,Đúng
-Ai đã đề xuất sử dụng loại trong FUGs?,Bob Kasper,"The use of ""contrastive"" in FUGs (Functional Unification Grammar) was proposed by McKeown and Elhadad. Specifically, they contrasted different versions of FUG for surface language generation tasks in their work. However, it's important to note that the term ""contrastive evaluation"" rather than just ""contrastive"" is more accurately used here. They evaluated different aspects of FUGs to see how well they could generate natural language text, including choices of connectives and other grammatical elements.",0.2138,0.0,Sai
-Đoạn trích này có liên quan đến Computer Vision (ECCV) không?,Không,"Không, đoạn trích này không có liên quan trực tiếp đến Computer Vision (ECCV). Đoạn văn đề cập đến các khái niệm và thuật ngữ trong lĩnh vực xử lý ngôn ngữ tự nhiên như học máy, phân loại từ vựng, và hệ thống hỗ trợ quyết định. Nó không đề cập đến bất kỳ chủ đề nào liên quan đến thị giác máy tính hoặc ECCV (European Conference on Computer Vision).",0.2321,0.0274,Sai
-Đoạn trích có liên quan đến Computer Vision không?,Không,"Không, đoạn trích này không liên quan đến Computer Vision. Nội dung của đoạn trích dường như tập trung vào các chủ đề về logic toán học, lý thuyết ngôn ngữ tự nhiên (Natural Language Theory), và hệ thống nhận thức tri thức (Knowledge Representation System). Cụ thể:
-
-1. Nó thảo luận về việc giải quyết công thức logic boolean.
-2. Có menção đến các khái niệm từ học như schemata và definitional patterns.
-3. Nêu tên của một số hệ thống nhận thức tri thức như KL-ONE, NIKL.
-4. Đề cập đến các tác giả nghiên cứu trong lĩnh vực này như R. Mooney, M.G. Moser, R. Schank.
-
-Computer Vision thường liên quan đến việc xử lý và phân tích hình ảnh bằng máy tính, không có bất kỳ yếu tố nào trong đoạn trích này đề cập đến chủ đề này.",0.2157,0.0139,Sai
-Dow Jones industrial average có biến động như thế nào trong các ngày được đề cập?,"Có tăng, giảm và ổn định","Xin lỗi, nhưng thông tin bạn cung cấp không bao gồm dữ liệu về biến động của Chỉ số Dow Jones công nghiệp trong bất kỳ ngày cụ thể nào. Để trả lời câu hỏi này chính xác, tôi cần biết các ngày cụ thể bạn đang quan tâm đến. Bạn có thể cung cấp thêm thông tin về những ngày bạn muốn biết về biến động chỉ số không?",0.6072,0.0263,Sai
-Những nguyên tắc chung nào cần thiết?,General principles are needed to explain how readers recognize the ending boundaries of subjective contexts.,"Dựa trên thông tin được cung cấp trong đoạn văn, không có liệt kê cụ thể về những nguyên tắc chung nào cần thiết. Đoạn văn này dường như đề cập đến các công trình nghiên cứu về định vị và định hướng (SLAM - Simultaneous Localization and Mapping) cho máy bay không người lái (MAV), nhưng không nêu rõ bất kỳ nguyên tắc chung cụ thể nào.
-
-Để trả lời chính xác câu hỏi, chúng ta cần thêm thông tin từ nguồn gốc đầy đủ của đoạn văn này. Tuy nhiên, dựa trên nội dung đã có, tôi có thể đưa ra một số giả định:
-
-1. Có thể các nguyên tắc chung bao gồm: 
-- Nguyên tắc sử dụng kết hợp dữ liệu từ nhiều cảm biến
-- Nguyên tắc xử lý đồng thời xác định vị trí và tạo bản đồ
-- Nguyên tắc tích hợp thông tin hình ảnh và dữ liệu động lực học
-
-Nhưng đây chỉ là suy đoán dựa trên nội dung đã có, không phải là những nguyên tắc chung được nêu rõ trong đoạn văn.",0.434,0.0,Sai
-Các yếu tố gì giúp xác định giới hạn của ngữ cảnh chủ quan?,"Tense, deictic terms, characters' goals and argument structure often exhibited by thoughts.","Giới hạn của ngữ cảnh chủ quan thường được xác định bởi một số yếu tố sau:
-
-1. Thông tin nội bộ: Các thông tin, kiến thức và kinh nghiệm cá nhân của người nói và người nghe.
-
-2. Mối quan hệ giữa các bên tham gia giao tiếp: Quan hệ xã hội, vai trò trong cuộc đối thoại.
-
-3. Văn hóa và ngữ cảnh văn hóa: Giá trị, quy tắc ứng xử, ngôn ngữ thể hiện của cộng đồng.
-
-4. Mục đích giao tiếp cụ thể: Đối tượng muốn truyền đạt thông tin gì, mong muốn gì từ người nghe.
-
-5. Thời điểm và không gian diễn ra cuộc đối thoại: Điều kiện vật lý và thời gian thực tế.
-
-6. Các yếu tố ngôn ngữ: Từ vựng, cấu trúc câu, cách diễn đạt được sử dụng.
-
-7. Mối quan hệ giữa các phát biểu: Cách liên kết các câu trong cuộc trò chuyện.
-
-8. Trạng thái tâm lý của người nói và người nghe: Tình cảm, ý định, tình huống hiện tại.
-
-9. Các thông tin đã được chia sẻ trước đó: Lịch sử giao tiếp giữa các bên.
-
-10. Mối quan hệ giữa ngôn ngữ và thực tế thế giới: Cách liên kết giữa từ vựng và đối tượng trong thế giới thực.
-
-Những yếu tố này cùng nhau tạo nên một không gian ngữ cảnh chủ quan mà người nói có thể sử dụng để hiểu và diễn đạt ý nghĩa của mình, đồng thời cũng xác định được những giới hạn về thông tin và cách thức giao tiếp mà họ có thể sử dụng.",0.5083,0.0,Sai
-Đoạn trích có đề cập đến Computer Vision không?,Không,"Không, đoạn trích này không đề cập đến Computer Vision. Đoạn văn tập trung vào các khái niệm và thuật ngữ về logic hình học bê tông, bao gồm các công thức Boolean và cách giải quyết chúng. Nó không mention hay liên quan đến lĩnh vực Computer Vision nào cả.",0.2179,0.0385,Sai
-Có bài báo nào liên quan đến ngữ pháp chức năng không?,"Có, Halliday, Michael A.K. (1985)","Dựa trên thông tin được cung cấp, có một bài báo đề cập đến ngữ pháp chức năng:
-
-Bài báo ""An Augmented Chart Parsing Algorithm Integrating Unification Grammar and Markov Language Model for Continuous Speech Recognition"" của Chien, Chen và Lee (1990) đã mô tả việc áp dụng ngữ pháp chức năng (Unification Grammar) trong quá trình phân tích ngôn ngữ tự nhiên. Tuy nhiên, đây không phải là một bài báo chuyên về ngữ pháp chức năng mà là một ứng dụng cụ thể của nó trong lĩnh vực nhận dạng ngôn ngữ nói liên tục.
-
-Nếu bạn đang tìm kiếm một bài báo trực tiếp tập trung vào ngữ pháp chức năng, thông tin cung cấp không đề cập đến. Để có thêm thông tin chính xác, bạn có thể cần tra cứu thêm các nguồn học thuật chuyên về ngữ pháp chức năng hoặc hệ thống phân tích ngôn ngữ dựa trên ngữ pháp chức năng.",0.4518,0.0,Sai
+Tóm lại, syntactic categories là công cụ quan trọng để phân loại và tổ chức các thành phần trong câu theo quy tắc ngữ pháp, hỗ trợ quá trình tạo cấu trúc và hiểu nghĩa của câu.",0.8974,0.0435,Đúng

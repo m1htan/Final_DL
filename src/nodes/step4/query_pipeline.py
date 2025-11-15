@@ -98,19 +98,10 @@ def query_pipeline_node(state: dict) -> dict:
     docs = vectordb.similarity_search(query_en, k=top_k)
     docs = _maybe_filter_nlp(docs, user_query)
 
-    if not docs:
-        msg = "Không tìm thấy context phù hợp trong cơ sở dữ liệu. Hãy thử từ khóa khác hoặc câu hỏi cụ thể hơn."
-
-        if len(docs[0].page_content.strip()) < 50:
-            msg = "Không đủ thông tin trong NGỮ CẢNH để trả lời câu hỏi này."
-            log(msg)
-            state["response"] = msg
-            state.setdefault("trace", []).append("[query] context quá yếu → từ chối trả lời.")
-            return state
-
+    if not docs or all(len(d.page_content.strip()) < 100 for d in docs):
+        msg = "Không đủ thông tin trong NGỮ CẢNH để trả lời câu hỏi này."
         log(msg)
         state["response"] = msg
-        state.setdefault("trace", []).append("[query] 0 context, không có kết quả.")
         return state
 
     log(f"Truy xuất được {len(docs)} đoạn context.")
@@ -131,14 +122,16 @@ def query_pipeline_node(state: dict) -> dict:
 
     # Prompt LLM (Qwen2.5)
     prompt = (
-        "Bạn là trợ lý học thuật. Trả lời CHỈ dựa trên NGỮ CẢNH cho trước.\n"
-        "Nếu NGỮ CẢNH không chứa đủ bằng chứng, hãy nói rõ: 'Không đủ thông tin trong NGỮ CẢNH để kết luận.'\n\n"
+        "Bạn TUYỆT ĐỐI KHÔNG được sử dụng kiến thức ngoài NGỮ CẢNH. "
+        "Nếu NGỮ CẢNH không chứa thông tin để trả lời CÂU HỎI, hãy trả lời đúng 1 câu:\n"
+        "'Không đủ thông tin trong NGỮ CẢNH để kết luận.'\n\n"
+        "Không được suy diễn, không được tưởng tượng, không được dựa trên hiểu biết bên ngoài.\n\n"
         f"CÂU HỎI: {query_en}\n\n"
         f"NGỮ CẢNH:\n{context_str}\n\n"
         "YÊU CẦU:\n"
-        "1) Trả lời ngắn gọn, chính xác, bằng tiếng Việt.\n"
-        "2) Không suy diễn ngoài NGỮ CẢNH.\n"
-        "3) Cuối câu trả lời, liệt kê Nguồn theo dạng <tên file> [chunk X].\n"
+        "- Trả lời bằng tiếng Việt, dựa 100% vào NGỮ CẢNH.\n"
+        "- Nếu không chắc 100%, trả lời: 'Không đủ thông tin trong NGỮ CẢNH để kết luận.'\n"
+        "- Cuối câu trả lời, liệt kê nguồn dạng <file> [chunk X].\n"
     )
 
     llm = make_llm()
@@ -150,7 +143,15 @@ def query_pipeline_node(state: dict) -> dict:
     context_text_small = (context_str[:1000] or "").lower()
     answer_small = llm_answer.lower()
 
-    if not any(tok in context_text_small for tok in answer_small.split()[:5]):
+    # Lấy các từ khóa dài ≥ 5 ký tự để kiểm chứng (giảm nhiễu từ chức năng)
+    keywords = [tok for tok in answer_small.split() if len(tok) >= 5]
+
+    if keywords and not any(tok in context_text_small for tok in keywords):
+        llm_answer = "Không đủ thông tin trong NGỮ CẢNH để kết luận."
+
+    question_keywords = [tok.lower() for tok in user_query.split() if len(tok) >= 4]
+
+    if question_keywords and not any(qk in answer_small for qk in question_keywords):
         llm_answer = "Không đủ thông tin trong NGỮ CẢNH để kết luận."
 
     llm_answer_vi = _translate_answer_to_vietnamese(llm_answer)
@@ -173,11 +174,4 @@ def query_pipeline_node(state: dict) -> dict:
     state.setdefault("trace", []).append(
         f"[query] top_k={top_k}, results={len(docs)}, elapsed={elapsed:.2f}s"
     )
-
-    # Ghi log chi tiết kết quả
-    log("----- KẾT QUẢ LLM -----")
-    log(llm_answer if len(llm_answer) <= 2000 else llm_answer[:2000] + "...[truncated]")
-    log("----- NGUỒN -----")
-    log(sources_str)
-
     return state

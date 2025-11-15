@@ -19,7 +19,9 @@ def b(question: str) -> str:
         num_ctx=2048
     )
     prompt = (
-        "Bạn là trợ lý tri thức. Nếu có thể, trả lời chính xác câu hỏi dưới đây.\n"
+        "Bạn là trợ lý tri thức. Nếu có thể, trả lời chính xác câu hỏi dưới đây."
+        "Chỉ được trả lời trong phạm vi các bài báo đã được công bố tại hội thảo ACL (Association for Computational Linguistics)."
+        "Nếu câu hỏi nằm ngoài phạm vi này hãy trả lời KHÔNG NẰM TRONG NGỮ CẢNH\n"
         "Nếu câu hỏi quá khó, hãy trả lời ngắn gọn nhưng có ý nghĩa.\n\n"
         f"Câu hỏi: {question}\n\n"
         "Trả lời bằng tiếng Việt."

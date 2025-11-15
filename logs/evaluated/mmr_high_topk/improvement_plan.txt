@@ -1,8 +1,8 @@
 # Gợi ý cải thiện độ chính xác
 
-Tổng số câu hỏi: 10
+Tổng số câu hỏi: 2
 Số câu chính xác: 2
-Độ chính xác trung bình: 20.00%
+Độ chính xác trung bình: 100.00%
 
 ## Cấu hình đánh giá tối ưu
 - name: mmr_high_topk
@@ -13,50 +13,4 @@ Số câu chính xác: 2
 - f1_threshold: 0.72
 
 ## Đề xuất chính
-1. Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
-2. Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
-3. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
-4. Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
-
-## Các ví dụ cần xem xét thêm
--
-  Câu hỏi: Ai đã đề xuất sử dụng loại trong FUGs?
-  Gold: Bob Kasper
-  Pred: The use of "contrastive" in FUGs (Functional Unification Grammar) was proposed by McKeown and Elhadad. Specifically, they contrasted different versions of FUG for surface language generation tasks in their work. However, it's important to note that the term "contrastive evaluation" rather than just "contrastive" is more accurately used here. They evaluated different aspects of FUGs to see how well they could generate natural language text, including choices of connectives and other grammatical elements.
-  Cosine=0.2138, F1=0.0000, Label=Sai
--
-  Câu hỏi: Đoạn trích này có liên quan đến Computer Vision (ECCV) không?
-  Gold: Không
-  Pred: Không, đoạn trích này không có liên quan trực tiếp đến Computer Vision (ECCV). Đoạn văn đề cập đến các khái niệm và thuật ngữ trong lĩnh vực xử lý ngôn ngữ tự nhiên như học máy, phân loại từ vựng, và hệ thống hỗ trợ quyết định. Nó không đề cập đến bất kỳ chủ đề nào liên quan đến thị giác máy tính hoặc ECCV (European Conference on Computer Vision).
-  Cosine=0.2321, F1=0.0274, Label=Sai
--
-  Câu hỏi: Đoạn trích có liên quan đến Computer Vision không?
-  Gold: Không
-  Pred: Không, đoạn trích này không liên quan đến Computer Vision. Nội dung của đoạn trích dường như tập trung vào các chủ đề về logic toán học, lý thuyết ngôn ngữ tự nhiên (Natural Language Theory), và hệ thống nhận thức tri thức (Knowledge Representation System). Cụ thể:
-
-1. Nó thảo luận về việc giải quyết công thức logic boolean.
-2. Có menção đến các khái niệm từ học như schemata và definitional patterns.
-3. Nêu tên của một số hệ thống nhận thức tri thức như KL-ONE, NIKL.
-4. Đề cập đến các tác giả nghiên cứu trong lĩnh vực này như R. Mooney, M.G. Moser, R. Schank.
-
-Computer Vision thường liên quan đến việc xử lý và phân tích hình ảnh bằng máy tính, không có bất kỳ yếu tố nào trong đoạn trích này đề cập đến chủ đề này.
-  Cosine=0.2157, F1=0.0139, Label=Sai
--
-  Câu hỏi: Dow Jones industrial average có biến động như thế nào trong các ngày được đề cập?
-  Gold: Có tăng, giảm và ổn định
-  Pred: Xin lỗi, nhưng thông tin bạn cung cấp không bao gồm dữ liệu về biến động của Chỉ số Dow Jones công nghiệp trong bất kỳ ngày cụ thể nào. Để trả lời câu hỏi này chính xác, tôi cần biết các ngày cụ thể bạn đang quan tâm đến. Bạn có thể cung cấp thêm thông tin về những ngày bạn muốn biết về biến động chỉ số không?
-  Cosine=0.6072, F1=0.0263, Label=Sai
--
-  Câu hỏi: Những nguyên tắc chung nào cần thiết?
-  Gold: General principles are needed to explain how readers recognize the ending boundaries of subjective contexts.
-  Pred: Dựa trên thông tin được cung cấp trong đoạn văn, không có liệt kê cụ thể về những nguyên tắc chung nào cần thiết. Đoạn văn này dường như đề cập đến các công trình nghiên cứu về định vị và định hướng (SLAM - Simultaneous Localization and Mapping) cho máy bay không người lái (MAV), nhưng không nêu rõ bất kỳ nguyên tắc chung cụ thể nào.
-
-Để trả lời chính xác câu hỏi, chúng ta cần thêm thông tin từ nguồn gốc đầy đủ của đoạn văn này. Tuy nhiên, dựa trên nội dung đã có, tôi có thể đưa ra một số giả định:
-
-1. Có thể các nguyên tắc chung bao gồm: 
-- Nguyên tắc sử dụng kết hợp dữ liệu từ nhiều cảm biến
-- Nguyên tắc xử lý đồng thời xác định vị trí và tạo bản đồ
-- Nguyên tắc tích hợp thông tin hình ảnh và dữ liệu động lực học
-
-Nhưng đây chỉ là suy đoán dựa trên nội dung đã có, không phải là những nguyên tắc chung được nêu rõ trong đoạn văn.
-  Cosine=0.4340, F1=0.0000, Label=Sai
+1. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.

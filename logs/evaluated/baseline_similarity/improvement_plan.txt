@@ -1,8 +1,8 @@
 # Gợi ý cải thiện độ chính xác
 
-Tổng số câu hỏi: 10
+Tổng số câu hỏi: 2
 Số câu chính xác: 2
-Độ chính xác trung bình: 20.00%
+Độ chính xác trung bình: 100.00%
 
 ## Cấu hình đánh giá tối ưu
 - name: baseline_similarity
@@ -13,49 +13,4 @@ Số câu chính xác: 2
 - f1_threshold: 0.75
 
 ## Đề xuất chính
-1. Tăng cường giai đoạn truy xuất: thử nghiệm các giá trị top_k lớn hơn, lọc theo điểm số và đảm bảo dữ liệu embedding đã được cập nhật mới nhất.
-2. Điều chỉnh mô hình embedding (fine-tune hoặc chọn checkpoint mạnh hơn) và bật chuẩn hóa vector để cải thiện độ tương đồng ngữ nghĩa.
-3. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
-4. Rà soát thủ công các câu hỏi có điểm thấp, bổ sung dữ liệu huấn luyện/augmentation cho những chủ đề tương ứng.
-5. Kết hợp chiến lược truy xuất đa dạng (MMR, reranker) để giảm trùng lặp và bao phủ thông tin tốt hơn.
-
-## Các ví dụ cần xem xét thêm
--
-  Câu hỏi: Ai đã đề xuất sử dụng loại trong FUGs?
-  Gold: Bob Kasper
-  Pred: Theo thông tin được cung cấp trong đoạn văn, Elhadad là người đã đề xuất sử dụng loại (types) trong Functional Unification Grammars (FUGs). Cụ thể, trong phần trích dẫn có ghi:
-
-"Elhadad, M. Types in Functional Unifica- tion Grammars, Proceedings of the 28th meeting of the Association for Computational Linguistics, Pittsburgh, PA, 1990."
-
-Đoạn văn này đề cập đến công trình của Elhadad về việc sử dụng loại trong FUGs tại một hội nghị khoa học cụ thể.
-  Cosine=0.1864, F1=0.0000, Label=Sai
--
-  Câu hỏi: Đoạn trích này có liên quan đến Computer Vision (ECCV) không?
-  Gold: Không
-  Pred: Không, đoạn trích này không có liên quan đến Computer Vision (ECCV). Nội dung của đoạn trích tập trung vào các phương pháp xử lý ngôn ngữ tự nhiên và phân tích văn bản, bao gồm các chủ đề như lexicography, thống kê từ vựng, và ngữ nghĩa học. Nó không đề cập đến bất kỳ khía cạnh nào của Computer Vision hoặc ECCV (European Conference on Computer Vision).
-  Cosine=0.2164, F1=0.0286, Label=Sai
--
-  Câu hỏi: Đoạn trích có liên quan đến Computer Vision không?
-  Gold: Không
-  Pred: Không, đoạn trích này không liên quan đến Computer Vision. Nội dung của đoạn trích tập trung vào các vấn đề về xử lý ngôn ngữ tự nhiên và tạo văn bản (natural language generation), bao gồm các chủ đề như ngữ cảnh hóa thông tin, sử dụng mô hình kịch bản, và cách thức hiểu biết từ người dùng trong quá trình tạo văn bản. Computer Vision liên quan đến việc xử lý và phân tích hình ảnh hoặc video để nhận dạng đối tượng, hành động, v.v., điều mà đoạn trích này không đề cập đến.
-  Cosine=0.2065, F1=0.0202, Label=Sai
--
-  Câu hỏi: Dow Jones industrial average có biến động như thế nào trong các ngày được đề cập?
-  Gold: Có tăng, giảm và ổn định
-  Pred: Xin lỗi, nhưng thông tin về biến động của Dow Jones Industrial Average trong các ngày cụ thể không được đưa ra trong đoạn văn bạn đã cung cấp. Để trả lời câu hỏi này chính xác, tôi cần thêm thông tin hoặc dữ liệu về biến động chỉ số này trong các ngày cụ thể mà bạn quan tâm. Bạn có thể cung cấp thêm chi tiết về những ngày cụ thể bạn muốn biết không?
-  Cosine=0.5981, F1=0.0241, Label=Sai
--
-  Câu hỏi: Những nguyên tắc chung nào cần thiết?
-  Gold: General principles are needed to explain how readers recognize the ending boundaries of subjective contexts.
-  Pred: Dựa trên nội dung của đoạn trích, có một số nguyên tắc chung quan trọng được đề cập:
-
-1. Nguyên tắc về việc cung cấp thông tin đầy đủ và chính xác: Ví dụ như trong trường hợp (a1), mẹ đã cung cấp cho con biết vị trí giày nhưng cũng cảnh báo về các vấn đề tiềm tàng.
-
-2. Nguyên tắc cân nhắc giữa sự rõ ràng và độ cụ thể: Có những câu chỉ ra một kế hoạch chung (như "Let me know if the door is locked"), nhưng cũng có những câu cung cấp chi tiết hơn về hành động cần thực hiện (như "Be careful walking down the stairs").
-
-3. Nguyên tắc cân nhắc giữa việc truyền đạt thông tin và hướng dẫn: Cụ thể là mẹ đã không chỉ ra vị trí giày mà còn gợi ý kế hoạch đi lấy giày.
-
-4. Nguyên tắc cân nhắc giữa sự chắc chắn và độ linh hoạt trong lập kế hoạch: Có những câu chỉ ra một kế hoạch cụ thể, nhưng cũng có những câu cung cấp thông tin về các vấn đề có thể xảy ra để người nghe có thể điều chỉnh kế hoạch của mình.
-
-Những nguyên tắc này giúp hiểu rõ cách thức truyền đạt thông tin và hướng dẫn trong giao tiếp hàng ngày.
-  Cosine=0.5170, F1=0.0084, Label=Sai
+1. Tinh chỉnh prompt trả lời: yêu cầu trích dẫn trực tiếp từ ngữ cảnh và thử nghiệm các chỉ dẫn súc tích hơn để tránh thông tin ngoài ngữ cảnh.
