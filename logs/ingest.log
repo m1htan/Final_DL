@@ -10466,3 +10466,26 @@ Please retry in 49.938826626s. [links {
 [2025-11-15 08:45:43] Gọi Qwen2.5 để sinh câu trả lời...
 [2025-11-15 08:47:05] === HOÀN TẤT QUERY PIPELINE ===
 [2025-11-15 08:47:05] Thời gian thực thi: 95.94s
+[2025-11-15 08:59:54] === BẮT ĐẦU BƯỚC 5 (Qwen2.5 - Ollama) ===
+[2025-11-15 08:59:54] [INIT] Khởi tạo mô hình embedding & ChromaDB (cache dùng lại)...
+[2025-11-15 09:01:13] → Số câu hỏi sinh ra: 4
+[2025-11-15 09:01:13] → Đã lưu danh sách câu hỏi tại: logs/evaluated/questions_generated_20251115_090113.csv
+[2025-11-15 09:01:13] === BẮT ĐẦU ĐÁNH GIÁ RAG (baseline_similarity) ===
+[2025-11-15 09:01:39] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 09:01:39] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 09:01:40] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 09:01:40] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 09:01:48] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 09:01:49] Truy xuất được 10 đoạn context.
+[2025-11-15 09:01:49] Context không chứa từ khóa trọng tâm của câu hỏi → bỏ qua LLM.
+[2025-11-15 09:01:49] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 09:01:49] Thời gian thực thi: 9.85s
+[2025-11-15 09:03:40] === BẮT ĐẦU BƯỚC 4: QUERY & RETRIEVAL ===
+[2025-11-15 09:03:40] Câu hỏi: Transformer có được dùng trong NLP không?
+[2025-11-15 09:03:41] → Dịch sang tiếng Anh để truy vấn: Can Transformer be used in NLP?
+[2025-11-15 09:03:41] Khởi tạo embedding: Alibaba-NLP/gte-Qwen2-1.5B-instruct.
+[2025-11-15 09:03:51] Thực hiện similarity_search(top_k=10)...
+[2025-11-15 09:03:52] Truy xuất được 10 đoạn context.
+[2025-11-15 09:03:52] Context không chứa từ khóa trọng tâm của câu hỏi → bỏ qua LLM.
+[2025-11-15 09:03:52] === HOÀN TẤT QUERY PIPELINE ===
+[2025-11-15 09:03:52] Thời gian thực thi: 11.29s

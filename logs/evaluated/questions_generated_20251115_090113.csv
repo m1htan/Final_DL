@@ -1,0 +1,5 @@
+question,answer_gold
+Đề xuất của Bresnan được áp dụng như thế nào?,Chúng ta sử dụng -er+many-.
+Công thức nội bộ cho câu 'Buick makes 3 more than how many percent more cars than Audi?' là gì?,(X (P A) (- P (+ (* A (+ 1 (/ WN 100))) 3))
+"Trong đoạn trích, LOCATION có vai trò gì?",LOCATION là một function symbol liên kết với concept relevant.
+Syntactic categories như thế nào trong quá trình tạo cấu trúc?,Syntactic categories dẫn đến phần của mạng lưới tương ứng với chức năng.
